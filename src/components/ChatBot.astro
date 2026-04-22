@@ -1,31 +1,31 @@
 ---
 ---
 
-<section id="asistente" class="relative py-20 md:py-32 overflow-hidden" style="background:var(--midnight);">
+<section id="asistente" class="relative py-12 md:py-28 overflow-hidden" style="background:var(--midnight);">
 
   <div class="orb w-[500px] h-[500px] top-[10%] right-[-10%]" style="background:radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 60%);"></div>
   <div class="orb w-[400px] h-[400px] bottom-[10%] left-[-15%]" style="background:radial-gradient(circle, rgba(229,192,106,0.12) 0%, transparent 65%);animation-delay:-2s;"></div>
 
-  <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-10">
+  <div class="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
-    <div class="grid grid-cols-12 gap-4 md:gap-8 mb-14 md:mb-16 fade-up">
+    <div class="grid grid-cols-12 gap-4 md:gap-8 mb-8 md:mb-14 fade-up">
       <div class="col-span-12 md:col-span-3">
-        <div class="eyebrow eyebrow-dot mb-4" style="color:var(--gold);">Di&aacute;logo</div>
-        <div class="hairline w-16"></div>
+        <div class="eyebrow eyebrow-dot mb-3" style="color:var(--gold);">Di&aacute;logo</div>
+        <div class="hairline w-16 hidden md:block"></div>
       </div>
       <div class="col-span-12 md:col-span-9">
-        <h2 class="display-lg">
+        <h2 class="display-lg" style="font-size:clamp(1.75rem, 5.5vw, 4.5rem);">
           &iquest;No sabes qu&eacute; necesitas?
           <br/>
           <span class="italic-accent">Preg&uacute;ntale</span> a nuestra IA.
         </h2>
-        <p class="mt-6 max-w-xl text-base md:text-lg leading-relaxed" style="color:var(--text-muted);">
-          Cu&eacute;ntale tu desaf&iacute;o al asistente digital de Platonia y recibe un diagn&oacute;stico personalizado con la soluci&oacute;n ideal para tu negocio.
+        <p class="mt-4 md:mt-6 max-w-xl text-sm md:text-lg leading-relaxed" style="color:var(--text-muted);">
+          Cu&eacute;ntale tu desaf&iacute;o al asistente digital de Platonia y recibe un diagn&oacute;stico personalizado.
         </p>
       </div>
     </div>
 
-    <div class="fade-up max-w-[760px] mx-auto">
+    <div class="fade-up max-w-[820px] mx-auto">
       <div id="chat-container" class="chat-box">
         <div class="chat-header">
           <div class="flex items-center gap-3">
@@ -98,9 +98,11 @@
   const MAX_MESSAGES = 20;
   const WELCOME = '¡Hola! Soy el asistente digital de Platonia. Cuéntame sobre tu negocio y qué desafío digital enfrentas, y te ayudaré a encontrar la mejor solución.';
 
+  const isMobile = window.matchMedia('(max-width: 640px)').matches;
+  const bubbleMaxWidth = isMobile ? '88%' : '82%';
   const bubbleStyles: Record<string, string> = {
-    assistant: 'background:rgba(168,85,247,0.12);color:#FAF7F0;border:1px solid rgba(168,85,247,0.25);border-radius:4px 16px 16px 16px;max-width:82%;padding:14px 18px;font-size:14.5px;line-height:1.55;word-break:break-word;font-family:var(--font-sans);',
-    user: 'background:rgba(250,247,240,0.08);color:#FAF7F0;border:1px solid rgba(250,247,240,0.15);border-radius:16px 4px 16px 16px;max-width:82%;padding:14px 18px;font-size:14.5px;line-height:1.55;word-break:break-word;font-family:var(--font-sans);',
+    assistant: `background:rgba(168,85,247,0.12);color:#FAF7F0;border:1px solid rgba(168,85,247,0.25);border-radius:4px 16px 16px 16px;max-width:${bubbleMaxWidth};padding:12px 16px;font-size:14.5px;line-height:1.55;word-break:break-word;font-family:var(--font-sans);`,
+    user: `background:rgba(250,247,240,0.08);color:#FAF7F0;border:1px solid rgba(250,247,240,0.15);border-radius:16px 4px 16px 16px;max-width:${bubbleMaxWidth};padding:12px 16px;font-size:14.5px;line-height:1.55;word-break:break-word;font-family:var(--font-sans);`,
   };
 
   function addMessage(role: 'user' | 'assistant', content: string) {
@@ -291,28 +293,52 @@
     position: relative;
     box-shadow: 0 20px 80px rgba(107, 33, 168, 0.25);
   }
+  @media (max-width: 640px) {
+    .chat-box {
+      border-radius: 16px;
+    }
+  }
 
   .chat-header {
     background: rgba(250, 247, 240, 0.03);
-    padding: 16px 20px;
+    padding: 14px 16px;
     border-bottom: 1px solid rgba(216, 180, 254, 0.1);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0;
+  }
+  @media (min-width: 768px) {
+    .chat-header { padding: 16px 22px; }
   }
 
   .chat-messages {
-    padding: 20px;
+    padding: 16px;
     overflow-y: auto;
-    max-height: 440px;
-    min-height: 200px;
+    overflow-x: hidden;
+    height: 520px;
+    max-height: 520px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  @media (min-width: 768px) {
+    .chat-messages {
+      padding: 22px;
+      gap: 14px;
+      height: 560px;
+      max-height: 560px;
+    }
   }
   @media (max-width: 640px) {
-    .chat-messages { max-height: 55vh; }
+    .chat-messages {
+      padding: 14px;
+      height: 62vh;
+      max-height: 62vh;
+      min-height: 380px;
+    }
   }
 
   .chat-typing { padding: 8px 20px; display: flex; }
@@ -340,8 +366,12 @@
   }
 
   .chat-input-area {
-    padding: 14px 16px;
+    padding: 12px 12px;
     border-top: 1px solid rgba(216, 180, 254, 0.1);
+    flex-shrink: 0;
+  }
+  @media (min-width: 768px) {
+    .chat-input-area { padding: 14px 16px; }
   }
   .chat-input-wrapper {
     display: flex;
@@ -350,9 +380,12 @@
     background: rgba(250, 247, 240, 0.04);
     border: 1px solid rgba(216, 180, 254, 0.15);
     border-radius: 999px;
-    padding: 6px 6px 6px 18px;
+    padding: 5px 5px 5px 16px;
     position: relative;
     transition: border-color 0.3s;
+  }
+  @media (min-width: 768px) {
+    .chat-input-wrapper { padding: 6px 6px 6px 18px; }
   }
   .chat-input-wrapper:focus-within {
     border-color: var(--lilac);
@@ -363,12 +396,16 @@
     border: none;
     outline: none;
     color: var(--cream);
-    font-size: 14px;
+    font-size: 16px;
     font-family: var(--font-sans);
     resize: none;
     max-height: 100px;
     line-height: 1.5;
     padding: 8px 0;
+    min-width: 0;
+  }
+  @media (min-width: 768px) {
+    .chat-input { font-size: 14.5px; }
   }
   .chat-input::placeholder { color: rgba(216, 180, 254, 0.35); }
 
