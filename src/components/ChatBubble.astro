@@ -1,9 +1,10 @@
 ---
+import isotipo from '../assets/img/isotipo.png';
 ---
 
 <button id="chat-bubble" class="chat-bubble touch-manipulation" aria-label="Abrir asistente IA Platonia" type="button">
   <span class="chat-bubble-pulse"></span>
-  <span class="chat-bubble-letter">P</span>
+  <img src={isotipo.src} alt="Platonia" class="chat-bubble-isotipo" />
   <span class="chat-bubble-badge">IA</span>
 </button>
 
@@ -117,20 +118,18 @@
     100% { transform: scale(1.5); opacity: 0; }
   }
 
-  /* Always-visible 'P' isotipo */
-  .chat-bubble-letter {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    line-height: 1;
-    font-style: italic;
-    font-weight: 500;
-    color: var(--cream);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    margin-top: -2px;
+  /* Real Platonia isotipo image */
+  .chat-bubble-isotipo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    /* Make the isotipo white on the violet background */
+    filter: brightness(0) invert(1);
   }
   @media (min-width: 768px) {
-    .chat-bubble-letter {
-      font-size: 1.75rem;
+    .chat-bubble-isotipo {
+      width: 30px;
+      height: 30px;
     }
   }
 
