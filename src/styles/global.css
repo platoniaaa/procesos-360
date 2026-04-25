@@ -196,9 +196,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    padding-right: 0.12em;
-    padding-left: 0.02em;
-    margin-right: -0.1em;
+    /* Extra padding to capture italic ascenders/descenders without clipping */
+    padding: 0.05em 0.18em 0.08em 0.02em;
+    margin: -0.05em 0 -0.08em 0;
   }
 
   .section-title {
