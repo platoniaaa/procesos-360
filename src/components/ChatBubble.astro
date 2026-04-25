@@ -1,14 +1,10 @@
 ---
 ---
 
-<button id="chat-bubble" class="chat-bubble touch-manipulation" aria-label="Abrir asistente IA" type="button">
+<button id="chat-bubble" class="chat-bubble touch-manipulation" aria-label="Abrir asistente IA Platonia" type="button">
   <span class="chat-bubble-pulse"></span>
-  <span class="chat-bubble-icon">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-    </svg>
-  </span>
   <span class="chat-bubble-letter">P</span>
+  <span class="chat-bubble-badge">IA</span>
 </button>
 
 <div id="chat-bubble-tooltip" class="chat-bubble-tooltip" role="dialog">
@@ -76,8 +72,8 @@
     bottom: 1.25rem;
     right: 1.25rem;
     z-index: 60;
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     border: 1px solid rgba(216, 180, 254, 0.3);
     background: linear-gradient(135deg, var(--lilac) 0%, var(--plum) 100%);
@@ -86,7 +82,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 12px 40px rgba(107, 33, 168, 0.45);
+    box-shadow: 0 8px 28px rgba(107, 33, 168, 0.45);
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     -webkit-tap-highlight-color: transparent;
     overflow: visible;
@@ -95,13 +91,13 @@
     .chat-bubble {
       bottom: 1.75rem;
       right: 1.75rem;
-      width: 64px;
-      height: 64px;
+      width: 56px;
+      height: 56px;
     }
   }
   .chat-bubble:hover {
-    transform: scale(1.06);
-    box-shadow: 0 18px 50px rgba(168, 85, 247, 0.55);
+    transform: scale(1.08);
+    box-shadow: 0 14px 40px rgba(168, 85, 247, 0.55);
   }
   .chat-bubble:active {
     transform: scale(0.96);
@@ -109,46 +105,65 @@
 
   .chat-bubble-pulse {
     position: absolute;
-    inset: -4px;
+    inset: -3px;
     border-radius: 50%;
-    background: rgba(168, 85, 247, 0.4);
+    background: rgba(168, 85, 247, 0.35);
     animation: bubble-pulse 2.5s ease-out infinite;
     pointer-events: none;
   }
   @keyframes bubble-pulse {
-    0% { transform: scale(0.95); opacity: 0.6; }
-    70% { transform: scale(1.4); opacity: 0; }
-    100% { transform: scale(1.4); opacity: 0; }
+    0% { transform: scale(0.95); opacity: 0.55; }
+    70% { transform: scale(1.5); opacity: 0; }
+    100% { transform: scale(1.5); opacity: 0; }
   }
 
-  .chat-bubble-icon {
-    position: absolute;
-    transition: opacity 0.4s, transform 0.4s;
-  }
+  /* Always-visible 'P' isotipo */
   .chat-bubble-letter {
-    position: absolute;
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    line-height: 1;
     font-style: italic;
     font-weight: 500;
     color: var(--cream);
-    opacity: 0;
-    transform: scale(0.7);
-    transition: opacity 0.4s, transform 0.4s;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin-top: -2px;
   }
-  .chat-bubble:hover .chat-bubble-icon {
-    opacity: 0;
-    transform: scale(0.7);
+  @media (min-width: 768px) {
+    .chat-bubble-letter {
+      font-size: 1.75rem;
+    }
   }
-  .chat-bubble:hover .chat-bubble-letter {
-    opacity: 1;
-    transform: scale(1);
+
+  /* "IA" badge in the corner */
+  .chat-bubble-badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    background: var(--gold);
+    color: var(--night);
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 2px 6px;
+    border-radius: 999px;
+    border: 2px solid var(--night);
+    line-height: 1;
+    z-index: 2;
+  }
+  @media (min-width: 768px) {
+    .chat-bubble-badge {
+      font-size: 0.6rem;
+      padding: 3px 7px;
+      top: -5px;
+      right: -7px;
+    }
   }
 
   /* Tooltip */
   .chat-bubble-tooltip {
     position: fixed;
-    bottom: 6rem;
+    bottom: calc(1.25rem + 52px + 16px);
     right: 1.25rem;
     z-index: 59;
     width: 280px;
@@ -169,7 +184,7 @@
   }
   @media (min-width: 768px) {
     .chat-bubble-tooltip {
-      bottom: 6.5rem;
+      bottom: calc(1.75rem + 56px + 16px);
       right: 1.75rem;
     }
   }
