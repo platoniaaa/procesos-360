@@ -73,6 +73,7 @@ const serviceOptions = [
       <!-- Form -->
       <div class="col-span-12 md:col-span-8 fade-up" style="transition-delay:150ms;">
         <form id="contact-form" class="editorial-form space-y-0 violet-card" style="padding:2rem md:2.5rem;">
+          <div id="form-fields">
 
           <div class="form-row">
             <label for="nombre" class="form-label">
@@ -129,15 +130,17 @@ const serviceOptions = [
             </button>
           </div>
 
-          <div id="form-success" class="hidden text-center py-8 pt-12">
+          <div id="form-error" class="hidden text-center py-2 pt-4">
+            <p class="text-sm" style="color:#F87171;">Por favor completa todos los campos obligatorios.</p>
+          </div>
+
+          </div><!-- /#form-fields -->
+
+          <div id="form-success" class="hidden text-center py-8">
             <div class="pull-quote mb-3">
               &iexcl;Gracias por escribirnos.
             </div>
             <p class="text-sm" style="color:var(--text-muted);">Te contactaremos en menos de 24 horas.</p>
-          </div>
-
-          <div id="form-error" class="hidden text-center py-2 pt-4">
-            <p class="text-sm" style="color:#F87171;">Por favor completa todos los campos obligatorios.</p>
           </div>
         </form>
       </div>
@@ -147,6 +150,7 @@ const serviceOptions = [
 
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
+  const formFields = document.getElementById('form-fields')!;
   const successMsg = document.getElementById('form-success')!;
   const errorMsg = document.getElementById('form-error')!;
 
@@ -186,9 +190,8 @@ const serviceOptions = [
         throw new Error(data.error || 'send_failed');
       }
 
-      form.classList.add('hidden');
+      formFields.style.display = 'none';
       successMsg.classList.remove('hidden');
-      successMsg.parentElement?.classList.remove('hidden');
     } catch (err: any) {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalHTML;
