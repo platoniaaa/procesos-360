@@ -366,6 +366,17 @@
     if (e.key === 'Escape' && isFullscreen) closeFullscreen();
   });
 
+  // Listen for global event from floating bubble (so any element on the page can open the chat)
+  document.addEventListener('platonia:open-chat', () => {
+    if (!isFullscreen) {
+      openFullscreen();
+      // Scroll to ensure messages are visible
+      setTimeout(() => {
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }, 100);
+    }
+  });
+
   sendBtn.addEventListener('click', () => sendMessage(inputEl.value));
 
   inputEl.addEventListener('input', () => {
