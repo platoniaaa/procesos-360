@@ -2,9 +2,9 @@
 import isotipo from '../assets/img/isotipo.png';
 ---
 
-<button id="chat-bubble" class="chat-bubble touch-manipulation" aria-label="Abrir asistente IA Platonia" type="button">
+<button id="chat-bubble" class="chat-bubble touch-manipulation" aria-label="Abrir asistente IA Procesos 360" type="button">
   <span class="chat-bubble-pulse"></span>
-  <img src={isotipo.src} alt="Platonia" class="chat-bubble-isotipo" />
+  <img src={isotipo.src} alt="Procesos 360" class="chat-bubble-isotipo" />
   <span class="chat-bubble-badge">IA</span>
 </button>
 
@@ -25,14 +25,14 @@ import isotipo from '../assets/img/isotipo.png';
 
   // Trigger chat fullscreen via custom event
   function openChat() {
-    document.dispatchEvent(new CustomEvent('platonia:open-chat'));
+    document.dispatchEvent(new CustomEvent('procesos360:open-chat'));
     hideTooltip();
   }
 
   bubble.addEventListener('click', openChat);
 
   // Tooltip logic: show after 8s, hide on dismiss or when bubble clicked
-  const TOOLTIP_KEY = 'platonia_bubble_tooltip_dismissed';
+  const TOOLTIP_KEY = 'procesos360_bubble_tooltip_dismissed';
   function showTooltip() {
     if (sessionStorage.getItem(TOOLTIP_KEY)) return;
     tooltip.classList.add('visible');
@@ -76,14 +76,14 @@ import isotipo from '../assets/img/isotipo.png';
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    border: 1px solid rgba(216, 180, 254, 0.3);
+    border: 1px solid rgba(30, 91, 255, 0.3);
     background: linear-gradient(135deg, var(--lilac) 0%, var(--plum) 100%);
     color: var(--cream);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 8px 28px rgba(107, 33, 168, 0.45);
+    box-shadow: 0 8px 28px rgba(30, 91, 255, 0.45);
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     -webkit-tap-highlight-color: transparent;
     overflow: visible;
@@ -98,7 +98,7 @@ import isotipo from '../assets/img/isotipo.png';
   }
   .chat-bubble:hover {
     transform: scale(1.08);
-    box-shadow: 0 14px 40px rgba(168, 85, 247, 0.55);
+    box-shadow: 0 14px 40px rgba(41, 201, 214, 0.55);
   }
   .chat-bubble:active {
     transform: scale(0.96);
@@ -108,7 +108,7 @@ import isotipo from '../assets/img/isotipo.png';
     position: absolute;
     inset: -3px;
     border-radius: 50%;
-    background: rgba(168, 85, 247, 0.35);
+    background: rgba(41, 201, 214, 0.35);
     animation: bubble-pulse 2.5s ease-out infinite;
     pointer-events: none;
   }
@@ -118,7 +118,7 @@ import isotipo from '../assets/img/isotipo.png';
     100% { transform: scale(1.5); opacity: 0; }
   }
 
-  /* Real Platonia isotipo image */
+  /* Real Procesos 360 isotipo image */
   .chat-bubble-isotipo {
     width: 28px;
     height: 28px;
@@ -168,12 +168,12 @@ import isotipo from '../assets/img/isotipo.png';
     width: 280px;
     max-width: calc(100vw - 2.5rem);
     background: var(--midnight);
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    border: 1px solid rgba(41, 201, 214, 0.3);
     border-radius: 16px;
     padding: 16px 18px;
     padding-right: 36px;
     color: var(--cream);
-    box-shadow: 0 20px 60px rgba(107, 33, 168, 0.4);
+    box-shadow: 0 20px 60px rgba(30, 91, 255, 0.4);
     font-family: var(--font-sans);
     cursor: pointer;
     opacity: 0;
@@ -200,8 +200,8 @@ import isotipo from '../assets/img/isotipo.png';
     width: 14px;
     height: 14px;
     background: var(--midnight);
-    border-right: 1px solid rgba(168, 85, 247, 0.3);
-    border-bottom: 1px solid rgba(168, 85, 247, 0.3);
+    border-right: 1px solid rgba(41, 201, 214, 0.3);
+    border-bottom: 1px solid rgba(41, 201, 214, 0.3);
     transform: rotate(45deg);
   }
   .chat-bubble-tooltip-title {
@@ -232,7 +232,7 @@ import isotipo from '../assets/img/isotipo.png';
     transition: background 0.2s;
   }
   .chat-bubble-tooltip-close:hover {
-    background: rgba(216, 180, 254, 0.1);
+    background: rgba(30, 91, 255, 0.1);
     color: var(--cream);
   }
 

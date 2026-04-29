@@ -1,0 +1,1125 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import pemmData from '../data/pemm.json';
+
+const empresaData = pemmData.empresa;
+const procesoData = pemmData.proceso;
+---
+
+<Layout
+  title="Diagnóstico de Madurez de Procesos | Procesos 360"
+  description="Evaluación gratuita basada en el modelo PEMM de Michael Hammer. Recibe un diagnóstico personalizado generado por IA con recomendaciones accionables en menos de 5 minutos."
+>
+  <Navbar />
+
+  <main class="diag-main">
+    <div class="diag-container">
+
+      <!-- ===== STEP: INTRO ===== -->
+      <section id="step-intro" class="diag-step active">
+        <div class="diag-eyebrow eyebrow eyebrow-dot">Diagnóstico gratuito</div>
+        <h1 class="display-lg mt-4 mb-6">
+          ¿Qué tan madura es la <span class="italic-accent">gestión de procesos</span> de tu empresa?
+        </h1>
+        <p class="text-lg leading-relaxed max-w-2xl mb-10" style="color:var(--text-muted);">
+          Una evaluación basada en <strong style="color:var(--cream);">PEMM</strong>, el modelo de
+          Michael Hammer (Harvard Business Review). Te entregamos un diagnóstico personalizado
+          generado por inteligencia artificial con recomendaciones accionables. Cinco a treinta
+          minutos según el nivel de detalle que elijas.
+        </p>
+
+        <div class="diag-features">
+          <div class="diag-feat">
+            <div class="diag-feat-num">01</div>
+            <div>
+              <h3>Evaluación estructurada</h3>
+              <p>Un cuestionario riguroso por categoría: liderazgo, cultura, experticia, gobernabilidad y, opcionalmente, un proceso específico.</p>
+            </div>
+          </div>
+          <div class="diag-feat">
+            <div class="diag-feat-num">02</div>
+            <div>
+              <h3>Diagnóstico con IA</h3>
+              <p>Tus resultados se analizan junto con el marco PEMM para generar un informe con tus fortalezas, prioridades y un plan a 90 días.</p>
+            </div>
+          </div>
+          <div class="diag-feat">
+            <div class="diag-feat-num">03</div>
+            <div>
+              <h3>Reporte por email</h3>
+              <p>Recibes el informe completo en tu correo para compartirlo con tu equipo. Sin compromiso, sin venta dura.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-primary mt-10 diag-btn-next" data-next="step-lead">
+          Empezar diagnóstico
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </section>
+
+      <!-- ===== STEP: LEAD CAPTURE ===== -->
+      <section id="step-lead" class="diag-step">
+        <div class="diag-progress"><div class="diag-progress-bar" style="width:10%;"></div></div>
+        <div class="diag-eyebrow eyebrow">Paso 1 de 4</div>
+        <h2 class="display-md mt-4 mb-3">¿Dónde te enviamos el reporte?</h2>
+        <p class="diag-sub mb-8">Tu reporte completo llegará a este correo. Solo lo usamos para contactarte si nos das la autorización; nada de spam.</p>
+
+        <form id="lead-form" class="diag-form">
+          <div class="diag-row">
+            <label>Nombre *</label>
+            <input type="text" name="nombre" required placeholder="Ej: María González" autocomplete="name" />
+          </div>
+          <div class="diag-row">
+            <label>Email *</label>
+            <input type="email" name="email" required placeholder="tu@email.com" autocomplete="email" />
+          </div>
+          <div class="diag-row">
+            <label>Empresa *</label>
+            <input type="text" name="empresa" required placeholder="Ej: Panadería Don José" autocomplete="organization" />
+          </div>
+          <div class="diag-row">
+            <label>Cargo</label>
+            <input type="text" name="cargo" placeholder="Ej: Gerente de Operaciones" />
+          </div>
+          <div class="diag-row">
+            <label>WhatsApp (opcional)</label>
+            <input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" autocomplete="tel" />
+          </div>
+
+          <div class="diag-actions">
+            <button type="button" class="btn-secondary diag-btn-back" data-back="step-intro">← Volver</button>
+            <button type="submit" class="btn-primary">Continuar →</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===== STEP: TYPE SELECT ===== -->
+      <section id="step-type" class="diag-step">
+        <div class="diag-progress"><div class="diag-progress-bar" style="width:30%;"></div></div>
+        <div class="diag-eyebrow eyebrow">Paso 2 de 4</div>
+        <h2 class="display-md mt-4 mb-3">¿Qué quieres diagnosticar?</h2>
+        <p class="diag-sub mb-8">Puedes evaluar la organización completa, un proceso específico, o ambos.</p>
+
+        <div class="diag-cards">
+          <button type="button" class="diag-card" data-type="empresa">
+            <div class="diag-card-num">A</div>
+            <h3>Empresa</h3>
+            <p>13 dimensiones organizacionales. Mide qué tan preparada está tu organización para gestionar por procesos.</p>
+            <div class="diag-card-meta">Liderazgo · Cultura · Experticia · Gobernabilidad</div>
+          </button>
+          <button type="button" class="diag-card" data-type="proceso">
+            <div class="diag-card-num">B</div>
+            <h3>Proceso específico</h3>
+            <p>13 dimensiones de un proceso concreto (ej: ventas, postventa, facturación). Mide la madurez de ESE proceso.</p>
+            <div class="diag-card-meta">Diseño · Ejecutores · Dueño · Infraestructura · Indicadores</div>
+          </button>
+          <button type="button" class="diag-card diag-card-featured" data-type="ambos">
+            <div class="diag-card-num">A+B</div>
+            <h3>Ambos <span class="diag-badge">Recomendado</span></h3>
+            <p>Evalúa empresa + un proceso. Verás cómo se relacionan y dónde está el cuello de botella.</p>
+            <div class="diag-card-meta">26 dimensiones en total</div>
+          </button>
+        </div>
+
+        <div class="diag-actions mt-10">
+          <button type="button" class="btn-secondary diag-btn-back" data-back="step-lead">← Volver</button>
+        </div>
+      </section>
+
+      <!-- ===== STEP: MODE SELECT ===== -->
+      <section id="step-mode" class="diag-step">
+        <div class="diag-progress"><div class="diag-progress-bar" style="width:50%;"></div></div>
+        <div class="diag-eyebrow eyebrow">Paso 3 de 4</div>
+        <h2 class="display-md mt-4 mb-3">¿Express o completo?</h2>
+        <p class="diag-sub mb-8">El express te da un nivel orientativo en pocos minutos. El completo es la versión fiel al PEMM original con escala Verde/Amarillo/Rojo por afirmación.</p>
+
+        <div class="diag-cards">
+          <button type="button" class="diag-card" data-mode="express">
+            <div class="diag-card-num">⚡</div>
+            <h3>Express</h3>
+            <p>Una pregunta por dimensión. Eliges el nivel que mejor describe tu realidad.</p>
+            <div class="diag-card-meta" id="mode-express-time">~5 minutos · 13 preguntas</div>
+          </button>
+          <button type="button" class="diag-card" data-mode="completo">
+            <div class="diag-card-num">📋</div>
+            <h3>Completo</h3>
+            <p>Cuatro afirmaciones por dimensión, calificadas Verde/Amarillo/Rojo. Más preciso para tu reporte.</p>
+            <div class="diag-card-meta" id="mode-completo-time">~25-30 minutos · 52 preguntas</div>
+          </button>
+        </div>
+
+        <div class="diag-actions mt-10">
+          <button type="button" class="btn-secondary diag-btn-back" data-back="step-type">← Volver</button>
+        </div>
+      </section>
+
+      <!-- ===== STEP: PROCESS NAME (only for tipo proceso/ambos) ===== -->
+      <section id="step-proceso-name" class="diag-step">
+        <div class="diag-progress"><div class="diag-progress-bar" style="width:55%;"></div></div>
+        <div class="diag-eyebrow eyebrow">Paso opcional</div>
+        <h2 class="display-md mt-4 mb-3">¿Qué proceso quieres evaluar?</h2>
+        <p class="diag-sub mb-8">Especifica el proceso para que el diagnóstico sea más preciso. Por ejemplo: "Atención al cliente", "Facturación", "Reclutamiento".</p>
+
+        <form id="proceso-name-form" class="diag-form" style="max-width:500px;">
+          <div class="diag-row">
+            <label>Nombre del proceso *</label>
+            <input type="text" name="procesoNombre" required placeholder="Ej: Atención al cliente" />
+          </div>
+          <div class="diag-actions">
+            <button type="button" class="btn-secondary diag-btn-back" data-back="step-mode">← Volver</button>
+            <button type="submit" class="btn-primary">Continuar →</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===== STEP: QUESTIONS ===== -->
+      <section id="step-questions" class="diag-step">
+        <div class="diag-progress"><div id="questions-progress" class="diag-progress-bar" style="width:60%;"></div></div>
+        <div class="diag-eyebrow eyebrow"><span id="questions-section-label">Sección 1 de 4</span></div>
+        <h2 class="display-md mt-4 mb-2" id="questions-title">Liderazgo</h2>
+        <p class="diag-sub mb-8" id="questions-sub">Para cada dimensión, marca la opción que mejor describe la realidad de tu empresa.</p>
+
+        <div id="questions-list"></div>
+
+        <div class="diag-actions diag-actions-questions mt-10">
+          <button type="button" class="btn-secondary" id="questions-prev">← Anterior</button>
+          <button type="button" class="btn-primary" id="questions-next">Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- ===== STEP: LOADING ===== -->
+      <section id="step-loading" class="diag-step">
+        <div class="diag-loading">
+          <div class="diag-loading-spinner"></div>
+          <h2 class="display-md mt-8 mb-3">Procesando tu diagnóstico…</h2>
+          <p class="diag-sub" id="loading-status">Calculando niveles de madurez por dimensión.</p>
+          <div class="diag-loading-steps">
+            <div class="diag-loading-step active" data-step="calc">Calculando scores</div>
+            <div class="diag-loading-step" data-step="ai">Generando análisis con IA</div>
+            <div class="diag-loading-step" data-step="email">Enviando reporte por email</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STEP: RESULT ===== -->
+      <section id="step-result" class="diag-step">
+        <div class="diag-eyebrow eyebrow eyebrow-dot" style="color:var(--gold);">Tu diagnóstico</div>
+        <h2 class="display-lg mt-4 mb-3">
+          Resultado de <span class="italic-accent" id="result-name-display">tu empresa</span>
+        </h2>
+        <p class="diag-sub mb-10" id="result-sub">Un análisis personalizado generado a partir de tus respuestas y el marco PEMM.</p>
+
+        <!-- Score cards -->
+        <div id="result-scorecards" class="diag-scorecards"></div>
+
+        <!-- Detailed breakdown -->
+        <div id="result-breakdown" class="diag-breakdown mt-10"></div>
+
+        <!-- AI-generated diagnostic -->
+        <div id="result-ai" class="diag-ai mt-12"></div>
+
+        <!-- CTA -->
+        <div class="diag-cta mt-12">
+          <h3 class="display-md mb-4">¿Quieres ayuda para implementarlo?</h3>
+          <p class="text-base mb-6" style="color:var(--text-muted);max-width:540px;">
+            Una llamada de 30 minutos sin compromiso. Te ayudamos a priorizar y construir un plan
+            con tu equipo.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <a href="https://wa.me/56997076130?text=Hola,%20completé%20el%20diagnóstico%20PEMM%20y%20me%20gustaría%20agendar%20una%20llamada" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              Agendar llamada
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="/" class="btn-secondary">Volver al inicio</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STEP: ERROR ===== -->
+      <section id="step-error" class="diag-step">
+        <h2 class="display-md mt-4 mb-3">Algo salió mal</h2>
+        <p class="diag-sub mb-8" id="error-msg">Hubo un problema al generar tu diagnóstico. Inténtalo de nuevo o escríbenos por WhatsApp.</p>
+        <div class="diag-actions">
+          <button type="button" class="btn-secondary" onclick="window.location.reload()">Reintentar</button>
+          <a href="https://wa.me/56997076130" target="_blank" rel="noopener noreferrer" class="btn-primary">WhatsApp →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+  <WhatsAppButton />
+</Layout>
+
+<script define:vars={{ empresaData, procesoData }}>
+  // ===== State =====
+  const state = {
+    step: 'step-intro',
+    type: null,    // 'empresa' | 'proceso' | 'ambos'
+    mode: null,    // 'express' | 'completo'
+    lead: {},
+    procesoNombre: '',
+    answers: { empresa: {}, proceso: {} },
+    sectionIndex: 0,
+    sections: [],  // built dynamically based on type
+  };
+
+  // ===== Step navigation =====
+  function go(stepId) {
+    document.querySelectorAll('.diag-step').forEach(el => el.classList.remove('active'));
+    const target = document.getElementById(stepId);
+    if (target) {
+      target.classList.add('active');
+      state.step = stepId;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  document.querySelectorAll('.diag-btn-next').forEach(btn => {
+    btn.addEventListener('click', () => go(btn.dataset.next));
+  });
+  document.querySelectorAll('.diag-btn-back').forEach(btn => {
+    btn.addEventListener('click', () => go(btn.dataset.back));
+  });
+
+  // ===== Lead form =====
+  document.getElementById('lead-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    state.lead = {
+      nombre: fd.get('nombre').toString().trim(),
+      email: fd.get('email').toString().trim(),
+      empresa: fd.get('empresa').toString().trim(),
+      cargo: (fd.get('cargo') || '').toString().trim(),
+      telefono: (fd.get('telefono') || '').toString().trim(),
+    };
+    go('step-type');
+  });
+
+  // ===== Type select =====
+  document.querySelectorAll('[data-type]').forEach(card => {
+    card.addEventListener('click', () => {
+      state.type = card.dataset.type;
+      // Update mode time estimates
+      const isAmbos = state.type === 'ambos';
+      document.getElementById('mode-express-time').textContent = isAmbos ? '~10 minutos · 26 preguntas' : '~5 minutos · 13 preguntas';
+      document.getElementById('mode-completo-time').textContent = isAmbos ? '~50 minutos · 104 afirmaciones' : '~25-30 minutos · 52 afirmaciones';
+      go('step-mode');
+    });
+  });
+
+  // ===== Mode select =====
+  document.querySelectorAll('[data-mode]').forEach(card => {
+    card.addEventListener('click', () => {
+      state.mode = card.dataset.mode;
+      // If type involves proceso, ask for process name first
+      if (state.type === 'proceso' || state.type === 'ambos') {
+        go('step-proceso-name');
+      } else {
+        startQuestions();
+      }
+    });
+  });
+
+  // ===== Proceso name =====
+  document.getElementById('proceso-name-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    state.procesoNombre = new FormData(e.target).get('procesoNombre').toString().trim();
+    startQuestions();
+  });
+
+  // ===== Build sections (one per category, for both empresa and proceso if applicable) =====
+  function buildSections() {
+    const sections = [];
+
+    function addSectionsFor(type, data, prefix) {
+      const cats = new Map();
+      for (const dim of data) {
+        if (!cats.has(dim.category)) cats.set(dim.category, []);
+        cats.get(dim.category).push(dim);
+      }
+      for (const [cat, dims] of cats) {
+        sections.push({ type, prefix, category: cat, dimensions: dims });
+      }
+    }
+
+    if (state.type === 'empresa' || state.type === 'ambos') addSectionsFor('empresa', empresaData, 'E');
+    if (state.type === 'proceso' || state.type === 'ambos') addSectionsFor('proceso', procesoData, 'P');
+
+    return sections;
+  }
+
+  function startQuestions() {
+    state.sections = buildSections();
+    state.sectionIndex = 0;
+    go('step-questions');
+    renderSection();
+  }
+
+  // ===== Render current section =====
+  function renderSection() {
+    const sec = state.sections[state.sectionIndex];
+    const total = state.sections.length;
+    const idx = state.sectionIndex;
+
+    // Progress bar 60% → 90% across questions
+    const pct = 60 + Math.round((idx / total) * 30);
+    document.getElementById('questions-progress').style.width = pct + '%';
+
+    document.getElementById('questions-section-label').textContent = `Sección ${idx + 1} de ${total} · ${sec.type === 'empresa' ? 'Empresa' : 'Proceso'}`;
+    const procText = (sec.type === 'proceso' && state.procesoNombre) ? ` · ${state.procesoNombre}` : '';
+    document.getElementById('questions-title').textContent = sec.category + procText;
+
+    if (state.mode === 'express') {
+      document.getElementById('questions-sub').textContent = 'Marca el nivel que mejor describe la realidad actual.';
+    } else {
+      document.getElementById('questions-sub').textContent = 'Para cada afirmación, indica si es Verde (>80% verdadera), Amarillo (parcial) o Rojo (<20%).';
+    }
+
+    const list = document.getElementById('questions-list');
+    list.innerHTML = '';
+
+    sec.dimensions.forEach(dim => {
+      const dimId = slug(sec.type) + '__' + slug(dim.category) + '__' + slug(dim.dimension);
+      const card = document.createElement('div');
+      card.className = 'diag-q-card';
+      card.dataset.dimId = dimId;
+
+      const title = document.createElement('h4');
+      title.className = 'diag-q-title';
+      title.textContent = dim.dimension;
+      card.appendChild(title);
+
+      if (state.mode === 'express') {
+        // Show 4 levels as radio cards
+        const opts = document.createElement('div');
+        opts.className = 'diag-express-opts';
+        ['L1','L2','L3','L4'].forEach((lvl, i) => {
+          const lvlNum = i + 1;
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'diag-express-opt';
+          btn.dataset.level = lvlNum;
+          btn.innerHTML = `
+            <div class="diag-opt-num">${sec.prefix}-${lvlNum}</div>
+            <div class="diag-opt-text">${escapeHtml(dim.statements[lvl])}</div>
+          `;
+          btn.addEventListener('click', () => {
+            opts.querySelectorAll('.diag-express-opt').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            state.answers[sec.type][dimIdShort(sec, dim)] = lvlNum;
+          });
+          // Restore previous answer
+          const stored = state.answers[sec.type][dimIdShort(sec, dim)];
+          if (stored === lvlNum) btn.classList.add('selected');
+          opts.appendChild(btn);
+        });
+        card.appendChild(opts);
+      } else {
+        // Completo: 4 statements with V/A/N
+        ['L1','L2','L3','L4'].forEach((lvl, i) => {
+          const lvlNum = i + 1;
+          const row = document.createElement('div');
+          row.className = 'diag-completo-row';
+          row.innerHTML = `
+            <div class="diag-completo-statement">
+              <span class="diag-completo-lvl">${sec.prefix}-${lvlNum}</span>
+              <span>${escapeHtml(dim.statements[lvl])}</span>
+            </div>
+          `;
+          const ratings = document.createElement('div');
+          ratings.className = 'diag-completo-ratings';
+          [['V','Verde','>80%'],['A','Amarillo','20-80%'],['N','Rojo','<20%']].forEach(([code, label, range]) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = `diag-rating diag-rating-${code.toLowerCase()}`;
+            btn.dataset.rating = code;
+            btn.innerHTML = `<span class="diag-rating-label">${label}</span><span class="diag-rating-range">${range}</span>`;
+            btn.addEventListener('click', () => {
+              ratings.querySelectorAll('.diag-rating').forEach(b => b.classList.remove('selected'));
+              btn.classList.add('selected');
+              const id = dimIdShort(sec, dim);
+              if (!state.answers[sec.type][id]) state.answers[sec.type][id] = {};
+              state.answers[sec.type][id][lvl] = code;
+            });
+            // Restore
+            const stored = state.answers[sec.type][dimIdShort(sec, dim)];
+            if (stored && stored[lvl] === code) btn.classList.add('selected');
+            ratings.appendChild(btn);
+          });
+          row.appendChild(ratings);
+          card.appendChild(row);
+        });
+      }
+      list.appendChild(card);
+    });
+
+    // Buttons state
+    const prev = document.getElementById('questions-prev');
+    const next = document.getElementById('questions-next');
+    prev.disabled = idx === 0;
+    next.textContent = (idx === total - 1) ? 'Ver mi diagnóstico →' : 'Siguiente →';
+  }
+
+  function dimIdShort(sec, dim) {
+    return slug(sec.category) + '__' + slug(dim.dimension);
+  }
+
+  function slug(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  function escapeHtml(s) {
+    const div = document.createElement('div');
+    div.textContent = s || '';
+    return div.innerHTML;
+  }
+
+  function validateSection() {
+    const sec = state.sections[state.sectionIndex];
+    for (const dim of sec.dimensions) {
+      const id = dimIdShort(sec, dim);
+      const ans = state.answers[sec.type][id];
+      if (state.mode === 'express') {
+        if (!ans) return `Falta responder: ${dim.dimension}`;
+      } else {
+        if (!ans || !ans.L1 || !ans.L2 || !ans.L3 || !ans.L4) {
+          return `Falta calificar las 4 afirmaciones de: ${dim.dimension}`;
+        }
+      }
+    }
+    return null;
+  }
+
+  document.getElementById('questions-prev').addEventListener('click', () => {
+    if (state.sectionIndex > 0) {
+      state.sectionIndex--;
+      renderSection();
+    }
+  });
+
+  document.getElementById('questions-next').addEventListener('click', async () => {
+    const err = validateSection();
+    if (err) {
+      alert(err);
+      return;
+    }
+    if (state.sectionIndex < state.sections.length - 1) {
+      state.sectionIndex++;
+      renderSection();
+    } else {
+      await submitDiagnostic();
+    }
+  });
+
+  // ===== Submit =====
+  async function submitDiagnostic() {
+    go('step-loading');
+    setLoadingStep('calc');
+    await wait(400);
+    setLoadingStep('ai');
+
+    try {
+      const res = await fetch('/api/diagnostico', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          lead: state.lead,
+          type: state.type,
+          mode: state.mode,
+          procesoNombre: state.procesoNombre || null,
+          answers: state.answers,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'server_error');
+      }
+
+      const data = await res.json();
+      setLoadingStep('email');
+      await wait(300);
+      renderResult(data);
+      go('step-result');
+    } catch (err) {
+      console.error('[diagnostico] error', err);
+      document.getElementById('error-msg').textContent =
+        'Hubo un problema al generar tu diagnóstico. Tu información sí se guardó. Inténtalo de nuevo o contáctanos por WhatsApp.';
+      go('step-error');
+    }
+  }
+
+  function setLoadingStep(step) {
+    document.querySelectorAll('.diag-loading-step').forEach(el => el.classList.remove('active','done'));
+    let reachedActive = false;
+    document.querySelectorAll('.diag-loading-step').forEach(el => {
+      if (el.dataset.step === step) {
+        el.classList.add('active');
+        reachedActive = true;
+      } else if (!reachedActive) {
+        el.classList.add('done');
+      }
+    });
+    const labels = {
+      calc: 'Calculando niveles de madurez por dimensión.',
+      ai: 'Generando análisis personalizado con IA.',
+      email: 'Enviando reporte a tu correo.',
+    };
+    document.getElementById('loading-status').textContent = labels[step];
+  }
+
+  function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  // ===== Render result =====
+  function renderResult(data) {
+    const cont = document.getElementById('result-name-display');
+    cont.textContent = state.lead.empresa || 'tu empresa';
+
+    document.getElementById('result-sub').textContent = state.procesoNombre
+      ? `Análisis de la empresa y del proceso "${state.procesoNombre}".`
+      : 'Análisis personalizado generado a partir de tus respuestas.';
+
+    // Scorecards
+    const cards = document.getElementById('result-scorecards');
+    cards.innerHTML = '';
+    (data.results || []).forEach(r => {
+      const card = document.createElement('div');
+      card.className = 'diag-scorecard';
+      card.innerHTML = `
+        <div class="diag-scorecard-label">${r.type === 'empresa' ? 'Madurez de Empresa' : `Madurez de Proceso${state.procesoNombre ? ` · ${state.procesoNombre}` : ''}`}</div>
+        <div class="diag-scorecard-level">${r.overallLabel}</div>
+        <div class="diag-scorecard-score">${r.overallLevel.toFixed(2)} / 4.0</div>
+      `;
+      cards.appendChild(card);
+    });
+
+    // Breakdown
+    const bd = document.getElementById('result-breakdown');
+    bd.innerHTML = '<h3 class="display-md mb-6" style="font-size:1.5rem;">Desglose por dimensión</h3>';
+    (data.results || []).forEach(r => {
+      const block = document.createElement('div');
+      block.className = 'diag-bd-block';
+      let html = `<div class="diag-bd-title">${r.type === 'empresa' ? 'Empresa' : 'Proceso'}</div>`;
+      // Group by category
+      const byCat = new Map();
+      r.dimensions.forEach(d => {
+        if (!byCat.has(d.category)) byCat.set(d.category, []);
+        byCat.get(d.category).push(d);
+      });
+      for (const [cat, dims] of byCat) {
+        html += `<div class="diag-bd-cat"><div class="diag-bd-cat-title">${cat}</div>`;
+        dims.forEach(d => {
+          const pct = Math.min(100, (d.level / 4) * 100);
+          html += `<div class="diag-bd-row">
+            <div class="diag-bd-name">${d.dimension}</div>
+            <div class="diag-bd-bar"><div class="diag-bd-bar-fill" style="width:${pct}%"></div></div>
+            <div class="diag-bd-level">${d.levelLabel}</div>
+          </div>`;
+        });
+        html += `</div>`;
+      }
+      block.innerHTML = html;
+      bd.appendChild(block);
+    });
+
+    // AI diagnostic (HTML safe-rendered)
+    const ai = document.getElementById('result-ai');
+    ai.innerHTML = `<h3 class="display-md mb-6" style="font-size:1.5rem;">Análisis y recomendaciones</h3>
+      <div class="diag-ai-content">${data.diagnosticHtml || '<p>No se pudo generar el análisis.</p>'}</div>`;
+  }
+</script>
+
+<style is:global>
+  .diag-main {
+    background: var(--night);
+    min-height: 100vh;
+    padding: 6rem 1rem 4rem;
+  }
+  @media (min-width: 768px) { .diag-main { padding: 7rem 1.5rem 5rem; } }
+
+  .diag-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .diag-step { display: none; animation: fadeIn 0.4s ease; }
+  .diag-step.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  .diag-eyebrow { display: inline-block; }
+
+  .diag-progress {
+    height: 4px;
+    width: 100%;
+    background: rgba(30, 91, 255, 0.10);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  .diag-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--lilac), var(--plum));
+    transition: width 0.4s ease;
+  }
+
+  .diag-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  /* ===== Intro features ===== */
+  .diag-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  @media (min-width: 768px) { .diag-features { grid-template-columns: repeat(3, 1fr); } }
+  .diag-feat {
+    display: flex;
+    gap: 1rem;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F8FD 100%);
+    border: 1px solid rgba(30, 91, 255, 0.12);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(30, 91, 255, 0.06);
+  }
+  .diag-feat-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--plum);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .diag-feat h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin: 0 0 0.4rem;
+  }
+  .diag-feat p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ===== Form ===== */
+  .diag-form {
+    max-width: 540px;
+  }
+  .diag-row {
+    margin-bottom: 1.25rem;
+  }
+  .diag-row label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--plum);
+    margin-bottom: 0.5rem;
+  }
+  .diag-row input,
+  .diag-row select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: #FFFFFF;
+    border: 1px solid rgba(30, 91, 255, 0.20);
+    border-radius: 10px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .diag-row input:focus {
+    outline: none;
+    border-color: var(--plum);
+    box-shadow: 0 0 0 3px rgba(30, 91, 255, 0.12);
+  }
+
+  .diag-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ===== Type / Mode cards ===== */
+  .diag-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 768px) { .diag-cards { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 768px) { .diag-cards.cols-2, #step-mode .diag-cards { grid-template-columns: repeat(2, 1fr); } }
+
+  .diag-card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F8FD 100%);
+    border: 1px solid rgba(30, 91, 255, 0.15);
+    border-radius: 16px;
+    padding: 1.75rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 16px rgba(30, 91, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+  }
+  .diag-card:hover {
+    border-color: var(--plum);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(30, 91, 255, 0.18);
+  }
+  .diag-card-featured {
+    border-color: rgba(30, 91, 255, 0.4);
+  }
+  .diag-card-num {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--plum);
+    font-weight: 700;
+    background: rgba(30, 91, 255, 0.08);
+    border-radius: 999px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .diag-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin: 0 0 0.5rem;
+  }
+  .diag-card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin: 0 0 1rem;
+  }
+  .diag-card-meta {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--plum);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .diag-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--lilac), var(--plum));
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ===== Question cards ===== */
+  .diag-q-card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFE 100%);
+    border: 1px solid rgba(30, 91, 255, 0.12);
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 2px 10px rgba(30, 91, 255, 0.05);
+  }
+  .diag-q-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin: 0 0 1rem;
+  }
+
+  /* Express options */
+  .diag-express-opts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .diag-express-opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.9rem 1rem;
+    background: #fff;
+    border: 1.5px solid rgba(30, 91, 255, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+  }
+  .diag-express-opt:hover {
+    border-color: rgba(30, 91, 255, 0.4);
+    background: rgba(30, 91, 255, 0.03);
+  }
+  .diag-express-opt.selected {
+    border-color: var(--plum);
+    background: rgba(30, 91, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(30, 91, 255, 0.1);
+  }
+  .diag-opt-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--plum);
+    flex-shrink: 0;
+    background: rgba(30, 91, 255, 0.08);
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin-top: 1px;
+  }
+  .diag-opt-text {
+    flex: 1;
+    color: var(--cream);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  /* Completo rows */
+  .diag-completo-row {
+    padding: 1rem 0;
+    border-top: 1px solid rgba(30, 91, 255, 0.08);
+  }
+  .diag-completo-row:first-child { border-top: none; padding-top: 0.5rem; }
+  .diag-completo-statement {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--cream);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+  .diag-completo-lvl {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--plum);
+    background: rgba(30, 91, 255, 0.08);
+    padding: 4px 8px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    height: fit-content;
+  }
+  .diag-completo-ratings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .diag-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 0.5rem 0.6rem;
+    background: #fff;
+    border: 1.5px solid rgba(30, 91, 255, 0.15);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .diag-rating-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--cream);
+  }
+  .diag-rating-range {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+  }
+  .diag-rating-v.selected { background: rgba(34, 197, 94, 0.12); border-color: #22c55e; }
+  .diag-rating-a.selected { background: rgba(234, 179, 8, 0.12); border-color: #eab308; }
+  .diag-rating-n.selected { background: rgba(239, 68, 68, 0.12); border-color: #ef4444; }
+
+  .diag-actions-questions { justify-content: space-between; }
+
+  /* ===== Loading ===== */
+  .diag-loading {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  .diag-loading-spinner {
+    width: 56px;
+    height: 56px;
+    border: 4px solid rgba(30, 91, 255, 0.15);
+    border-top-color: var(--plum);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    margin: 0 auto;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .diag-loading-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    align-items: center;
+  }
+  .diag-loading-step {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    transition: all 0.3s;
+  }
+  .diag-loading-step.active {
+    color: var(--plum);
+    background: rgba(30, 91, 255, 0.1);
+    font-weight: 600;
+  }
+  .diag-loading-step.done {
+    color: var(--cream);
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+
+  /* ===== Result ===== */
+  .diag-scorecards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 768px) { .diag-scorecards { grid-template-columns: repeat(2, 1fr); } }
+  .diag-scorecard {
+    background: linear-gradient(135deg, var(--plum) 0%, var(--violet) 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 12px 32px rgba(30, 91, 255, 0.25);
+  }
+  .diag-scorecard-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+  }
+  .diag-scorecard-level {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .diag-scorecard-score {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+
+  .diag-bd-block { margin-bottom: 2rem; }
+  .diag-bd-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--plum);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .diag-bd-cat {
+    background: #fff;
+    border: 1px solid rgba(30, 91, 255, 0.10);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .diag-bd-cat-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+  .diag-bd-row {
+    display: grid;
+    grid-template-columns: 1fr 100px 50px;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.4rem 0;
+    font-size: 0.88rem;
+  }
+  @media (max-width: 600px) {
+    .diag-bd-row { grid-template-columns: 1fr 70px 40px; gap: 0.5rem; font-size: 0.82rem; }
+  }
+  .diag-bd-name { color: var(--cream); }
+  .diag-bd-bar {
+    height: 8px;
+    background: rgba(30, 91, 255, 0.10);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .diag-bd-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--lilac), var(--plum));
+    transition: width 0.6s ease;
+  }
+  .diag-bd-level {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--plum);
+    text-align: right;
+    font-size: 0.85rem;
+  }
+
+  .diag-ai {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F8FD 100%);
+    border: 1px solid rgba(30, 91, 255, 0.12);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(30, 91, 255, 0.06);
+  }
+  .diag-ai-content { color: var(--cream); line-height: 1.7; }
+  .diag-ai-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+    color: var(--plum);
+  }
+  .diag-ai-content h2:first-child { margin-top: 0; }
+  .diag-ai-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 1.25rem 0 0.5rem;
+    color: var(--cream);
+  }
+  .diag-ai-content p { margin: 0 0 0.75rem; font-size: 0.95rem; }
+  .diag-ai-content ul, .diag-ai-content ol { margin: 0 0 1rem 1.25rem; }
+  .diag-ai-content li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+  .diag-ai-content strong { color: var(--cream); font-weight: 600; }
+
+  .diag-cta {
+    background: linear-gradient(135deg, rgba(30, 91, 255, 0.06), rgba(41, 201, 214, 0.05));
+    border: 1px solid rgba(30, 91, 255, 0.15);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+</style>

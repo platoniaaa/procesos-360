@@ -4,8 +4,8 @@ import isotipo from '../assets/img/isotipo.png';
 
 <section id="asistente" class="relative py-12 md:py-28 overflow-hidden" style="background:var(--midnight);">
 
-  <div class="orb w-[500px] h-[500px] top-[10%] right-[-10%]" style="background:radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 60%);"></div>
-  <div class="orb w-[400px] h-[400px] bottom-[10%] left-[-15%]" style="background:radial-gradient(circle, rgba(229,192,106,0.12) 0%, transparent 65%);animation-delay:-2s;"></div>
+  <div class="orb w-[500px] h-[500px] top-[10%] right-[-10%]" style="background:radial-gradient(circle, rgba(41,201,214,0.25) 0%, transparent 60%);"></div>
+  <div class="orb w-[400px] h-[400px] bottom-[10%] left-[-15%]" style="background:radial-gradient(circle, rgba(229,66,181,0.12) 0%, transparent 65%);animation-delay:-2s;"></div>
 
   <div class="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
@@ -21,7 +21,7 @@ import isotipo from '../assets/img/isotipo.png';
           <span class="italic-accent">Preg&uacute;ntale</span> a nuestra IA.
         </h2>
         <p class="mt-4 md:mt-6 max-w-xl text-sm md:text-lg leading-relaxed" style="color:var(--text-muted);">
-          Cu&eacute;ntale tu desaf&iacute;o al asistente digital de Platonia y recibe un diagn&oacute;stico personalizado.
+          Cu&eacute;ntale tu desaf&iacute;o al asistente digital de Procesos 360 y recibe un diagn&oacute;stico personalizado.
         </p>
       </div>
     </div>
@@ -32,11 +32,11 @@ import isotipo from '../assets/img/isotipo.png';
         <div class="chat-header">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 flex items-center justify-center rounded-full" style="background:linear-gradient(135deg, var(--lilac), var(--plum));">
-              <img src={isotipo.src} alt="Platonia" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);" />
+              <img src={isotipo.src} alt="Procesos 360" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);" />
             </div>
             <div>
               <div class="text-sm font-semibold" style="color:var(--cream);font-family:var(--font-display);">
-                Asistente <span class="italic-accent" style="font-weight:500;">Platonia</span>
+                Asistente <span class="italic-accent" style="font-weight:500;">Procesos 360</span>
               </div>
               <div class="flex items-center gap-1.5 mt-0.5">
                 <span class="w-1.5 h-1.5 rounded-full" style="background:#22c55e;animation:pulse-whatsapp 2s ease-in-out infinite;"></span>
@@ -189,19 +189,19 @@ import isotipo from '../assets/img/isotipo.png';
   const MAX_MESSAGES = 20;
 
   // Generate or retrieve a session ID for this chat
-  const SESSION_KEY = 'platonia_chat_session';
+  const SESSION_KEY = 'procesos360_chat_session';
   let sessionId = sessionStorage.getItem(SESSION_KEY);
   if (!sessionId) {
     sessionId = `s-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
     sessionStorage.setItem(SESSION_KEY, sessionId);
   }
-  const WELCOME = '¡Hola! Soy el asistente digital de Platonia. Cuéntame sobre tu negocio y qué desafío digital enfrentas, y te ayudaré a encontrar la mejor solución.';
+  const WELCOME = '¡Hola! Soy el asistente digital de Procesos 360. Cuéntame sobre tu negocio y qué desafío digital enfrentas, y te ayudaré a encontrar la mejor solución.';
 
   const isMobile = window.matchMedia('(max-width: 640px)').matches;
   const bubbleMaxWidth = isMobile ? '88%' : '82%';
   const bubbleStyles: Record<string, string> = {
-    assistant: `background:rgba(168,85,247,0.12);color:#FAF7F0;border:1px solid rgba(168,85,247,0.25);border-radius:4px 16px 16px 16px;max-width:${bubbleMaxWidth};padding:12px 16px;font-size:14.5px;line-height:1.55;word-break:break-word;font-family:var(--font-sans);`,
-    user: `background:rgba(250,247,240,0.08);color:#FAF7F0;border:1px solid rgba(250,247,240,0.15);border-radius:16px 4px 16px 16px;max-width:${bubbleMaxWidth};padding:12px 16px;font-size:14.5px;line-height:1.55;word-break:break-word;font-family:var(--font-sans);`,
+    assistant: `background:rgba(41,201,214,0.12);color:#0A1F4A;border:1px solid rgba(41,201,214,0.35);border-radius:4px 16px 16px 16px;max-width:${bubbleMaxWidth};padding:12px 16px;font-size:14.5px;line-height:1.55;word-break:break-word;font-family:var(--font-sans);`,
+    user: `background:rgba(30,91,255,0.08);color:#0A1F4A;border:1px solid rgba(30,91,255,0.20);border-radius:16px 4px 16px 16px;max-width:${bubbleMaxWidth};padding:12px 16px;font-size:14.5px;line-height:1.55;word-break:break-word;font-family:var(--font-sans);`,
   };
 
   function addMessage(role: 'user' | 'assistant', content: string) {
@@ -226,7 +226,7 @@ import isotipo from '../assets/img/isotipo.png';
       optContainer.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-left:4px;';
       options.forEach(opt => {
         const btn = document.createElement('button');
-        btn.style.cssText = 'background:transparent;color:var(--gold);border:1px solid rgba(229,192,106,0.4);border-radius:999px;padding:7px 15px;font-size:12.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all 0.3s;';
+        btn.style.cssText = 'background:transparent;color:var(--gold);border:1px solid rgba(229,66,181,0.4);border-radius:999px;padding:7px 15px;font-size:12.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all 0.3s;';
         btn.textContent = opt;
         btn.addEventListener('mouseover', () => { btn.style.background = 'var(--gold)'; btn.style.color = 'var(--night)'; });
         btn.addEventListener('mouseout', () => { btn.style.background = 'transparent'; btn.style.color = 'var(--gold)'; });
@@ -326,7 +326,7 @@ import isotipo from '../assets/img/isotipo.png';
         optContainer.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-left:4px;';
         options.forEach((opt: string) => {
           const btn = document.createElement('button');
-          btn.style.cssText = 'background:transparent;color:var(--gold);border:1px solid rgba(229,192,106,0.4);border-radius:999px;padding:7px 15px;font-size:12.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all 0.3s;';
+          btn.style.cssText = 'background:transparent;color:var(--gold);border:1px solid rgba(229,66,181,0.4);border-radius:999px;padding:7px 15px;font-size:12.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all 0.3s;';
           btn.textContent = opt;
           btn.addEventListener('mouseover', () => { btn.style.background = 'var(--gold)'; btn.style.color = 'var(--night)'; });
           btn.addEventListener('mouseout', () => { btn.style.background = 'transparent'; btn.style.color = 'var(--gold)'; });
@@ -384,7 +384,7 @@ import isotipo from '../assets/img/isotipo.png';
   });
 
   // Listen for global event from floating bubble (so any element on the page can open the chat)
-  document.addEventListener('platonia:open-chat', () => {
+  document.addEventListener('procesos360:open-chat', () => {
     if (!isFullscreen) {
       openFullscreen();
       // Scroll to ensure messages are visible
@@ -403,7 +403,7 @@ import isotipo from '../assets/img/isotipo.png';
     if (remaining < 50) {
       charCount.style.display = 'block';
       charCount.textContent = remaining.toString();
-      charCount.style.color = remaining < 10 ? '#ef4444' : '#A855F7';
+      charCount.style.color = remaining < 10 ? '#ef4444' : '#29C9D6';
     } else {
       charCount.style.display = 'none';
     }
@@ -414,22 +414,22 @@ import isotipo from '../assets/img/isotipo.png';
 
 <style>
   .chat-box {
-    background: linear-gradient(180deg, rgba(45, 17, 85, 0.6) 0%, rgba(30, 10, 52, 0.8) 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F8FD 100%);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-radius: 20px;
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(30, 91, 255, 0.15);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     position: relative;
-    box-shadow: 0 20px 80px rgba(107, 33, 168, 0.25);
+    box-shadow: 0 20px 80px rgba(30, 91, 255, 0.12);
     transition: all 0.3s ease;
     cursor: pointer;
   }
   .chat-box:not(.fullscreen):hover {
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 0 24px 100px rgba(107, 33, 168, 0.35);
+    border-color: rgba(30, 91, 255, 0.3);
+    box-shadow: 0 24px 100px rgba(30, 91, 255, 0.18);
   }
   .chat-box.fullscreen {
     cursor: default;
@@ -473,10 +473,10 @@ import isotipo from '../assets/img/isotipo.png';
   /* Header in fullscreen: full width with bordered bottom */
   .chat-box.fullscreen .chat-header {
     padding: 14px 20px !important;
-    background: rgba(19, 6, 31, 0.92) !important;
+    background: rgba(255, 255, 255, 0.92) !important;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(216, 180, 254, 0.1) !important;
+    border-bottom: 1px solid rgba(30, 91, 255, 0.1) !important;
     flex-shrink: 0;
     width: 100%;
   }
@@ -530,10 +530,10 @@ import isotipo from '../assets/img/isotipo.png';
     flex-shrink: 0;
     padding: 14px max(20px, calc((100vw - 820px) / 2)) !important;
     padding-bottom: calc(14px + env(safe-area-inset-bottom)) !important;
-    background: rgba(19, 6, 31, 0.92) !important;
+    background: rgba(255, 255, 255, 0.92) !important;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(216, 180, 254, 0.1) !important;
+    border-top: 1px solid rgba(30, 91, 255, 0.1) !important;
     width: 100%;
   }
 
@@ -560,8 +560,8 @@ import isotipo from '../assets/img/isotipo.png';
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(216, 180, 254, 0.08);
-    border: 1px solid rgba(216, 180, 254, 0.15);
+    background: rgba(30, 91, 255, 0.08);
+    border: 1px solid rgba(30, 91, 255, 0.15);
     color: var(--lavender);
     border-radius: 10px;
     cursor: pointer;
@@ -570,20 +570,20 @@ import isotipo from '../assets/img/isotipo.png';
   }
   .chat-expand-btn:hover,
   .chat-close-btn:hover {
-    background: rgba(168, 85, 247, 0.25);
-    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(41, 201, 214, 0.25);
+    border-color: rgba(41, 201, 214, 0.5);
     color: var(--cream);
   }
   .chat-close-btn {
-    background: rgba(168, 85, 247, 0.2);
-    border-color: rgba(168, 85, 247, 0.35);
+    background: rgba(41, 201, 214, 0.2);
+    border-color: rgba(41, 201, 214, 0.35);
     color: var(--cream);
   }
 
   .chat-header {
-    background: rgba(250, 247, 240, 0.03);
+    background: rgba(30, 91, 255, 0.04);
     padding: 14px 16px;
-    border-bottom: 1px solid rgba(216, 180, 254, 0.1);
+    border-bottom: 1px solid rgba(30, 91, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -624,8 +624,8 @@ import isotipo from '../assets/img/isotipo.png';
 
   .chat-typing { padding: 8px 20px; display: flex; }
   .typing-bubble {
-    background: rgba(168, 85, 247, 0.15);
-    border: 1px solid rgba(168, 85, 247, 0.25);
+    background: rgba(41, 201, 214, 0.15);
+    border: 1px solid rgba(41, 201, 214, 0.25);
     border-radius: 4px 16px 16px 16px;
     padding: 12px 18px;
     display: flex;
@@ -648,7 +648,7 @@ import isotipo from '../assets/img/isotipo.png';
 
   .chat-input-area {
     padding: 12px 12px;
-    border-top: 1px solid rgba(216, 180, 254, 0.1);
+    border-top: 1px solid rgba(30, 91, 255, 0.1);
     flex-shrink: 0;
   }
   @media (min-width: 768px) {
@@ -658,8 +658,8 @@ import isotipo from '../assets/img/isotipo.png';
     display: flex;
     align-items: flex-end;
     gap: 8px;
-    background: rgba(250, 247, 240, 0.04);
-    border: 1px solid rgba(216, 180, 254, 0.15);
+    background: rgba(30, 91, 255, 0.04);
+    border: 1px solid rgba(30, 91, 255, 0.20);
     border-radius: 999px;
     padding: 5px 5px 5px 16px;
     position: relative;
@@ -688,7 +688,7 @@ import isotipo from '../assets/img/isotipo.png';
   @media (min-width: 768px) {
     .chat-input { font-size: 14.5px; }
   }
-  .chat-input::placeholder { color: rgba(216, 180, 254, 0.35); }
+  .chat-input::placeholder { color: rgba(30, 91, 255, 0.35); }
 
   .char-count {
     position: absolute;
@@ -703,7 +703,7 @@ import isotipo from '../assets/img/isotipo.png';
     height: 38px;
     border-radius: 999px;
     background: linear-gradient(135deg, var(--lilac), var(--plum));
-    color: var(--cream);
+    color: #FFFFFF;
     border: none;
     cursor: pointer;
     display: flex;
@@ -713,13 +713,13 @@ import isotipo from '../assets/img/isotipo.png';
     transition: all 0.3s;
     -webkit-tap-highlight-color: transparent;
   }
-  .chat-send:hover:not(:disabled) { transform: scale(1.05); box-shadow: 0 8px 24px rgba(168,85,247,0.4); }
+  .chat-send:hover:not(:disabled) { transform: scale(1.05); box-shadow: 0 8px 24px rgba(41,201,214,0.4); }
   .chat-send:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .chat-limit {
     position: absolute;
     inset: 0;
-    background: rgba(19, 6, 31, 0.95);
+    background: rgba(255, 255, 255, 0.96);
     display: flex;
     flex-direction: column;
     align-items: center;

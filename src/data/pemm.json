@@ -1,0 +1,266 @@
+{
+  "empresa": [
+    {
+      "category": "Liderazgo",
+      "dimension": "Conciencia",
+      "statements": {
+        "L1": "La alta gerencia de la empresa reconoce la necesidad de mejorar el desempeño operativo y tiene por lo menos una comprensión básica del poder de los procesos de negocio.",
+        "L2": "Al menos un alto ejecutivo entiende profundamente el concepto de proceso de negocio, cómo puede utilizarlo la empresa para mejorar el desempeño y qué implica implementarlo.",
+        "L3": "La alta gerencia ve a la empresa en términos de proceso y ha desarrollado una visión de la empresa y de sus procesos.",
+        "L4": "La alta gerencia ve su propio trabajo en términos de proceso y percibe la gestión de procesos no como un proyecto sino como una forma de gestionar el negocio."
+      }
+    },
+    {
+      "category": "Liderazgo",
+      "dimension": "Alineamiento",
+      "statements": {
+        "L1": "Los líderes detrás de la gestión de procesos están en los mandos medios o superiores de la empresa.",
+        "L2": "Un alto ejecutivo ha tomado el liderazgo y la responsabilidad de la gestión de procesos.",
+        "L3": "Hay un fuerte alineamiento en el equipo de altos ejecutivos respecto a la gestión de procesos. También hay una red de personas en toda la organización que ayuda a promover las iniciativas de proceso.",
+        "L4": "La gente en toda la organización muestra entusiasmo por los procesos y desempeña papeles de liderazgo en las iniciativas de proceso."
+      }
+    },
+    {
+      "category": "Liderazgo",
+      "dimension": "Conducta",
+      "statements": {
+        "L1": "Por lo menos un alto ejecutivo respalda e invierte en realizar mejoras operativas.",
+        "L2": "Por lo menos un alto ejecutivo ha fijado públicamente metas de desempeño y está dispuesto a comprometer recursos, hacer cambios profundos y eliminar obstáculos para lograr esas metas.",
+        "L3": "Los altos ejecutivos trabajan como equipo, gestionan la empresa mediante sus procesos y participan activamente en el programa de procesos.",
+        "L4": "La alta gerencia realiza sus propios trabajos como procesos, centran la planificación estratégica en procesos y desarrollan nuevas oportunidades de negocios basándose en procesos de alto desempeño."
+      }
+    },
+    {
+      "category": "Liderazgo",
+      "dimension": "Estilo",
+      "statements": {
+        "L1": "La alta gerencia ha pasado desde un estilo jerárquico, de arriba hacia abajo, hacia un estilo abierto y cooperativo.",
+        "L2": "El alto ejecutivo que dirige el programa de proceso es apasionado por la necesidad de cambio y por el proceso como herramienta clave para el lograrlo.",
+        "L3": "La alta gerencia ha delegado control y autoridad a los responsables y ejecutores de procesos.",
+        "L4": "La alta gerencia ejerce liderazgo mediante visión e influencia, y no por mandato y control."
+      }
+    },
+    {
+      "category": "Cultura",
+      "dimension": "Trabajo en equipo",
+      "statements": {
+        "L1": "El trabajo en equipo es frecuente en los diversos estamentos de la empresa.",
+        "L2": "La empresa usa comúnmente equipos interfuncionales de proyecto para esfuerzos de mejora.",
+        "L3": "El trabajo en equipo es la norma entre los ejecutores de procesos y es corriente entre los ejecutivos.",
+        "L4": "El trabajo en equipo con clientes y proveedores es habitual."
+      }
+    },
+    {
+      "category": "Cultura",
+      "dimension": "Foco en el cliente",
+      "statements": {
+        "L1": "Existe una creencia generalizada de que el foco en el cliente es importante, y hay certeza respecto a cómo satisfacer las necesidades del cliente.",
+        "L2": "Los empleados se percatan de que el propósito de su trabajo es brindar un extraordinario valor al cliente.",
+        "L3": "Los empleados entienden que los clientes demandan excelencia uniforme y una experiencia sin sobresaltos.",
+        "L4": "Los empleados se enfocan en colaborar con los socios comerciales para satisfacer las necesidades de los clientes finales."
+      }
+    },
+    {
+      "category": "Cultura",
+      "dimension": "Responsabilidad",
+      "statements": {
+        "L1": "Los ejecutivos asumen responsabilidad por los resultados de negocio.",
+        "L2": "El personal de primera línea empieza a asumir responsabilidad por los resultados de negocio",
+        "L3": "Los empleados se sienten responsables por los resultados de la empresa.",
+        "L4": "Los empleados experimentan un sentido de misión en servir a los clientes y lograr un mejor desempeño."
+      }
+    },
+    {
+      "category": "Cultura",
+      "dimension": "Actitud hacia el cambio",
+      "statements": {
+        "L1": "La organización acepta la necesidad permanente de hacer cambios modestos en la forma de trabajar.",
+        "L2": "Los empleados están listos para hacer cambios significativos en la forma de hacer el trabajo.",
+        "L3": "Los empleados están listos para hacer grandes cambios en diferentes dimensiones de su trabajo.",
+        "L4": "Los empleados reconocen el cambio como inevitable y lo adoptan como un fenómeno regular."
+      }
+    },
+    {
+      "category": "Experticia",
+      "dimension": "Gente",
+      "statements": {
+        "L1": "A lo menos existe un grupo pequeño de personas que tiene un profundo aprecio por el poder de los procesos.",
+        "L2": "Un grupo de expertos tiene destrezas de rediseño e implementación de procesos, gestión de proyectos, comunicaciones y gestión del cambio.",
+        "L3": "Un grupo de expertos tiene destrezas de gestión de cambio en gran escala y transformación corporativa.",
+        "L4": "Muchas personas con destrezas en rediseño e implementación de procesos, gestión de proyectos, programas y cambios, se encuentran en toda la organización. También existe un proceso formal para desarrollar esa base de destrezas."
+      }
+    },
+    {
+      "category": "Experticia",
+      "dimension": "Metodologías",
+      "statements": {
+        "L1": "La empresa usa una o más metodologías para resolver problemas de ejecución y hacer mejoras incrementales de proceso.",
+        "L2": "Los equipos de rediseño de proceso tienen acceso a metodología básica para rediseñar procesos.",
+        "L3": "La empresa ha desarrollado y estandarizado un sistema formal para rediseño de procesos y lo ha integrado a un sistema de mejora de estos.",
+        "L4": "La gestión de proceso y el rediseño de procesos se han convertido en competencias básicas, y forman parte de un sistema formal que incluye examen del ambiente, planificación del cambio, implementación e innovación centrada en procesos."
+      }
+    },
+    {
+      "category": "Gobernabilidad",
+      "dimension": "Mapa de procesos",
+      "statements": {
+        "L1": "La empresa ha identificado por lo menos algunos procesos de negocios.",
+        "L2": "La empresa ha desarrollado un  mapa completo de procesos de la empresa y la alta gerencia lo ha aceptado.",
+        "L3": "El mapa de procesos de la empresa se ha comunicado en toda la organización, se usa para impulsar la priorización de proyectos y está vinculado con tecnologías y arquitecturas de datos a nivel de empresa.",
+        "L4": "La empresa ha extendido el mapa de procesos empresarial para conectarlo con los de los clientes y proveedores. También usa el mapa para el desarrollo de su estrategia."
+      }
+    },
+    {
+      "category": "Gobernabilidad",
+      "dimension": "Responsabilización",
+      "statements": {
+        "L1": "Los ejecutivos funcionales son responsables por el desempeño, y los ejecutivos de proyecto por los proyectos de mejora.",
+        "L2": "Los dueños de proceso se responsabilizan por los procesos individuales y un comité ejecutivo es responsable por el progreso general de los procesos de la empresa.",
+        "L3": "Los dueños de proceso comparten responsabilidad por el desempeño de la empresa.",
+        "L4": "Un concejo de procesos funciona como el más alto ente ejecutivo, los ejecutores comparten responsabilidad por el desempeño de la empresa, la que ha establecido comités ejecutivos con clientes y proveedores para impulsar el cambio de proceso entre las empresas."
+      }
+    },
+    {
+      "category": "Gobernabilidad",
+      "dimension": "Integración",
+      "statements": {
+        "L1": "Uno o más grupos promueven y apoyan diferentes técnicas de mejora operativa.",
+        "L2": "Un grupo coordinador informal proporciona la necesaria gestión de programas mientras que un comité ejecutivo asigna recursos para proyectos de mejora de proceso.",
+        "L3": "Una oficina formal de gestión de programa, dirigida por un gerente de procesos, coordina e integra todos los proyectos de proceso y un concejo de proceso gestiona los problemas de integración entre procesos. La empresa gestiona y despliega en forma integrada todas las técnicas y herramientas de mejora de procesos.",
+        "L4": "Los dueños de proceso trabajan con sus contrapartes en las empresas clientes y proveedoras para impulsar la integración interempresa de procesos."
+      }
+    }
+  ],
+  "proceso": [
+    {
+      "category": "Diseño",
+      "dimension": "Propósito",
+      "statements": {
+        "L1": "Las diversas actividades del proceso se encuentran diseñadas claramente. Los gerentes de cada área han planteado alguna vez mejoras al desempeño de sus actividades.",
+        "L2": "El proceso ha sido rediseñado alguna vez de punta a cabo para mejorar su desempeño.",
+        "L3": "El proceso se ha rediseñado alguna vez para ajustarse a otros procesos de la empresa y a sus sistemas de TI.",
+        "L4": "El proceso se ha rediseñado alguna vez para ajustarse a los procesos de clientes y proveedores.\n"
+      }
+    },
+    {
+      "category": "Diseño",
+      "dimension": "Contexto",
+      "statements": {
+        "L1": "Se han definido formalmente los insumos, salidas, productos, proveedores y clientes del proceso.",
+        "L2": "Las necesidades de los clientes del proceso son conocidas, hay acuerdo sobre ellas y se intenta cumplirlas.",
+        "L3": "El dueño del proceso y los dueños de los otros procesos con los que interactúa, han definido sus expectativas mutuas de desempeño y se ha creado un compromiso en torno a ellas. ",
+        "L4": "El dueño del proceso, y los dueños de los procesos de clientes y proveedores con los que interactúa, han definido sus expectativas mutuas de desempeño y se ha creado un compromiso en torno a ellas."
+      }
+    },
+    {
+      "category": "Diseño",
+      "dimension": "Documentación",
+      "statements": {
+        "L1": "La documentación existente describe el detalle del funcionamiento de cada área involucrada, e identifica las interconexiones entre ellas. Esta documentación es consultada por los ejecutores para desempeñar su trabajo.",
+        "L2": "Hay documentación única y completa del proceso. Incluye todas las excepciones, planes de contingencia y posibles riesgos dentro del proceso.",
+        "L3": "La documentación del proceso describe las interacciones de éste con otros procesos de la organización y sus expectativas mutuas de desempeño. Además, vincula al proceso con los sistemas y arquitectura de datos de la empresa.",
+        "L4": "Una representación electrónica del diseño del proceso apoya su ejecución y gestión,  permite analizar los cambios ambientales y las reconfiguraciones de proceso."
+      }
+    },
+    {
+      "category": "Ejecutores",
+      "dimension": "Conocimiento",
+      "statements": {
+        "L1": "Los ejecutores pueden dar nombre al proceso que ejecutan e identifican los indicadores clave de su desempeño individual.",
+        "L2": "Los ejecutores pueden describir el flujo global del proceso; saben cómo su trabajo afecta a los clientes, otros ejecutores y al desempeño global del proceso; pueden mencionar los niveles de desempeño reales y requeridos del proceso.",
+        "L3": "Los ejecutores están familiarizados con los conceptos fundamentales de este negocio y su relación con el desempeño de la empresa. Pueden describir cómo su trabajo afecta a otros procesos y al desempeño total de la empresa.",
+        "L4": "Los ejecutores están familiarizados con las tendencias en la industria de la empresa y pueden describir cómo su trabajo afecta al desempeño con otras empresas clientes o proveedoras."
+      }
+    },
+    {
+      "category": "Ejecutores",
+      "dimension": "Destrezas",
+      "statements": {
+        "L1": "Los ejecutores tienen las destrezas necesarias para resolver problemas y proponer mejoras al proceso.",
+        "L2": "Los ejecutores tienen las destrezas para trabajar en equipos, tanto con personal de su misma área como de otras que ejecutan el proceso, así como en forma autónoma.",
+        "L3": "Los ejecutores son hábiles en la toma de decisiones de negocio.",
+        "L4": "Los ejecutores tienen capacidades para gestionar e implementar cambios al proceso."
+      }
+    },
+    {
+      "category": "Ejecutores",
+      "dimension": "Conducta",
+      "statements": {
+        "L1": "Los ejecutores profesan algún nivel de responsabilidad al proceso completo, más allá de su responsabilidad funcional.",
+        "L2": "Los ejecutores tratan de seguir el diseño del proceso, ejecutarlo correctamente y trabajar en formas que permitan a otras personas hacer eficazmente su trabajo.",
+        "L3": "Los ejecutores se esfuerzan por asegurarse de que el proceso entregue los resultados necesarios para lograr las metas de la empresa.",
+        "L4": "Los ejecutores buscan señales de que el proceso debería cambiar, y proponen mejoras al proceso."
+      }
+    },
+    {
+      "category": "Dueño de proceso",
+      "dimension": "Identidad",
+      "statements": {
+        "L1": "El dueño del proceso es una persona o grupo, encargado formalmente de mejorar el desempeño del proceso.",
+        "L2": "Los líderes de la empresa han creado un papel oficial de dueño del proceso y han colocado en ese puesto a un alto gerente con influencia y credibilidad.",
+        "L3": "El dueño del proceso da máxima prioridad al proceso en términos de asignación de tiempo, ocupación y metas personales.",
+        "L4": "El dueño del proceso es miembro de la línea de más alto rango de la empresa."
+      }
+    },
+    {
+      "category": "Dueño de proceso",
+      "dimension": "Actividades",
+      "statements": {
+        "L1": "El dueño del proceso vela por la documentación del mismo, lo comunica a todos los ejecutores y patrocina pequeños proyectos de cambio.",
+        "L2": "El dueño del proceso comunica las metas del proceso y una visión de su futuro, patrocina esfuerzos de rediseño y mejora, planifica su implementación, y se asegura de que se cumpla el diseño del proceso.",
+        "L3": "El dueño del proceso colabora con otras personas a cargo de otros procesos, para poder integrarlo con estos últimos, y así lograr las metas de la empresa.",
+        "L4": "El dueño del proceso desarrolla un plan estratégico de desarrollo del proceso, participa en planificación estratégica a nivel de empresa y colabora con sus contrapartes que trabajan para clientes y proveedores, con el fin de patrocinar iniciativas con otras empresas para el rediseño de proceso."
+      }
+    },
+    {
+      "category": "Dueño de proceso",
+      "dimension": "Autoridad",
+      "statements": {
+        "L1": "El dueño del proceso hace lobby o negocia con otros gerentes para hacer cambios al proceso y mejorarlo.",
+        "L2": "El dueño del proceso tiene poder para formar un equipo de rediseño de proceso e implementar el nuevo diseño, y tiene cierto control sobre el presupuesto de tecnología para el proceso.",
+        "L3": "El dueño del proceso controla los sistemas de TI que apoyan el proceso y cualquier proyecto que cambie éste; tiene cierta influencia sobre las asignaciones y evaluaciones de personal, así como sobre el presupuesto del proceso.",
+        "L4": "El dueño del proceso controla el presupuesto del proceso y ejerce fuerte influencia sobre las asignaciones y la evaluación de personal."
+      }
+    },
+    {
+      "category": "Infraestructura",
+      "dimension": "Sistemas de información",
+      "statements": {
+        "L1": "Cada tarea del proceso que lo requiere está apoyada por un sistema o aplicación.",
+        "L2": "El proceso completo es apoyado por un sistema único de TI, creado en base a las necesidades expresadas por cada área funcional.",
+        "L3": "El proceso es apoyado por un sistema integrado de TI, diseñado teniendo en mente el proceso e integrado con los sistemas que apoyan a los demás procesos de la empresa con los que interactúa.",
+        "L4": "El proceso es apoyado por un sistema de TI flexible, basado en estándares de comunicación en la industria, lo que permite la integración del proceso con empresas clientes y/o proveedoras."
+      }
+    },
+    {
+      "category": "Infraestructura",
+      "dimension": "Sistemas de recursos humanos",
+      "statements": {
+        "L1": "Los gerentes recompensan la excelencia en la ejecución y la resolución de problemas específicos, dentro del ámbito de este proceso.",
+        "L2": "El diseño del proceso fomenta la existencia de roles definidos, establece las descripciones de cargo y los perfiles de competencias necesarios. La capacitación se basa en una documentación de proceso.",
+        "L3": "Los sistemas de contratación, desarrollo, reconocimiento y recompensa están asociados a las necesidades y los resultados del proceso.",
+        "L4": "Los sistemas de contratación, desarrollo, recompensa y reconocimiento refuerzan la importancia de la colaboración al interior de la empresa y entre compañías, el aprendizaje personal y el cambio organizacional."
+      }
+    },
+    {
+      "category": "Indicadores",
+      "dimension": "Definición",
+      "statements": {
+        "L1": "El proceso tiene ciertos indicadores básicos de costo y calidad.",
+        "L2": "El proceso tiene indicadores de punta a cabo, derivados de las necesidades de los clientes.",
+        "L3": "Los indicadores del proceso, así como los indicadores entre procesos, se han derivado de las metas estratégicas de la empresa.",
+        "L4": "Los indicadores del proceso se han derivado de metas entre las distintas empresas clientes o proveedoras."
+      }
+    },
+    {
+      "category": "Indicadores",
+      "dimension": "Usos",
+      "statements": {
+        "L1": "Los gerentes usan los indicadores del proceso para monitorear el desempeño, identificar  causas de desempeño defectuoso e impulsar mejoras.",
+        "L2": "Los gerentes usan los indicadores del proceso para compararlos contra las necesidades de los clientes, compararse los mejores de su clase y fijar objetivos de desempeño.",
+        "L3": "Los gerentes presentan los indicadores a los ejecutores de proceso para motivar y crear conciencia sobre el desempeño del proceso. Usa paneles de control  para la gestión cotidiana del proceso.",
+        "L4": "Los gerentes revisan y actualizan regularmente los indicadores y objetivos del proceso, los que son usados por los directivos al planificar la estrategia de la empresa."
+      }
+    }
+  ]
+}

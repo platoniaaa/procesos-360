@@ -10,7 +10,7 @@ interface Props {
 }
 
 const {
-  title = 'Platonia | Soluciones Digitales Inteligentes para Pymes — Páginas Web, Automatización e IA',
+  title = 'Procesos 360 | Soluciones Digitales Inteligentes para Pymes — Páginas Web, Automatización e IA',
   description = 'Startup tecnológica chilena que crea páginas web, automatiza procesos con IA y desarrolla plataformas digitales para pymes. Cotiza gratis.'
 } = Astro.props;
 
@@ -24,7 +24,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#13061F" />
+    <meta name="theme-color" content="#FFFFFF" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/img/isotipo.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/img/isotipo.png" />
@@ -53,10 +53,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": ["Organization", "LocalBusiness"],
-      "name": "Platonia",
+      "name": "Procesos 360",
       "description": "Startup tecnológica chilena que crea páginas web, automatiza procesos con IA y desarrolla plataformas digitales para pymes.",
-      "url": "https://platonia.cl",
-      "logo": "https://platonia.cl/img/logo-completo.png",
+      "url": "https://procesos360.cl",
+      "logo": "https://procesos360.cl/img/logo-completo.png",
       "address": { "@type": "PostalAddress", "addressLocality": "Santiago", "addressCountry": "CL" },
       "contactPoint": { "@type": "ContactPoint", "telephone": "+56997076130", "contactType": "sales", "availableLanguage": "Spanish" },
       "sameAs": []
