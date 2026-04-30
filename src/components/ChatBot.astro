@@ -195,7 +195,7 @@ import isotipo from '../assets/img/isotipo.png';
     sessionId = `s-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
     sessionStorage.setItem(SESSION_KEY, sessionId);
   }
-  const WELCOME = '¡Hola! Soy el asistente digital de Procesos 360. Cuéntame sobre tu negocio y qué desafío digital enfrentas, y te ayudaré a encontrar la mejor solución.';
+  const WELCOME = '¡Hola! Soy el asistente digital de Procesos 360. Contame brevemente sobre tu empresa y el desafío que estás enfrentando hoy en términos de procesos o transformación digital, y te oriento sobre cómo podemos ayudarte.';
 
   const isMobile = window.matchMedia('(max-width: 640px)').matches;
   const bubbleMaxWidth = isMobile ? '88%' : '82%';
