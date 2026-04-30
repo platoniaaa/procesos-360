@@ -1,0 +1,158 @@
+---
+const testimonios = [
+  {
+    quote: 'Como Auditor de Copec, tuve la oportunidad de trabajar con varias consultoras de gestión por procesos a lo largo de los años, y debo decir que mi experiencia con PROCESOS360 ha sido excepcional. Su profundo conocimiento en metodologías de gestión por procesos y su enfoque meticuloso hacia la mejora continua son evidentes en cada proyecto en el que colaboramos. PROCESOS360 no solo demuestra un alto nivel de profesionalismo en la ejecución de sus servicios, sino que también se distingue por su capacidad para identificar y abordar proactivamente cualquier desafío o área de riesgo potencial. Su atención al detalle y su compromiso con la excelencia operativa son realmente impresionantes. Recomiendo encarecidamente a PROCESOS360 a cualquier organización que busque fortalecer sus procesos internos y garantizar el cumplimiento normativo y la eficiencia operativa.',
+    author: 'Camilo Garcés Pizarro',
+    role: 'Ex Subgerente de Auditoría en Copec',
+    currentRole: 'Actual Gerente de Auditoría Interna en Metro Santiago',
+    initials: 'CG',
+  },
+];
+---
+
+<section id="testimonios" class="relative py-20 md:py-32 overflow-hidden" style="background:var(--midnight);">
+
+  <div class="orb w-[400px] h-[400px] top-[-10%] right-[-10%]" style="background:radial-gradient(circle, rgba(41,201,214,0.16) 0%, transparent 60%);"></div>
+  <div class="orb w-[350px] h-[350px] bottom-[10%] left-[-15%]" style="background:radial-gradient(circle, rgba(229,66,181,0.10) 0%, transparent 65%);animation-delay:-3s;"></div>
+
+  <div class="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10">
+
+    <!-- Header -->
+    <div class="grid grid-cols-12 gap-4 md:gap-8 mb-14 md:mb-20 fade-up">
+      <div class="col-span-12 md:col-span-3">
+        <div class="eyebrow eyebrow-dot mb-4">Testimonios</div>
+        <div class="hairline w-16"></div>
+      </div>
+      <div class="col-span-12 md:col-span-9">
+        <h2 class="display-lg">
+          Lo que han dicho
+          <br/>
+          <span class="italic-accent">nuestros clientes</span>.
+        </h2>
+      </div>
+    </div>
+
+    <!-- Testimonios -->
+    <div class="grid grid-cols-1 gap-8">
+      {testimonios.map((t, i) => (
+        <div class="fade-up violet-card testimonio-card" style={`transition-delay: ${i * 120}ms;padding:2.5rem 2rem;`}>
+
+          <!-- Big quote mark -->
+          <div class="testimonio-quote-mark" aria-hidden="true">&ldquo;</div>
+
+          <!-- Quote text -->
+          <p class="testimonio-text">
+            {t.quote}
+          </p>
+
+          <!-- Attribution -->
+          <div class="testimonio-attr">
+            <div class="testimonio-avatar">
+              <span>{t.initials}</span>
+            </div>
+            <div class="flex-1">
+              <div class="testimonio-name">{t.author}</div>
+              <div class="testimonio-role">{t.role}</div>
+              {t.currentRole && (
+                <div class="testimonio-current">{t.currentRole}</div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonio-card {
+    position: relative;
+    overflow: visible;
+  }
+
+  .testimonio-quote-mark {
+    position: absolute;
+    top: -16px;
+    left: 24px;
+    font-family: var(--font-display);
+    font-size: 6rem;
+    line-height: 1;
+    color: var(--plum);
+    font-style: italic;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .testimonio-quote-mark {
+      top: -24px;
+      left: 32px;
+      font-size: 8rem;
+    }
+  }
+
+  .testimonio-text {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.55;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    padding-left: 0;
+  }
+  @media (min-width: 768px) {
+    .testimonio-text {
+      margin-top: 2rem;
+      padding-left: 1rem;
+    }
+  }
+
+  .testimonio-attr {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(30, 91, 255, 0.12);
+  }
+
+  .testimonio-avatar {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--lilac) 0%, var(--plum) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+
+  .testimonio-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--cream);
+    line-height: 1.3;
+  }
+
+  .testimonio-role {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--plum);
+    margin-top: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  .testimonio-current {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+</style>
