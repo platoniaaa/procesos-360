@@ -494,6 +494,10 @@
   animation: marquee 40s linear infinite;
 }
 
+@media (max-width: 768px) {
+  .marquee-track { animation-duration: 18s; }
+}
+
 @keyframes orb-pulse {
   0%, 100% { transform: scale(1); opacity: 0.5; }
   50% { transform: scale(1.05); opacity: 0.75; }
