@@ -1,10 +1,9 @@
 ---
-const values = [
-  { title: 'Accesibilidad', desc: 'La tecnología de calidad no debería ser un lujo.' },
-  { title: 'Innovación con propósito', desc: 'Tecnología que resuelve problemas reales, no buzzwords.' },
-  { title: 'Cercanía', desc: 'Trabajamos codo a codo, hablando tu idioma.' },
-  { title: 'Transparencia', desc: 'Sin letra chica. Siempre sabes qué contratas.' },
-  { title: 'Excelencia técnica', desc: 'Detrás de cada solución, cuidamos cada detalle.' },
+const valores = [
+  { title: 'Integridad',    desc: 'Honestos en cada decisión, transparentes en cada interacción.' },
+  { title: 'Excelencia',    desc: 'El estándar más alto en cada proceso, cada entregable, cada conversación.' },
+  { title: 'Colaboración',  desc: 'Trabajamos lado a lado con tu equipo, nunca por encima.' },
+  { title: 'Compromiso',    desc: 'Nos hacemos parte del éxito a largo plazo de tu organización.' },
 ];
 ---
 
@@ -14,6 +13,7 @@ const values = [
 
   <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-10">
 
+    <!-- Header -->
     <div class="grid grid-cols-12 gap-4 md:gap-8 mb-12 md:mb-16 fade-up">
       <div class="col-span-12 md:col-span-3">
         <div class="eyebrow eyebrow-dot mb-4">Secci&oacute;n IV</div>
@@ -21,107 +21,169 @@ const values = [
       </div>
       <div class="col-span-12 md:col-span-9">
         <h2 class="display-lg">
-          Somos <span class="italic-accent">Procesos 360.</span>
+          Transformando tus procesos
+          <br/>
+          en tus <span class="italic-accent">activos estrat&eacute;gicos</span>.
         </h2>
       </div>
     </div>
 
-    <div class="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-24">
-
-      <!-- Editorial formula: Procesos + 360° = Procesos 360 -->
-      <div class="col-span-12 md:col-span-5 fade-up">
-        <div class="relative aspect-square max-w-[420px] mx-auto md:mx-0 violet-card flex flex-col items-center justify-center" style="padding:2rem;">
-          <div class="absolute inset-0 violet-mesh rounded-[20px]"></div>
-
-          <!-- Top label -->
-          <div class="absolute top-4 left-4 marginalia" style="color:var(--text-muted);">Fig. 01</div>
-          <div class="absolute top-4 right-4 marginalia text-right" style="color:var(--text-muted);">
-            Origen del<br/>nombre
-          </div>
-
-          <!-- Formula content -->
-          <div class="relative z-10 flex flex-col items-center justify-center gap-3 md:gap-4 text-center w-full">
-
-            <div>
-              <div class="marginalia mb-2" style="color:var(--text-muted);">Tu operaci&oacute;n</div>
-              <div style="font-family:var(--font-display);font-size:clamp(1.75rem, 5.5vw, 2.85rem);font-style:italic;font-weight:400;color:var(--cream);letter-spacing:-0.02em;line-height:1;">
-                Procesos
-              </div>
-            </div>
-
-            <div class="font-mono-accent" style="color:var(--lilac);font-size:1.5rem;line-height:1;">+</div>
-
-            <div>
-              <div class="marginalia mb-2" style="color:var(--text-muted);">Visi&oacute;n integral</div>
-              <div style="font-family:var(--font-mono);font-size:clamp(1.75rem, 5vw, 2.75rem);font-weight:500;color:var(--cream);letter-spacing:0.05em;line-height:1;">
-                360&deg;
-              </div>
-            </div>
-
-            <div class="font-mono-accent flex items-center gap-2" style="color:var(--lilac);font-size:1.25rem;line-height:1;">
-              <span style="width:32px;height:1px;background:currentColor;"></span>
-              <span style="font-size:0.85em;">=</span>
-              <span style="width:32px;height:1px;background:currentColor;"></span>
-            </div>
-
-            <div>
-              <div style="font-family:var(--font-display);font-size:clamp(2rem, 6vw, 3.5rem);font-weight:500;letter-spacing:-0.03em;line-height:1;background:linear-gradient(135deg, var(--lilac-soft) 0%, var(--gold) 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
-                Procesos 360
-              </div>
-              <div class="marginalia mt-2 uppercase tracking-[0.2em]" style="color:var(--gold);font-size:0.6rem;">
-                tu negocio optimizado
-              </div>
-            </div>
-
-          </div>
+    <!-- Intro + 10 años badge -->
+    <div class="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-24 fade-up">
+      <div class="col-span-12 md:col-span-7" style="transition-delay:80ms;">
+        <p class="text-lg leading-relaxed" style="color:var(--cream);">
+          Estamos comprometidos con la <em style="color:var(--lilac);font-style:italic;">excelencia en la gesti&oacute;n de procesos</em> para impulsar el &eacute;xito empresarial. Con una trayectoria probada en el dise&ntilde;o, implementaci&oacute;n y optimizaci&oacute;n, nos hemos consolidado como l&iacute;deres en el campo de la consultor&iacute;a de la <em style="color:var(--lilac);font-style:italic;">Gesti&oacute;n de Procesos de Negocios</em>.
+        </p>
+      </div>
+      <div class="col-span-12 md:col-span-5 flex md:justify-end" style="transition-delay:160ms;">
+        <div class="experience-badge">
+          <div class="experience-num">10</div>
+          <div class="experience-label">a&ntilde;os de<br/>experiencia</div>
         </div>
       </div>
+    </div>
 
-      <div class="col-span-12 md:col-span-7 fade-up" style="transition-delay:150ms;">
-        <p class="text-lg leading-relaxed mb-8" style="color:var(--cream);">
-          Nuestro nombre refleja nuestra metodolog&iacute;a: una <em style="color:var(--lilac);font-style:italic;">visi&oacute;n completa (360&deg;)</em> sobre los <em style="color:var(--lilac);font-style:italic;">procesos</em> de tu organizaci&oacute;n. Combinamos an&aacute;lisis estrat&eacute;gico, tecnolog&iacute;a de punta y conocimiento pr&aacute;ctico para que cada operaci&oacute;n de tu empresa fluya con eficiencia y resultados medibles.
+    <!-- Visión + Misión side by side -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-16 md:mb-24">
+      <div class="fade-up violet-card" style="padding:2rem;">
+        <div class="eyebrow mb-4" style="color:var(--lilac);">Nuestra visi&oacute;n</div>
+        <p class="text-base leading-relaxed mb-4" style="color:var(--cream);">
+          Ser el <strong style="font-weight:600;">socio estrat&eacute;gico</strong> de nuestros clientes en su viaje hacia la excelencia operativa y el crecimiento sostenible.
         </p>
-
-        <div class="pl-6 border-l-2 mb-10" style="border-color:var(--lilac);">
-          <p class="pull-quote mb-4">
-            Democratizar el acceso a soluciones digitales de alto nivel para pymes y microempresas.
-          </p>
-          <div class="eyebrow" style="color:var(--gold);">Nuestra misi&oacute;n</div>
-        </div>
-
+        <p class="text-base leading-relaxed mb-4" style="color:var(--text-muted);">
+          Aspiramos a ser reconocidos como l&iacute;deres en la transformaci&oacute;n empresarial a trav&eacute;s de la excelencia en la gesti&oacute;n por procesos. Nos visualizamos como agentes de cambio que inspiran a las organizaciones a alcanzar su m&aacute;ximo potencial, alineando sus procesos con sus objetivos estrat&eacute;gicos.
+        </p>
         <p class="text-base leading-relaxed" style="color:var(--text-muted);">
-          No somos una consultora m&aacute;s. Somos un equipo que entiende los desaf&iacute;os reales de las pymes: presupuestos ajustados, necesidad de resultados r&aacute;pidos y la urgencia de competir en un mercado cada vez m&aacute;s digitalizado.
+          Buscamos crear un mundo empresarial donde la <em style="color:var(--lilac);font-style:italic;">eficiencia operativa</em>, la <em style="color:var(--lilac);font-style:italic;">innovaci&oacute;n continua</em> y el <em style="color:var(--lilac);font-style:italic;">bienestar de las personas</em> sean los pilares fundamentales del &eacute;xito organizacional.
+        </p>
+      </div>
+
+      <div class="fade-up violet-card" style="transition-delay:120ms;padding:2rem;">
+        <div class="eyebrow mb-4" style="color:var(--gold);">Nuestra misi&oacute;n</div>
+        <p class="text-base leading-relaxed mb-4" style="color:var(--cream);">
+          Colaborar estrechamente con nuestros clientes para <strong style="font-weight:600;">mejorar su rendimiento operativo</strong>, maximizar su eficiencia y fomentar una cultura de mejora continua en toda su organizaci&oacute;n.
+        </p>
+        <div class="pl-5 border-l-2" style="border-color:var(--gold);">
+          <p class="pull-quote" style="font-size:clamp(1.1rem,2vw,1.5rem);">
+            Cada proceso es una oportunidad para innovar y agregar valor.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enfoque -->
+    <div class="grid grid-cols-12 gap-4 md:gap-8 mb-16 md:mb-20 fade-up">
+      <div class="col-span-12 md:col-span-3">
+        <div class="eyebrow eyebrow-dot mb-3">Nuestro enfoque</div>
+        <div class="hairline w-12"></div>
+      </div>
+      <div class="col-span-12 md:col-span-9">
+        <p class="text-lg md:text-xl leading-relaxed" style="color:var(--cream);">
+          Creemos en un <em style="color:var(--lilac);font-style:italic;">enfoque hol&iacute;stico</em> de la gesti&oacute;n por procesos que combine la experiencia t&eacute;cnica con un profundo entendimiento del negocio y un compromiso con las personas. Nos esforzamos por comprender las necesidades &uacute;nicas de cada cliente y desarrollar soluciones personalizadas que generen <em style="color:var(--lilac);font-style:italic;">resultados tangibles y sostenibles</em>.
         </p>
       </div>
     </div>
 
-    <!-- Values -->
-    <div class="fade-up">
+    <!-- Valores -->
+    <div class="fade-up mb-16 md:mb-24">
       <div class="grid grid-cols-12 gap-4 md:gap-8 mb-10">
         <div class="col-span-12 md:col-span-3">
-          <div class="eyebrow eyebrow-dot">Valores</div>
+          <div class="eyebrow eyebrow-dot mb-3">Nuestros valores</div>
+          <div class="hairline w-12"></div>
+        </div>
+        <div class="col-span-12 md:col-span-9">
+          <p class="text-base leading-relaxed" style="color:var(--text-muted);">
+            Un conjunto de valores fundamentales que orientan nuestras acciones y decisiones en todo momento.
+          </p>
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-4">
-        {values.map((value, i) => (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+        {valores.map((v, i) => (
           <div class="fade-up violet-card" style={`transition-delay: ${i * 80}ms;padding:1.5rem;`}>
-            <h4 class="display-md mb-3" style="font-size:1.15rem;line-height:1.15;">
-              {value.title}
+            <h4 class="display-md mb-2" style="font-size:1.2rem;line-height:1.2;">
+              {v.title}
             </h4>
             <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
-              {value.desc}
+              {v.desc}
             </p>
           </div>
         ))}
       </div>
     </div>
 
-    <!-- Closing lema -->
-    <div class="fade-up mt-20 md:mt-28 text-center border-t pt-14 md:pt-20" style="border-color:rgba(30,91,255,0.12);">
-      <p class="pull-quote max-w-3xl mx-auto text-center">
-        La sabidur&iacute;a de hacer las cosas bien, con la inteligencia de hacerlas mejor.
-      </p>
-      <div class="eyebrow mt-8" style="color:var(--gold);">&mdash; Procesos 360</div>
+    <!-- Compromiso -->
+    <div class="grid grid-cols-12 gap-4 md:gap-8 fade-up">
+      <div class="col-span-12 md:col-span-3">
+        <div class="eyebrow eyebrow-dot mb-3" style="color:var(--gold);">Nuestro compromiso</div>
+        <div class="hairline w-12"></div>
+      </div>
+      <div class="col-span-12 md:col-span-9">
+        <p class="text-lg leading-relaxed mb-6" style="color:var(--cream);">
+          Estamos comprometidos a establecer <em style="color:var(--lilac);font-style:italic;">relaciones s&oacute;lidas y duraderas</em> con nuestros clientes, basadas en la confianza mutua, la transparencia y los resultados medibles. Nos consideramos socios estrat&eacute;gicos en su viaje hacia la excelencia operativa y estamos dedicados a su &eacute;xito a largo plazo.
+        </p>
+        <p class="text-base leading-relaxed" style="color:var(--text-muted);">
+          En Procesos 360 estamos aqu&iacute; para ayudarte a transformar tus procesos y alcanzar nuevos niveles de eficiencia y rendimiento.
+        </p>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .experience-badge {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--plum) 0%, var(--violet) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    box-shadow: 0 16px 40px rgba(30, 91, 255, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .experience-badge::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -40%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(41, 201, 214, 0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .experience-num {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 5rem;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .experience-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-align: center;
+    margin-top: 0.5rem;
+    opacity: 0.95;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .experience-badge {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto;
+    }
+    .experience-num { font-size: 4rem; }
+  }
+</style>
