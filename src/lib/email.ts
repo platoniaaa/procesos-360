@@ -283,10 +283,10 @@ export async function sendDiagnosticoReportToLead(data: DiagnosticReportData) {
           <div style="margin-top:32px;padding:24px;background:linear-gradient(135deg,#EAF1FB,#F5F8FD);border-radius:12px;text-align:center;">
             <h3 style="margin:0 0 8px;font-size:17px;color:#0A1F4A;">¿Quieres que te ayudemos a implementarlo?</h3>
             <p style="margin:0 0 16px;font-size:13px;color:#666;line-height:1.6;">Una llamada de 30 min sin compromiso.</p>
-            <a href="https://wa.me/56997076130?text=Hola,%20completé%20el%20diagnóstico%20PEMM%20y%20me%20gustaría%20agendar%20una%20llamada" style="display:inline-block;background:#1E5BFF;color:#fff;padding:12px 28px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;">Agendar llamada por WhatsApp</a>
+            <a href="https://wa.me/56964261751?text=Hola,%20completé%20el%20diagnóstico%20PEMM%20y%20me%20gustaría%20agendar%20una%20llamada" style="display:inline-block;background:#1E5BFF;color:#fff;padding:12px 28px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;">Agendar llamada por WhatsApp</a>
           </div>
         </div>
-        <p style="text-align:center;color:#999;font-size:11px;margin-top:16px;line-height:1.5;">Procesos 360 · Santiago, Chile<br/>contacto@procesos360.cl · +56 9 9707 6130</p>
+        <p style="text-align:center;color:#999;font-size:11px;margin-top:16px;line-height:1.5;">Procesos 360 · Santiago, Chile<br/>javier.espinoza@procesos360.cl · +569 64261751</p>
       </div>
     `;
 
