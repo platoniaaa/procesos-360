@@ -1,21 +1,82 @@
 ---
-const marqueeItems = [
-  'Presencia digital',
-  'Automatización IA',
-  'ERP &amp; CRM',
-  'Integración de sistemas',
-  'Desarrollo a medida',
-  'Chatbot inteligente',
-  'Capacitaciones',
+const clients = [
+  { name: 'Derco',                       logo: '/img/clients/derco.png' },
+  { name: 'Copec',                       logo: '/img/clients/copec.png' },
+  { name: 'Transbank',                   logo: '/img/clients/transbank.png' },
+  { name: 'Caserones',                   logo: '/img/clients/caserones.png' },
+  { name: 'Gallagher',                   logo: '/img/clients/gallagher.jpg' },
+  { name: 'CFT Estatal Región Metropolitana', logo: '/img/clients/cft-rm.png' },
+  { name: 'FACM',                        logo: '/img/clients/facm.jpg' },
+  { name: 'Unired',                      logo: '/img/clients/unired.png' },
+  { name: 'Sercomed',                    logo: '/img/clients/sercomed.png' },
+  { name: '.vgroup',                     logo: '/img/clients/vgroup.png' },
+  { name: 'Facultad de Economía y Negocios — U. de Chile', logo: '/img/clients/fen-uchile.jpg' },
+  { name: 'UDLA',                        logo: '/img/clients/udla.png' },
+  { name: 'Universidad del Desarrollo',  logo: '/img/clients/udd.jpg' },
+  { name: 'SONAMI',                      logo: '/img/clients/sonami.png' },
+  { name: 'Arcoprime',                   logo: '/img/clients/arcoprime.png' },
+  { name: 'Proyectum',                   logo: '/img/clients/proyectum.png' },
+  { name: 'Empresa Eléctrica Municipal de TilTil', logo: '/img/clients/eemtt.jpg' },
+  { name: 'ProntoPaga',                  logo: '/img/clients/prontopaga.png' },
+  { name: 'SURA',                        logo: '/img/clients/sura.png' },
+  { name: 'MSO',                         logo: '/img/clients/mso.jpg' },
 ];
 ---
 
-<section class="relative py-6 md:py-8 overflow-hidden" style="background:linear-gradient(90deg, var(--plum-900), var(--plum-800), var(--plum-900));border-top:1px solid rgba(41,201,214,0.2);border-bottom:1px solid rgba(41,201,214,0.2);">
-  <div class="marquee-track gap-12 md:gap-16 whitespace-nowrap">
-    {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item) => (
-      <div class="flex items-center gap-12 md:gap-16 flex-shrink-0">
-        <span class="font-mono-accent text-xs md:text-sm uppercase tracking-[0.2em]" style="color:var(--gold);" set:html={`✦ ${item}`}></span>
+<section class="trust-banner relative overflow-hidden">
+  <div class="marquee-track">
+    {[...clients, ...clients, ...clients].map((c) => (
+      <div class="trust-logo-item flex-shrink-0">
+        <img src={c.logo} alt={c.name} class="trust-logo" loading="lazy" />
       </div>
     ))}
   </div>
 </section>
+
+<style>
+  .trust-banner {
+    background: linear-gradient(90deg, var(--plum-900), #FFFFFF, var(--plum-900));
+    border-top: 1px solid rgba(41, 201, 214, 0.18);
+    border-bottom: 1px solid rgba(41, 201, 214, 0.18);
+    padding: 1.5rem 0;
+  }
+  @media (min-width: 768px) {
+    .trust-banner { padding: 2rem 0; }
+  }
+
+  .trust-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1.75rem;
+    height: 56px;
+  }
+  @media (min-width: 768px) {
+    .trust-logo-item {
+      margin: 0 2.5rem;
+      height: 64px;
+    }
+  }
+
+  .trust-logo {
+    max-height: 100%;
+    max-width: 160px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: opacity 0.3s, filter 0.3s;
+  }
+  @media (min-width: 768px) {
+    .trust-logo { max-width: 180px; }
+  }
+
+  /* Slight desaturation by default + full color on hover (logo-wall pattern) */
+  .trust-logo {
+    filter: saturate(0.8);
+    opacity: 0.92;
+  }
+  .trust-logo:hover {
+    filter: saturate(1.15);
+    opacity: 1;
+  }
+</style>
