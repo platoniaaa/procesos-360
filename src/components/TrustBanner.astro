@@ -23,15 +23,126 @@ const clients = [
 ];
 ---
 
-<section class="trust-banner relative overflow-hidden">
-  <div class="marquee-track">
-    {[...clients, ...clients, ...clients].map((c) => (
-      <div class="trust-logo-item flex-shrink-0">
-        <img src={c.logo} alt={c.name} class="trust-logo" loading="lazy" />
-      </div>
-    ))}
+<section class="trust-banner relative">
+  <div class="trust-scroll" id="trust-scroll" role="region" aria-label="Empresas que han confiado en nosotros">
+    <div class="trust-track">
+      {[...clients, ...clients, ...clients].map((c) => (
+        <div class="trust-logo-item flex-shrink-0">
+          <img src={c.logo} alt={c.name} class="trust-logo" draggable="false" loading="lazy" />
+        </div>
+      ))}
+    </div>
   </div>
 </section>
+
+<script>
+  const scroll = document.getElementById('trust-scroll');
+  if (scroll) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    // px per 16ms frame
+    let speed = isMobile ? 1.4 : 0.8;
+    let isPaused = false;
+    let isDragging = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let lastDragX = 0;
+    let lastDragT = 0;
+    let velocity = 0; // for inertia after drag release
+    let resumeTimer: number | null = null;
+
+    function loop() {
+      if (scroll && !isPaused && !isDragging && !reducedMotion) {
+        scroll.scrollLeft += speed;
+        const third = scroll.scrollWidth / 3;
+        // When we cross into the middle copy, jump back one third (invisible)
+        if (scroll.scrollLeft >= third * 2) {
+          scroll.scrollLeft -= third;
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+
+    function scheduleResume(ms = 1500) {
+      if (resumeTimer !== null) window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(() => { isPaused = false; }, ms);
+    }
+
+    // Mouse/pen drag — touch goes through native scroll
+    function onPointerDown(e: PointerEvent) {
+      if (e.pointerType === 'touch') return;
+      isDragging = true;
+      isPaused = true;
+      startX = e.clientX;
+      lastDragX = e.clientX;
+      lastDragT = performance.now();
+      velocity = 0;
+      startScrollLeft = scroll!.scrollLeft;
+      scroll!.classList.add('is-dragging');
+      try { scroll!.setPointerCapture(e.pointerId); } catch {}
+      e.preventDefault();
+    }
+
+    function onPointerMove(e: PointerEvent) {
+      if (!isDragging) return;
+      const dx = e.clientX - startX;
+      scroll!.scrollLeft = startScrollLeft - dx;
+      const now = performance.now();
+      const dt = now - lastDragT;
+      if (dt > 0) {
+        velocity = (lastDragX - e.clientX) / dt; // px per ms
+      }
+      lastDragX = e.clientX;
+      lastDragT = now;
+    }
+
+    function onPointerUp(e: PointerEvent) {
+      if (!isDragging) return;
+      isDragging = false;
+      scroll!.classList.remove('is-dragging');
+      try { scroll!.releasePointerCapture(e.pointerId); } catch {}
+
+      // Inertia: keep scrolling after release for a moment, then resume auto
+      const startV = velocity;
+      const startT = performance.now();
+      const decay = 0.94;
+      function inertia(now: number) {
+        if (isDragging || !scroll) return;
+        const elapsed = now - startT;
+        const factor = Math.pow(decay, elapsed / 16);
+        const v = startV * factor;
+        if (Math.abs(v) < 0.02) {
+          scheduleResume(1200);
+          return;
+        }
+        scroll.scrollLeft += v * 16;
+        requestAnimationFrame(inertia);
+      }
+      if (Math.abs(startV) > 0.05) requestAnimationFrame(inertia);
+      else scheduleResume(1500);
+    }
+
+    scroll.addEventListener('pointerdown', onPointerDown);
+    scroll.addEventListener('pointermove', onPointerMove);
+    scroll.addEventListener('pointerup', onPointerUp);
+    scroll.addEventListener('pointercancel', onPointerUp);
+
+    // Touch (mobile): pause auto-scroll while finger is on the strip
+    scroll.addEventListener('touchstart', () => {
+      isPaused = true;
+      if (resumeTimer !== null) window.clearTimeout(resumeTimer);
+    }, { passive: true });
+    scroll.addEventListener('touchend', () => { scheduleResume(1500); }, { passive: true });
+    scroll.addEventListener('touchcancel', () => { scheduleResume(1500); }, { passive: true });
+
+    // Prevent native drag of images (would interfere with our pointer drag)
+    scroll.querySelectorAll('img').forEach((img) => {
+      img.addEventListener('dragstart', (e) => e.preventDefault());
+    });
+  }
+</script>
 
 <style>
   .trust-banner {
@@ -39,9 +150,29 @@ const clients = [
     border-top: 1px solid rgba(30, 91, 255, 0.10);
     border-bottom: 1px solid rgba(30, 91, 255, 0.10);
     padding: 1.5rem 0;
+    overflow: hidden;
   }
   @media (min-width: 768px) {
     .trust-banner { padding: 2rem 0; }
+  }
+
+  .trust-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  .trust-scroll::-webkit-scrollbar { display: none; }
+  .trust-scroll.is-dragging { cursor: grabbing; }
+
+  .trust-track {
+    display: flex;
+    width: max-content;
   }
 
   .trust-logo-item {
@@ -64,19 +195,17 @@ const clients = [
     width: auto;
     height: auto;
     object-fit: contain;
+    pointer-events: none;
     transition: opacity 0.3s, filter 0.3s;
+    filter: saturate(0.8);
+    opacity: 0.92;
   }
   @media (min-width: 768px) {
     .trust-logo { max-width: 180px; }
   }
 
-  /* Slight desaturation by default + full color on hover (logo-wall pattern) */
-  .trust-logo {
-    filter: saturate(0.8);
-    opacity: 0.92;
-  }
-  .trust-logo:hover {
-    filter: saturate(1.15);
+  .trust-scroll:hover .trust-logo {
+    filter: saturate(1);
     opacity: 1;
   }
 </style>
