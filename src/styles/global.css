@@ -192,12 +192,19 @@
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 400;
+    color: var(--plum);
+  }
+
+  /* Strategic-use gradient (reserved for hero highlight only). */
+  .italic-gradient {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
     background: linear-gradient(135deg, var(--plum) 0%, var(--gold) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    /* Extra padding to capture italic ascenders/descenders without clipping */
     padding: 0.05em 0.18em 0.08em 0.02em;
     margin: -0.05em 0 -0.08em 0;
   }
