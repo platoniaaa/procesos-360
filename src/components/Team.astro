@@ -4,73 +4,53 @@ const team = [
     photo: '/img/team/javier-espinoza.jpg',
     name: 'Javier Espinoza Covarrubias',
     role: 'Socio Director',
-    bio: 'MBA de la Universidad de Chile e Ingeniero Civil Industrial USACH, con más de 23 años de experiencia liderando implementaciones funcionales de plataformas TI y proyectos de mejora continua en minería, energía, retail, banca, transporte y sector público.',
-    tags: ['Design Thinking', 'Customer Experience', 'End-to-End'],
+    bio: 'MBA de la Universidad de Chile e Ingeniero Civil Industrial USACH, con más de 23 años liderando proyectos de mejora continua en minería, energía, retail, banca y sector público.',
+    ring: 'var(--plum)',
   },
   {
     photo: '/img/team/ignacio-calderon.jpg',
     name: 'Ignacio Calderón',
     role: 'Ingeniero de Procesos y Automatización',
-    bio: 'Ingeniero Civil Industrial USACH con formación complementaria en Ciencia de Datos. Especialista en inteligencia artificial aplicada a la optimización de procesos, automatización de operaciones comerciales y desarrollo de soluciones basadas en datos.',
-    tags: ['IA aplicada', 'Automatización', 'Ciencia de Datos'],
+    bio: 'Ingeniero Civil Industrial USACH con formación en Ciencia de Datos. Especialista en IA aplicada a la optimización de procesos y automatización comercial.',
+    ring: 'var(--lilac)',
   },
   {
     photo: '/img/team/francisco-guajardo.jpg',
     name: 'Francisco Guajardo',
     role: 'Analista de Procesos y Analítica de Datos',
-    bio: 'Estudiante de Ingeniería Civil Industrial USACH con Ciencia de Datos Avanzado y Diplomado en Inteligencia de Negocios de la PUC. Experiencia en reingeniería de procesos y analítica avanzada con Python, Power BI y SQL en sector financiero y servicios.',
-    tags: ['Power BI', 'Python · SQL', 'Inteligencia de Negocios'],
+    bio: 'Ingeniería Civil Industrial USACH con Ciencia de Datos Avanzado y Diplomado en Inteligencia de Negocios PUC. Experiencia en analítica con Python, Power BI y SQL.',
+    ring: 'var(--gold)',
   },
 ];
 ---
 
-<section id="equipo" class="relative py-20 md:py-32 overflow-hidden" style="background:var(--night);">
-
-  <!-- Ambient glow -->
-
+<section id="equipo" class="team-section">
   <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-10">
 
-    <!-- Header -->
-    <div class="grid grid-cols-12 gap-4 md:gap-8 mb-14 md:mb-20 fade-up">
-      <div class="col-span-12 md:col-span-3">
-        <div class="eyebrow eyebrow-dot mb-4">Nuestro equipo</div>
-        <div class="hairline w-16"></div>
-      </div>
-      <div class="col-span-12 md:col-span-9">
-        <h2 class="display-lg">
-          Profesionales detrás
-          <br/>
-          de cada <span class="italic-accent">transformación</span>.
-        </h2>
-        <p class="mt-5 text-base md:text-lg max-w-2xl leading-relaxed" style="color:var(--text-muted);">
-          Combinamos experiencia en consultoría, conocimiento técnico y habilidades interpersonales para enfrentar cualquier desafío y entregar soluciones efectivas a nuestros clientes.
-        </p>
-      </div>
+    <!-- Header (centered, Olivia-style) -->
+    <div class="team-header fade-up">
+      <div class="eyebrow eyebrow-dot team-eyebrow">Nuestro equipo</div>
+      <h2 class="team-title">
+        Las personas detrás de cada
+        <span class="team-title-accent">transformación</span>.
+      </h2>
     </div>
 
     <!-- Team grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+    <div class="team-grid">
       {team.map((person, i) => (
-        <article class="fade-up violet-card team-card" style={`transition-delay: ${i * 100}ms;padding:0;overflow:hidden;`}>
-
-          <!-- Photo -->
-          <div class="team-photo-wrap">
-            <img src={person.photo} alt={person.name} class="team-photo" loading="lazy" />
-          </div>
-
-          <!-- Body -->
-          <div class="team-body">
-            <h3 class="team-name">{person.name}</h3>
-            <div class="team-role">{person.role}</div>
-            <p class="team-bio">{person.bio}</p>
-
-            <!-- Tags -->
-            <div class="team-tags">
-              {person.tags.map(t => (
-                <span class="team-tag">{t}</span>
-              ))}
+        <article class="team-member fade-up" style={`transition-delay: ${i * 120}ms;`}>
+          <div class="team-photo-ring" style={`--ring-color: ${person.ring};`}>
+            <svg class="team-arc" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="47" fill="none" stroke="var(--ring-color)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="218 295" transform="rotate(-100 50 50)" />
+            </svg>
+            <div class="team-photo">
+              <img src={person.photo} alt={person.name} loading="lazy" />
             </div>
           </div>
+          <h3 class="team-name">{person.name}</h3>
+          <div class="team-role">{person.role}</div>
+          <p class="team-bio">{person.bio}</p>
         </article>
       ))}
     </div>
@@ -78,48 +58,100 @@ const team = [
 </section>
 
 <style>
-  .team-card {
-    display: flex;
-    flex-direction: column;
+  .team-section {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0;
+    background: #0A1F4A;
+  }
+  @media (min-width: 768px) {
+    .team-section { padding: 7rem 0 8rem; }
   }
 
-  .team-photo-wrap {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    background: linear-gradient(180deg, #F5F8FD 0%, #EAF1FB 100%);
-    overflow: hidden;
+  .team-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+  }
+  @media (min-width: 768px) {
+    .team-header { margin-bottom: 5.5rem; }
+  }
+  .team-eyebrow {
+    color: var(--lilac);
+    display: inline-block;
+    margin-bottom: 1.25rem;
+  }
+  .team-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: #FFFFFF;
+  }
+  .team-title-accent {
+    color: var(--lilac);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+    .team-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .team-member {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* --- Circular photo with arc --- */
+  .team-photo-ring {
     position: relative;
+    width: 220px;
+    height: 220px;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .team-photo-ring { width: 240px; height: 240px; }
+  }
+
+  .team-arc {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .team-member:hover .team-arc {
+    transform: rotate(120deg);
   }
 
   .team-photo {
+    position: absolute;
+    inset: 14px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #F5F8FD;
+  }
+  .team-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 22%;
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .team-card:hover .team-photo {
-    transform: scale(1.04);
-  }
-
-  .team-body {
-    padding: 1.5rem 1.5rem 1.75rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-  @media (min-width: 768px) {
-    .team-body {
-      padding: 1.75rem 1.75rem 2rem;
-    }
+    object-position: center 20%;
   }
 
   .team-name {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 1.2rem;
-    color: var(--cream);
+    font-size: 1.25rem;
+    color: #FFFFFF;
     line-height: 1.2;
     letter-spacing: -0.01em;
     margin: 0 0 4px;
@@ -128,37 +160,22 @@ const team = [
   .team-role {
     font-family: var(--font-mono);
     font-size: 0.72rem;
-    color: var(--plum);
+    color: var(--lilac);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 1rem;
   }
 
   .team-bio {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     line-height: 1.6;
-    color: var(--text-muted);
-    margin: 0 0 1.25rem;
-    flex: 1;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 320px;
+    margin: 0;
   }
 
-  .team-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(30, 91, 255, 0.10);
-  }
-
-  .team-tag {
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(41, 201, 214, 0.10);
-    border: 1px solid rgba(41, 201, 214, 0.25);
-    color: var(--plum);
-    letter-spacing: 0.02em;
+  @media (prefers-reduced-motion: reduce) {
+    .team-arc { transition: none; }
+    .team-member:hover .team-arc { transform: none; }
   }
 </style>
