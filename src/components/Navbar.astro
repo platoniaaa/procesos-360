@@ -19,14 +19,21 @@ const links = [
         <img id="navbar-logo" src={logoCompleto.src} alt="Procesos 360" class="h-8 md:h-9 w-auto transition-all duration-300" />
       </a>
 
-      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-        <span id="menu-toggle-label" class="menu-toggle-label">Menú</span>
-        <div id="hamburger" class="w-6 h-5 relative flex flex-col justify-between">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </div>
-      </button>
+      <div class="navbar-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activar modo oscuro">
+          <svg class="theme-icon theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="theme-icon theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+          <span id="menu-toggle-label" class="menu-toggle-label">Menú</span>
+          <div id="hamburger" class="w-6 h-5 relative flex flex-col justify-between">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 </nav>
@@ -39,14 +46,7 @@ const links = [
     ))}
   </nav>
   <div class="fs-menu-footer">
-    <div class="fs-menu-footer-actions">
-      <a href="/#contacto" class="fs-cta">Cotiza gratis &rarr;</a>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar entre modo claro y oscuro">
-        <svg class="theme-icon theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg class="theme-icon theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <span class="theme-toggle-text">Modo oscuro</span>
-      </button>
-    </div>
+    <a href="/#contacto" class="fs-cta">Cotiza gratis &rarr;</a>
     <div class="fs-menu-meta">
       <a href="https://wa.me/56964261751" target="_blank" rel="noopener noreferrer">+569 64261751</a>
       <span>&middot;</span>
@@ -140,14 +140,16 @@ const links = [
 
   /* --- Theme toggle --- */
   const themeToggle = document.getElementById('theme-toggle');
-  const themeToggleText = themeToggle?.querySelector('.theme-toggle-text');
 
   function currentTheme() {
     return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
-  function syncThemeLabel() {
-    if (themeToggleText) {
-      themeToggleText.textContent = currentTheme() === 'dark' ? 'Modo claro' : 'Modo oscuro';
+  function syncThemeUI() {
+    if (themeToggle) {
+      themeToggle.setAttribute(
+        'aria-label',
+        currentTheme() === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'
+      );
     }
   }
   function setTheme(theme: string) {
@@ -157,18 +159,63 @@ const links = [
       document.documentElement.removeAttribute('data-theme');
     }
     try { localStorage.setItem('theme', theme); } catch {}
-    syncThemeLabel();
+    syncThemeUI();
     updateNavbar();
     updateLogo();
   }
-  syncThemeLabel();
+  syncThemeUI();
   themeToggle?.addEventListener('click', () => {
     setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
   });
 </script>
 
 <style>
-  /* --- Top bar toggle --- */
+  /* --- Top bar actions --- */
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .navbar-actions { gap: 1rem; }
+  }
+
+  /* --- Theme toggle (top bar, icon only, theme-aware) --- */
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--cream);
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s, background 0.3s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .theme-toggle:hover {
+    color: var(--plum);
+    border-color: var(--plum);
+  }
+  .theme-icon { flex-shrink: 0; }
+  /* Light mode → show moon (offer dark). Dark mode → show sun (offer light). */
+  .theme-icon-sun { display: none; }
+  .theme-icon-moon { display: block; }
+  :global(:root[data-theme="dark"]) .theme-icon-sun { display: block; }
+  :global(:root[data-theme="dark"]) .theme-icon-moon { display: none; }
+  /* While the fullscreen menu is open, force white over the navy overlay */
+  :global(body.menu-open) .theme-toggle {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  :global(body.menu-open) .theme-toggle:hover {
+    color: var(--lilac);
+    border-color: var(--lilac);
+  }
+
+  /* --- Menu toggle --- */
   .menu-toggle {
     display: flex;
     align-items: center;
@@ -200,7 +247,6 @@ const links = [
   #hamburger.open .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   #hamburger.open .hamburger-line:nth-child(2) { opacity: 0; }
   #hamburger.open .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
-  #hamburger.open ~ .menu-toggle-label,
   .menu-toggle[aria-expanded="true"] .menu-toggle-label { color: #FFFFFF; }
 
   /* --- Fullscreen menu --- */
@@ -326,43 +372,6 @@ const links = [
     transition: color 0.3s;
   }
   .fs-menu-meta a:hover { color: var(--lilac); }
-
-  /* --- Footer actions row (CTA + theme toggle) --- */
-  .fs-menu-footer-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  /* --- Theme toggle button --- */
-  .theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: #FFFFFF;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.7rem 1.1rem;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: border-color 0.3s, background 0.3s;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .theme-toggle:hover {
-    border-color: var(--lilac);
-    background: rgba(41, 201, 214, 0.12);
-  }
-  .theme-icon { flex-shrink: 0; }
-  /* Light mode → show moon (offer dark). Dark mode → show sun (offer light). */
-  .theme-icon-sun { display: none; }
-  .theme-icon-moon { display: block; }
-  :root[data-theme="dark"] .theme-icon-sun { display: block; }
-  :root[data-theme="dark"] .theme-icon-moon { display: none; }
 
   @media (prefers-reduced-motion: reduce) {
     .fs-link { opacity: 1; transform: none; }
