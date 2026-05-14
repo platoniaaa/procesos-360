@@ -3,41 +3,35 @@
 
 <section id="hero" class="relative min-h-[100svh] flex items-center overflow-hidden" style="background:var(--night);">
 
-  <!-- Violet aurora mesh background -->
+  <!-- Aurora mesh background -->
   <div class="absolute inset-0 violet-mesh"></div>
-
-  <!-- Decorative glowing orbs -->
-
   <!-- Noise overlay -->
   <div class="absolute inset-0 noise-bg"></div>
 
   <div class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-16 md:pb-20">
 
-    <!-- Top label + hairline -->
-    <div class="hero-reveal hero-reveal-1 flex items-center gap-4 mb-10 md:mb-16">
-      <span class="eyebrow eyebrow-dot" style="color:var(--lilac);">Consultor&iacute;a en gesti&oacute;n por procesos</span>
-      <div class="hairline flex-1 max-w-[200px]"></div>
-    </div>
+    <div class="hero-grid">
 
-    <!-- Headline -->
-    <h1 class="hero-reveal hero-reveal-2 hero-headline mb-8 md:mb-10">
-      Haz m&aacute;s,
-      <br />
-      <span class="italic-gradient">mejor</span> y
-      <br />
-      m&aacute;s r&aacute;pido.
-    </h1>
+      <!-- LEFT — copy -->
+      <div class="hero-left">
+        <div class="hero-reveal hero-reveal-1 flex items-center gap-4 mb-8 md:mb-12">
+          <span class="eyebrow eyebrow-dot" style="color:var(--lilac);">Consultor&iacute;a en gesti&oacute;n por procesos</span>
+          <div class="hairline flex-1 max-w-[160px]"></div>
+        </div>
 
-    <!-- Sub + CTAs -->
-    <div class="grid grid-cols-12 gap-6 md:gap-10 items-end mb-14 md:mb-20">
-      <div class="col-span-12 md:col-span-6">
-        <p class="hero-reveal hero-reveal-3 text-lg md:text-xl leading-relaxed max-w-xl" style="color:var(--text-muted);">
+        <h1 class="hero-reveal hero-reveal-2 hero-headline mb-8 md:mb-10">
+          Haz m&aacute;s,
+          <br />
+          <span class="italic-gradient">mejor</span> y
+          <br />
+          m&aacute;s r&aacute;pido.
+        </h1>
+
+        <p class="hero-reveal hero-reveal-3 hero-sub mb-8">
           Optimizamos procesos, implementamos IA con criterio y acompa&ntilde;amos el cambio organizacional. Para que la transformaci&oacute;n deje de ser un proyecto y se vuelva tu forma de operar.
         </p>
-      </div>
 
-      <div class="hero-reveal hero-reveal-4 col-span-12 md:col-span-6">
-        <div class="flex flex-col sm:flex-row gap-3 md:justify-end">
+        <div class="hero-reveal hero-reveal-4 flex flex-col sm:flex-row gap-3">
           <a href="/diagnostico" class="btn-primary">
             Hacer diagn&oacute;stico gratis
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -45,10 +39,19 @@
           <a href="#contacto" class="btn-secondary">Cotiza tu proyecto</a>
         </div>
       </div>
+
+      <!-- RIGHT — chevron graphic -->
+      <div class="hero-right hero-reveal hero-reveal-3" aria-hidden="true">
+        <svg class="hero-chevrons" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 24 L104 100 L16 176" stroke="currentColor" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M120 24 L208 100 L120 176" stroke="currentColor" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M224 24 L312 100 L224 176" stroke="currentColor" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
     </div>
 
     <!-- Trust statement -->
-    <div class="hero-reveal hero-reveal-5 pt-8 md:pt-10 border-t" style="border-color:rgba(30,91,255,0.15);">
+    <div class="hero-reveal hero-reveal-5 hero-trust pt-8 md:pt-10 border-t" style="border-color:rgba(30,91,255,0.15);">
       <p class="font-display text-xl md:text-3xl leading-tight" style="color:var(--cream);font-weight:400;letter-spacing:-0.02em;">
         <span class="italic-accent">Empresas</span> que han confiado en nosotros.
       </p>
@@ -57,12 +60,67 @@
 </section>
 
 <style>
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 3.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      margin-bottom: 5rem;
+    }
+  }
+
   .hero-headline {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: clamp(3.25rem, 12vw, 10.5rem);
+    font-size: clamp(3rem, 9vw, 8rem);
     line-height: 0.95;
     letter-spacing: -0.045em;
     color: var(--cream);
+    margin: 0;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 34rem;
+  }
+  @media (min-width: 768px) {
+    .hero-sub { font-size: 1.2rem; }
+  }
+
+  /* Chevron graphic — hidden on small screens, prominent on desktop */
+  .hero-right {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .hero-chevrons {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    color: var(--lilac);
+    animation: chevron-float 6s ease-in-out infinite;
+  }
+  @keyframes chevron-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  .hero-trust { max-width: 100%; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-chevrons { animation: none; }
   }
 </style>
