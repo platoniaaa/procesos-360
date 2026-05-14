@@ -1,108 +1,221 @@
 ---
 const services = [
   {
-    num: '01',
-    // Workflow / process flow icon
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 003 3h0"/><path d="M18 9v3a3 3 0 01-3 3h0"/></svg>`,
     title: 'Mejoramiento de Procesos',
     tag: 'la base de todo',
-    description: 'Levantamos AS-IS y rediseñamos TO-BE con BPMN, SIPOC y RACI. Partners de SAP Signavio y SAP LeanIX.',
+    description: 'Levantamos AS-IS y rediseñamos TO-BE con BPMN, SIPOC y RACI. Una metodología propia de 5 fases, respaldada por nuestra alianza como partners de SAP Signavio y SAP LeanIX.',
   },
   {
-    num: '02',
-    // Brain / cognitive icon
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 007 4.5v15A2.5 2.5 0 009.5 22a2.5 2.5 0 002.5-2.5V4.5A2.5 2.5 0 009.5 2z"/><path d="M14.5 2A2.5 2.5 0 0117 4.5v15a2.5 2.5 0 01-2.5 2.5 2.5 2.5 0 01-2.5-2.5V4.5A2.5 2.5 0 0114.5 2z"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="M9 8h6"/><path d="M9 16h6"/></svg>`,
     title: 'Ingeniería Cognitiva de Procesos Adaptativos',
     tag: 'el conocimiento que nadie escribe',
-    description: 'Capturamos el conocimiento tácito de tus expertos y lo convertimos en un modelo formal reutilizable y escalable.',
+    description: 'Capturamos el conocimiento tácito de tus expertos —cómo deciden, cuándo aplican excepciones— y lo convertimos en un modelo formal reutilizable y escalable.',
   },
   {
-    num: '03',
-    // Shield with check / governance icon
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
     title: 'Gobierno de IA',
     tag: 'IA con propósito',
-    description: 'Frameworks responsables y éticos para implementar IA alineada con tu estrategia corporativa.',
+    description: 'Frameworks de gobernanza responsables y éticos para implementar IA alineada con tu estrategia corporativa: políticas, roles, comités y gestión de riesgos algorítmicos.',
   },
   {
-    num: '04',
-    // Sparkles / AI icon
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3z"/><path d="M19 14l.8 2 2 .8-2 .8L19 19.5l-.8-1.9-2-.8 2-.8L19 14z"/><path d="M5 16l.6 1.4 1.4.6-1.4.6L5 20l-.6-1.4-1.4-.6 1.4-.6L5 16z"/></svg>`,
     title: 'Transformación Empresarial con IA',
     tag: 'automatización con cabeza',
-    description: 'Combinamos gestión por procesos, automatización y analítica avanzada para que la IA sea un activo real, no un proyecto aislado.',
+    description: 'Rediseño de procesos primero, automatización e IA después. Combinamos gestión por procesos, RPA y analítica avanzada para que la IA sea un activo real, no un proyecto aislado.',
   },
   {
-    num: '05',
-    // Refresh / change cycle icon
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10"/><path d="M20.49 15a9 9 0 01-14.85 3.36L1 14"/></svg>`,
     title: 'Gestión del Cambio',
     tag: 'que la transformación se sostenga',
-    description: 'Acompañamos a personas y equipos para que los nuevos procesos no se queden en el papel y la cultura organizacional evolucione con ellos.',
+    description: 'Acompañamos a personas y equipos para que los nuevos procesos no se queden en el papel: comunicación, capacitación, coaching de líderes y monitoreo de adopción.',
   },
   {
-    num: '06',
-    // Headset / support icon
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1v-6h3v4z"/><path d="M3 19a2 2 0 002 2h1v-6H3v4z"/></svg>`,
     title: 'Soporte Continuo',
     tag: 'nunca te dejamos solo',
-    description: 'Mejora continua, monitoreo de KPIs y ajustes después del go-live para sostener resultados en el tiempo.',
+    description: 'Mejora continua post go-live: monitoreo de KPIs operativos, ajustes incrementales y optimización iterativa para sostener los resultados en el tiempo.',
   },
 ];
 ---
 
 <section id="servicios" class="relative py-20 md:py-32 overflow-hidden" style="background:var(--night);">
-
-  <!-- Ambient glows -->
-
   <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-10">
 
-    <!-- Header -->
-    <div class="grid grid-cols-12 gap-4 md:gap-8 mb-16 md:mb-24 fade-up">
-      <div class="col-span-12 md:col-span-3">
+    <div class="grid grid-cols-12 gap-8 md:gap-12 lg:gap-16">
+
+      <!-- LEFT — headline + dynamic detail -->
+      <div class="col-span-12 lg:col-span-5 fade-up">
         <div class="eyebrow eyebrow-dot mb-4">Servicios</div>
-        <div class="hairline w-16"></div>
-      </div>
-      <div class="col-span-12 md:col-span-9">
-        <h2 class="display-lg">
-          Transformando tus procesos
-          <br/>
-          en tus <span class="italic-accent">activos estrat&eacute;gicos</span>.
+        <h2 class="display-md mb-8" style="font-size:clamp(1.9rem,4vw,3rem);">
+          Transformando tus procesos en tus <span class="italic-accent">activos estrat&eacute;gicos</span>.
         </h2>
-      </div>
-    </div>
 
-    <!-- Services grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-      {services.map((service, i) => (
-        <div class="fade-up violet-card group" style={`transition-delay: ${i * 100}ms`}>
-
-          <div class="flex items-start justify-between mb-8">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-500" style="background:rgba(41,201,214,0.12);color:var(--lilac);border:1px solid rgba(41,201,214,0.2);">
-              <Fragment set:html={service.icon} />
-            </div>
-            <span class="font-mono-accent text-xs" style="color:var(--text-muted);">
-              /{service.num}
-            </span>
-          </div>
-
-          <h3 class="display-md mb-2">
-            {service.title}
-          </h3>
-          <p class="italic-accent text-base mb-5" style="font-size:1rem;">
-            &mdash; {service.tag}
+        <div class="svc-detail">
+          <div id="svc-tag" class="svc-detail-tag">&mdash; la base de todo</div>
+          <p id="svc-desc" class="svc-detail-desc">
+            Levantamos AS-IS y redise&ntilde;amos TO-BE con BPMN, SIPOC y RACI. Una metodolog&iacute;a propia de 5 fases, respaldada por nuestra alianza como partners de SAP Signavio y SAP LeanIX.
           </p>
-
-          <p class="text-base leading-relaxed mb-6" style="color:var(--text-muted);">
-            {service.description}
-          </p>
-
-          <a href="#contacto" class="inline-flex items-center gap-2 text-sm link-underline" style="color:var(--lilac);">
+          <a href="#contacto" class="svc-detail-cta">
             <span>Conversemos</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
-      ))}
+      </div>
+
+      <!-- RIGHT — interactive service list -->
+      <div class="col-span-12 lg:col-span-7 fade-up" style="transition-delay:120ms;">
+        <div class="svc-list">
+          {services.map((s, i) => (
+            <button
+              type="button"
+              class:list={['svc-item', { 'is-active': i === 0 }]}
+              data-index={i}
+              data-tag={`— ${s.tag}`}
+              data-desc={s.description}
+            >
+              <span class="svc-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="svc-title">{s.title}</span>
+              <span class="svc-arrow" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+<script>
+  const items = document.querySelectorAll<HTMLButtonElement>('.svc-item');
+  const tagEl = document.getElementById('svc-tag');
+  const descEl = document.getElementById('svc-desc');
+  const detail = document.querySelector('.svc-detail');
+  let activeIndex = 0;
+
+  function setActive(item: HTMLButtonElement) {
+    const idx = Number(item.dataset.index);
+    if (idx === activeIndex) return;
+    activeIndex = idx;
+
+    items.forEach((el) => el.classList.toggle('is-active', el === item));
+
+    // Quick fade swap of the detail text
+    if (detail) {
+      detail.classList.add('is-swapping');
+      window.setTimeout(() => {
+        if (tagEl) tagEl.textContent = item.dataset.tag || '';
+        if (descEl) descEl.textContent = item.dataset.desc || '';
+        detail.classList.remove('is-swapping');
+      }, 160);
+    }
+  }
+
+  items.forEach((item) => {
+    // Desktop: hover. Mobile/keyboard: click + focus.
+    item.addEventListener('mouseenter', () => setActive(item));
+    item.addEventListener('click', () => setActive(item));
+    item.addEventListener('focus', () => setActive(item));
+  });
+</script>
+
+<style>
+  /* --- Left detail panel --- */
+  .svc-detail-tag {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--plum);
+    margin-bottom: 1rem;
+  }
+  .svc-detail-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    min-height: 7.5rem;
+  }
+  .svc-detail.is-swapping .svc-detail-tag,
+  .svc-detail.is-swapping .svc-detail-desc {
+    opacity: 0;
+  }
+  .svc-detail-tag,
+  .svc-detail-desc {
+    transition: opacity 0.16s ease;
+  }
+  .svc-detail-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--plum);
+    text-decoration: none;
+    transition: gap 0.3s;
+  }
+  .svc-detail-cta:hover { gap: 0.85rem; }
+
+  /* --- Right interactive list --- */
+  .svc-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(30, 91, 255, 0.14);
+  }
+  .svc-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(30, 91, 255, 0.14);
+    padding: 1.1rem 0.25rem;
+    cursor: pointer;
+    color: var(--cream);
+    transition: padding-left 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  @media (min-width: 768px) {
+    .svc-item { padding: 1.4rem 0.5rem; }
+  }
+  .svc-num {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    width: 2rem;
+    transition: color 0.3s;
+  }
+  .svc-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.15rem, 2.6vw, 1.85rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    flex: 1;
+  }
+  .svc-arrow {
+    flex-shrink: 0;
+    color: var(--plum);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .svc-item:hover,
+  .svc-item.is-active {
+    color: var(--plum);
+    padding-left: 1rem;
+  }
+  .svc-item.is-active .svc-num,
+  .svc-item:hover .svc-num { color: var(--plum); }
+  .svc-item.is-active .svc-arrow,
+  .svc-item:hover .svc-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .svc-item, .svc-arrow, .svc-detail-tag, .svc-detail-desc, .svc-detail-cta {
+      transition: none;
+    }
+  }
+</style>

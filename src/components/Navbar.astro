@@ -1,185 +1,285 @@
 ---
 import logoCompleto from '../assets/img/logo-completo.png';
+
+const links = [
+  { label: 'Servicios',   href: '/#servicios' },
+  { label: 'Productos',   href: '/#productos' },
+  { label: 'Diagnóstico', href: '/diagnostico' },
+  { label: 'Casos de éxito', href: '/#casos' },
+  { label: 'Por qué',     href: '/#por-que-procesos360' },
+  { label: 'Nosotros',    href: '/#nosotros' },
+  { label: 'Contacto',    href: '/#contacto' },
+];
 ---
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-[70] transition-all duration-500">
   <div class="max-w-[1440px] mx-auto px-6 md:px-10">
     <div class="flex items-center justify-between h-16 md:h-20">
-      <a href="#" class="flex-shrink-0 relative z-[70]">
+      <a href="/" class="flex-shrink-0 relative">
         <img id="navbar-logo" src={logoCompleto.src} alt="Procesos 360" class="h-8 md:h-9 w-auto transition-all duration-300" />
       </a>
 
-      <div class="hidden md:flex items-center gap-9">
-        <a href="/#servicios" class="nav-link text-sm transition-colors duration-300">Servicios</a>
-        <a href="/#productos" class="nav-link text-sm transition-colors duration-300">Productos</a>
-        <a href="/diagnostico" class="nav-link text-sm transition-colors duration-300">
-          <span style="background:linear-gradient(135deg, var(--lilac), var(--plum));background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;font-family:var(--font-display);">Diagn&oacute;stico</span>
-        </a>
-        <a href="/#por-que-procesos360" class="nav-link text-sm transition-colors duration-300">Por qu&eacute;</a>
-        <a href="/#nosotros" class="nav-link text-sm transition-colors duration-300">Nosotros</a>
-        <a href="/#contacto" class="btn-primary !py-2 !px-5 !text-xs">Cotiza gratis</a>
-      </div>
-
-      <button id="menu-toggle" class="md:hidden p-3 -mr-2 relative z-[70] touch-manipulation" aria-label="Abrir menú" style="color:var(--cream);">
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span id="menu-toggle-label" class="menu-toggle-label">Menú</span>
         <div id="hamburger" class="w-6 h-5 relative flex flex-col justify-between">
-          <span class="hamburger-line w-full h-0.5 transition-all duration-300 origin-center" style="background:currentColor;"></span>
-          <span class="hamburger-line w-full h-0.5 transition-all duration-300" style="background:currentColor;"></span>
-          <span class="hamburger-line w-full h-0.5 transition-all duration-300 origin-center" style="background:currentColor;"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
         </div>
       </button>
     </div>
   </div>
 </nav>
 
-<div id="mobile-menu" class="mobile-menu-overlay md:hidden" style="display:none;">
-  <button id="mobile-close" class="mobile-menu-close touch-manipulation" aria-label="Cerrar menú">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="18" y1="6" x2="6" y2="18"></line>
-      <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
-  </button>
-  <div class="mobile-menu-content">
-    <div class="marginalia mb-8" style="color:var(--lilac);">&Iacute;ndice</div>
-    <a href="/#servicios" class="mobile-link">Servicios</a>
-    <a href="/#productos" class="mobile-link">Productos</a>
-    <a href="/diagnostico" class="mobile-link" style="background:linear-gradient(135deg, var(--lilac), var(--plum));background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;">Diagn&oacute;stico</a>
-    <a href="/#por-que-procesos360" class="mobile-link">&iquest;Por qu&eacute; Procesos 360?</a>
-    <a href="/#nosotros" class="mobile-link">Nosotros</a>
-    <a href="/#contacto" class="mobile-link">Contacto</a>
-    <a href="/#contacto" class="btn-primary !py-3.5 !px-10 !text-base mt-6 touch-manipulation">Cotiza gratis</a>
+<!-- Fullscreen menu -->
+<div id="fs-menu" class="fs-menu" aria-hidden="true">
+  <nav class="fs-menu-nav">
+    {links.map((link) => (
+      <a href={link.href} class="fs-link">{link.label}</a>
+    ))}
+  </nav>
+  <div class="fs-menu-footer">
+    <a href="/#contacto" class="fs-cta">Cotiza gratis &rarr;</a>
+    <div class="fs-menu-meta">
+      <a href="https://wa.me/56964261751" target="_blank" rel="noopener noreferrer">+569 64261751</a>
+      <span>&middot;</span>
+      <a href="mailto:javier.espinoza@procesos360.cl">javier.espinoza@procesos360.cl</a>
+    </div>
   </div>
 </div>
 
 <script>
   const navbar = document.getElementById('navbar');
+  const logo = document.getElementById('navbar-logo') as HTMLImageElement | null;
   const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const menuToggleLabel = document.getElementById('menu-toggle-label');
   const hamburger = document.getElementById('hamburger');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const fsMenu = document.getElementById('fs-menu');
   let menuOpen = false;
 
   function updateNavbar() {
     if (!navbar) return;
+    if (menuOpen) {
+      navbar.style.background = 'transparent';
+      (navbar.style as any).backdropFilter = 'none';
+      (navbar.style as any).webkitBackdropFilter = 'none';
+      navbar.style.borderBottom = 'none';
+      return;
+    }
     const scrolled = window.scrollY > 30;
-    if (scrolled && !menuOpen) {
+    if (scrolled) {
       navbar.style.background = 'rgba(255, 255, 255, 0.85)';
       (navbar.style as any).backdropFilter = 'blur(16px)';
       (navbar.style as any).webkitBackdropFilter = 'blur(16px)';
       navbar.style.borderBottom = '1px solid rgba(30, 91, 255, 0.10)';
-    } else if (!menuOpen) {
+    } else {
       navbar.style.background = 'transparent';
       (navbar.style as any).backdropFilter = 'none';
       (navbar.style as any).webkitBackdropFilter = 'none';
       navbar.style.borderBottom = 'none';
     }
   }
-
   updateNavbar();
   window.addEventListener('scroll', updateNavbar);
 
-  menuToggle?.addEventListener('click', () => {
-    menuOpen = !menuOpen;
-    if (menuOpen) {
-      if (mobileMenu) mobileMenu.style.display = 'flex';
-      hamburger?.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    } else closeMenu();
-  });
+  function openMenu() {
+    menuOpen = true;
+    fsMenu?.classList.add('is-open');
+    fsMenu?.setAttribute('aria-hidden', 'false');
+    hamburger?.classList.add('open');
+    menuToggle?.setAttribute('aria-expanded', 'true');
+    if (menuToggleLabel) menuToggleLabel.textContent = 'Cerrar';
+    // White logo on the dark overlay
+    if (logo) logo.style.filter = 'brightness(0) invert(1)';
+    document.body.style.overflow = 'hidden';
+    updateNavbar();
+  }
 
   function closeMenu() {
     menuOpen = false;
-    if (mobileMenu) mobileMenu.style.display = 'none';
+    fsMenu?.classList.remove('is-open');
+    fsMenu?.setAttribute('aria-hidden', 'true');
     hamburger?.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    if (menuToggleLabel) menuToggleLabel.textContent = 'Menú';
+    if (logo) logo.style.filter = '';
     document.body.style.overflow = '';
     updateNavbar();
   }
 
-  document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', closeMenu));
-  document.getElementById('mobile-close')?.addEventListener('click', closeMenu);
+  menuToggle?.addEventListener('click', () => {
+    menuOpen ? closeMenu() : openMenu();
+  });
 
-  const sections = document.querySelectorAll('section[id]');
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${entry.target.id}`) link.classList.add('!font-semibold');
-            else link.classList.remove('!font-semibold');
-          });
-        }
-      });
-    },
-    { rootMargin: '-20% 0px -80% 0px' }
-  );
-  sections.forEach(section => observer.observe(section));
+  document.querySelectorAll('.fs-link, .fs-cta').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuOpen) closeMenu();
+  });
 </script>
 
 <style>
-  .nav-link {
+  /* --- Top bar toggle --- */
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 0;
     position: relative;
-    color: var(--cream);
-    opacity: 0.85;
-    transition: opacity 0.3s;
+    z-index: 80;
+    -webkit-tap-highlight-color: transparent;
   }
-  .nav-link:hover { opacity: 1; }
-
+  .menu-toggle-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--cream);
+    transition: color 0.3s;
+  }
+  .hamburger-line {
+    width: 100%;
+    height: 2px;
+    background: var(--cream);
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: center;
+  }
+  #hamburger.open .hamburger-line { background: #FFFFFF; }
   #hamburger.open .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   #hamburger.open .hamburger-line:nth-child(2) { opacity: 0; }
   #hamburger.open .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+  #hamburger.open ~ .menu-toggle-label,
+  .menu-toggle[aria-expanded="true"] .menu-toggle-label { color: #FFFFFF; }
 
-  .mobile-menu-overlay {
+  /* --- Fullscreen menu --- */
+  .fs-menu {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
-    z-index: 60;
-    background: var(--night);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  .mobile-menu-content {
+    inset: 0;
+    z-index: 65;
+    background: #0A1F4A;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
+    justify-content: center;
+    padding: 6rem 1.5rem 3rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.5s;
+  }
+  @media (min-width: 768px) {
+    .fs-menu { padding: 7rem 4rem 4rem; }
+  }
+  .fs-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+  }
+
+  .fs-menu-nav {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    margin: 0 auto;
     width: 100%;
   }
 
-  .mobile-menu-content .mobile-link {
+  .fs-link {
     font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--cream);
-    text-decoration: none;
-    padding: 0.25rem 1rem;
+    font-weight: 600;
+    font-size: clamp(2.25rem, 7vw, 5rem);
+    line-height: 1.05;
     letter-spacing: -0.03em;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition: color 0.3s, padding-left 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    /* entrance animation */
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  .fs-menu.is-open .fs-link {
+    opacity: 1;
+    transform: translateY(0);
+    transition: color 0.3s, padding-left 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .fs-menu.is-open .fs-link:nth-child(1) { transition-delay: 0.08s, 0.08s, 0.08s, 0.08s; }
+  .fs-menu.is-open .fs-link:nth-child(2) { transition-delay: 0.14s, 0.14s, 0.14s, 0.14s; }
+  .fs-menu.is-open .fs-link:nth-child(3) { transition-delay: 0.20s, 0.20s, 0.20s, 0.20s; }
+  .fs-menu.is-open .fs-link:nth-child(4) { transition-delay: 0.26s, 0.26s, 0.26s, 0.26s; }
+  .fs-menu.is-open .fs-link:nth-child(5) { transition-delay: 0.32s, 0.32s, 0.32s, 0.32s; }
+  .fs-menu.is-open .fs-link:nth-child(6) { transition-delay: 0.38s, 0.38s, 0.38s, 0.38s; }
+  .fs-menu.is-open .fs-link:nth-child(7) { transition-delay: 0.44s, 0.44s, 0.44s, 0.44s; }
+
+  .fs-link:hover {
+    color: var(--lilac);
+    padding-left: 1.25rem;
   }
 
-  .mobile-menu-content .mobile-link:active { color: var(--lilac); }
-
-  .mobile-menu-close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 44px;
-    height: 44px;
+  .fs-menu-footer {
+    max-width: 1440px;
+    margin: 2.5rem auto 0;
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: 1px solid rgba(30, 91, 255, 0.25);
-    border-radius: 50%;
-    cursor: pointer;
-    color: var(--cream);
-    z-index: 65;
-    -webkit-tap-highlight-color: transparent;
+    flex-direction: column;
+    gap: 1.25rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
   }
-  .mobile-menu-close:active { background: rgba(41, 201, 214, 0.15); }
+  @media (min-width: 768px) {
+    .fs-menu-footer {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  .fs-menu.is-open .fs-menu-footer {
+    opacity: 1;
+    transition: opacity 0.6s ease 0.5s;
+  }
+
+  .fs-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    color: #0A1F4A;
+    background: var(--lilac);
+    padding: 0.85rem 1.75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    width: fit-content;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .fs-cta:hover { transform: translateY(-2px); background: #FFFFFF; }
+
+  .fs-menu-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .fs-menu-meta a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .fs-menu-meta a:hover { color: var(--lilac); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fs-link { opacity: 1; transform: none; }
+    .fs-menu, .fs-link, .fs-menu-footer { transition: opacity 0.2s ease; }
+  }
 </style>
