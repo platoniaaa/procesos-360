@@ -200,7 +200,7 @@
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 400;
-    background: linear-gradient(135deg, var(--plum) 0%, var(--gold) 100%);
+    background: linear-gradient(135deg, var(--plum) 0%, var(--lilac) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
