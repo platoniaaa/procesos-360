@@ -32,21 +32,15 @@ const services = [
 
     <div class="grid grid-cols-12 gap-8 md:gap-12 lg:gap-20">
 
-      <!-- LEFT — headline + dynamic description -->
+      <!-- LEFT — title + dynamic description + CTA -->
       <div class="col-span-12 lg:col-span-5 fade-up">
-        <div class="eyebrow eyebrow-dot mb-5">Servicios</div>
-        <h2 class="display-md mb-8" style="font-size:clamp(1.9rem,4vw,3rem);">
-          Transformando tus procesos en tus <span class="italic-accent">activos estrat&eacute;gicos</span>.
-        </h2>
+        <h2 class="svc-heading">&iquest;Qu&eacute; hacemos?</h2>
 
         <p id="svc-desc" class="svc-desc">
           Levantamos AS-IS y redise&ntilde;amos TO-BE con BPMN, SIPOC y RACI. Una metodolog&iacute;a propia de 5 fases, respaldada por nuestra alianza como partners de SAP Signavio y SAP LeanIX.
         </p>
 
-        <a href="#contacto" class="svc-cta">
-          Conversemos
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <a href="#contacto" class="svc-cta">Conversemos</a>
       </div>
 
       <!-- RIGHT — interactive service list -->
@@ -98,12 +92,22 @@ const services = [
 </script>
 
 <style>
+  .svc-heading {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--plum);
+    margin: 0 0 1.75rem;
+  }
+
   .svc-desc {
     font-size: 1.05rem;
     line-height: 1.7;
     color: var(--text-muted);
-    margin-bottom: 2rem;
-    min-height: 8.5rem;
+    margin: 0 0 2.25rem;
+    min-height: 9rem;
     transition: opacity 0.16s ease;
   }
   .svc-desc.is-swapping { opacity: 0; }
@@ -111,15 +115,18 @@ const services = [
   .svc-cta {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
     font-family: var(--font-sans);
     font-weight: 600;
     font-size: 0.95rem;
-    color: var(--plum);
+    color: #FFFFFF;
+    background: var(--plum);
+    padding: 0.9rem 2.25rem;
+    border-radius: 999px;
     text-decoration: none;
-    transition: gap 0.3s;
+    transition: transform 0.3s, background 0.3s;
   }
-  .svc-cta:hover { gap: 0.85rem; }
+  .svc-cta:hover { transform: translateY(-2px); background: var(--violet); }
 
   /* --- Right list — clean, Olivia-style --- */
   .svc-list {
