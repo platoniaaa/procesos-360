@@ -27,6 +27,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#FFFFFF" />
 
+    <!-- Theme: apply before paint to avoid flash -->
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var theme = stored
+            ? stored
+            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <link rel="icon" type="image/png" sizes="32x32" href="/img/isotipo.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/img/isotipo.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/img/isotipo.png" />

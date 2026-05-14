@@ -40,6 +40,7 @@
 
 @layer base {
   :root {
+    /* === LIGHT MODE (default) === */
     --void: #EAF1FB;
     --night: #FFFFFF;
     --midnight: #F5F8FD;
@@ -56,6 +57,12 @@
     --gold-soft: #FF7BCB;
     --text-muted: #6B7C99;
 
+    /* Semantic surface/border tokens (theme-aware) */
+    --surface-card: #FFFFFF;
+    --surface-card-soft: #F5F8FD;
+    --border-subtle: rgba(30, 91, 255, 0.14);
+    --border-faint: rgba(30, 91, 255, 0.10);
+
     /* Legacy */
     --clr-primary: #1E5BFF;
     --clr-primary-light: #29C9D6;
@@ -67,6 +74,38 @@
     --clr-text-muted: #6B7C99;
     --clr-dark: #FFFFFF;
     --clr-dark-purple: #F5F8FD;
+  }
+
+  /* === DARK MODE === navy + white + cyan (Procesos 360 logo palette) */
+  :root[data-theme="dark"] {
+    --void: #081530;
+    --night: #0A1F4A;
+    --midnight: #102A5E;
+    --plum-900: #16306B;
+    --plum-800: #1E3A8A;
+    --plum: #3D72FF;
+    --violet: #5D8BFF;
+    --lilac: #29C9D6;
+    --lilac-soft: #5DDEEA;
+    --lavender: #9FB4D8;
+    --cream: #FFFFFF;
+    --cream-soft: #DCE5F2;
+    --gold: #FF7BCB;
+    --gold-soft: #FFA8DC;
+    --text-muted: #8B9DC0;
+
+    --surface-card: #102A5E;
+    --surface-card-soft: #16306B;
+    --border-subtle: rgba(255, 255, 255, 0.14);
+    --border-faint: rgba(255, 255, 255, 0.08);
+
+    --clr-white: #FFFFFF;
+    --clr-cream: #0A1F4A;
+    --clr-beige: #102A5E;
+    --clr-text: #FFFFFF;
+    --clr-text-muted: #8B9DC0;
+    --clr-dark: #0A1F4A;
+    --clr-dark-purple: #102A5E;
   }
 
   html {
@@ -395,8 +434,8 @@
 
   /* --- Light card --- */
   .violet-card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 248, 253, 1) 100%);
-    border: 1px solid rgba(30, 91, 255, 0.12);
+    background: linear-gradient(180deg, var(--surface-card) 0%, var(--surface-card-soft) 100%);
+    border: 1px solid var(--border-subtle);
     border-radius: 20px;
     padding: 2rem;
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -414,7 +453,7 @@
     background: linear-gradient(90deg, transparent, rgba(41, 201, 214, 0.5), transparent);
   }
   .violet-card:hover {
-    border-color: rgba(30, 91, 255, 0.3);
+    border-color: rgba(41, 201, 214, 0.4);
     transform: translateY(-4px);
     box-shadow: 0 16px 48px rgba(30, 91, 255, 0.15);
   }
@@ -434,8 +473,8 @@
   }
 
   .editorial-card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 248, 253, 1) 100%);
-    border: 1px solid rgba(30, 91, 255, 0.12);
+    background: linear-gradient(180deg, var(--surface-card) 0%, var(--surface-card-soft) 100%);
+    border: 1px solid var(--border-subtle);
     border-radius: 20px;
     padding: 2rem;
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
