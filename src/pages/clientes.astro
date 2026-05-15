@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+const clients = [
+  { name: 'Derco',                       logo: '/img/clients/derco.png' },
+  { name: 'Copec',                       logo: '/img/clients/copec.png' },
+  { name: 'Transbank',                   logo: '/img/clients/transbank.png' },
+  { name: 'Caserones',                   logo: '/img/clients/caserones.png' },
+  { name: 'Gallagher',                   logo: '/img/clients/gallagher.jpg' },
+  { name: 'CFT Estatal Región Metropolitana', logo: '/img/clients/cft-rm.png' },
+  { name: 'FACM',                        logo: '/img/clients/facm.jpg' },
+  { name: 'Unired',                      logo: '/img/clients/unired.png' },
+  { name: 'Sercomed',                    logo: '/img/clients/sercomed.png' },
+  { name: '.vgroup',                     logo: '/img/clients/vgroup.png' },
+  { name: 'FEN — U. de Chile',           logo: '/img/clients/fen-uchile.jpg' },
+  { name: 'UDLA',                        logo: '/img/clients/udla.png' },
+  { name: 'Universidad del Desarrollo',  logo: '/img/clients/udd.jpg' },
+  { name: 'SONAMI',                      logo: '/img/clients/sonami.png' },
+  { name: 'Arcoprime',                   logo: '/img/clients/arcoprime.png' },
+  { name: 'Proyectum',                   logo: '/img/clients/proyectum.png' },
+  { name: 'Empresa Eléctrica de TilTil', logo: '/img/clients/eemtt.jpg' },
+  { name: 'ProntoPaga',                  logo: '/img/clients/prontopaga.png' },
+  { name: 'SURA',                        logo: '/img/clients/sura.png' },
+  { name: 'MSO',                         logo: '/img/clients/mso.jpg' },
+];
+---
+
+<Layout
+  title="Clientes | Procesos 360 — Empresas que han confiado en nosotros"
+  description="Conoce a los clientes con los que hemos trabajado en gestión por procesos, transformación digital con IA y modelamiento empresarial."
+>
+  <!-- Hero -->
+  <section class="clientes-hero">
+    <div class="clientes-hero-inner">
+      <h1 class="clientes-hero-title">
+        Por ellos<br/>nos la <span class="italic-accent">jugamos</span>.
+      </h1>
+      <div class="eyebrow eyebrow-dot clientes-hero-eyebrow">Nuestros clientes</div>
+      <p class="clientes-hero-lead">
+        Conoce a las empresas que han confiado en nosotros para transformar sus procesos, sus operaciones y su forma de competir.
+      </p>
+    </div>
+  </section>
+
+  <!-- Grid de clientes -->
+  <section class="clientes-grid-section">
+    <div class="clientes-grid-inner">
+      <div class="clientes-grid">
+        {clients.map((c) => (
+          <div class="cliente-card" title={c.name}>
+            <img src={c.logo} alt={c.name} loading="lazy" />
+          </div>
+        ))}
+      </div>
+
+      <div class="clientes-back">
+        <a href="/" class="clientes-back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          Volver al inicio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .clientes-hero {
+    position: relative;
+    background: #0A1F4A;
+    padding: 8rem 1.5rem 4rem;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .clientes-hero { padding: 11rem 4rem 5rem; }
+  }
+
+  .clientes-hero-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .clientes-hero-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(3.25rem, 11vw, 9rem);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    color: #FFFFFF;
+    margin: 0 0 2rem;
+  }
+  .clientes-hero-title .italic-accent {
+    color: var(--lilac);
+  }
+
+  .clientes-hero-eyebrow {
+    color: var(--lilac);
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .clientes-hero-lead {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0;
+    max-width: 36rem;
+  }
+
+  .clientes-grid-section {
+    background: #0A1F4A;
+    padding: 2rem 1.5rem 6rem;
+  }
+  @media (min-width: 768px) {
+    .clientes-grid-section { padding: 3rem 4rem 8rem; }
+  }
+
+  .clientes-grid-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .clientes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  @media (min-width: 640px) {
+    .clientes-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  }
+  @media (min-width: 1024px) {
+    .clientes-grid { grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
+  }
+
+  .cliente-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    transition: background 0.3s, border-color 0.3s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cliente-card:hover {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(41, 201, 214, 0.5);
+    transform: translateY(-4px);
+  }
+  .cliente-card img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(1) brightness(2.4) contrast(0.7);
+    opacity: 0.85;
+    transition: filter 0.3s, opacity 0.3s;
+  }
+  .cliente-card:hover img {
+    filter: none;
+    opacity: 1;
+  }
+
+  .clientes-back {
+    margin-top: 3.5rem;
+    text-align: center;
+  }
+  .clientes-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--lilac);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(41, 201, 214, 0.35);
+    padding-bottom: 4px;
+    transition: color 0.25s, border-color 0.25s;
+  }
+  .clientes-back-link:hover {
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+  }
+</style>
