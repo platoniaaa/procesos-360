@@ -5,7 +5,7 @@ const testimonios = [
     author: 'Camilo Garcés Pizarro',
     role: 'Ex Subgerente de Auditoría en Copec',
     currentRole: 'Actual Gerente de Auditoría Interna en Metro Santiago',
-    initials: 'CG',
+    photo: '/img/camilo-garces.jpg',
   },
 ];
 ---
@@ -46,7 +46,7 @@ const testimonios = [
           <!-- Attribution -->
           <div class="testimonio-attr">
             <div class="testimonio-avatar">
-              <span>{t.initials}</span>
+              <img src={t.photo} alt={t.author} loading="lazy" />
             </div>
             <div class="flex-1">
               <div class="testimonio-name">{t.author}</div>
@@ -116,19 +116,19 @@ const testimonios = [
   }
 
   .testimonio-avatar {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--lilac) 0%, var(--plum) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 1.05rem;
-    letter-spacing: 0.02em;
+    overflow: hidden;
+    background: var(--midnight);
+    border: 2px solid var(--lilac);
+  }
+  .testimonio-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .testimonio-name {
