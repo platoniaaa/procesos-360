@@ -22,45 +22,144 @@ const clients = [
   { name: 'MSO',                         logo: '/img/clients/mso.jpg' },
 ];
 
-// Repartimos en dos filas para que cada una tenga logos distintos
+// Reparto en dos filas para que cada una tenga logos distintos
 const rowA = clients.filter((_, i) => i % 2 === 0);
 const rowB = clients.filter((_, i) => i % 2 === 1);
 ---
 
-<section class="trust-banner" aria-label="Empresas que han confiado en nosotros">
-  <!-- Fila 1: se mueve hacia la izquierda -->
-  <div class="marquee">
-    <div class="marquee-track marquee-left">
-      {[...rowA, ...rowA].map((c) => (
-        <div class="marquee-item">
-          <img src={c.logo} alt={c.name} class="trust-logo" loading="lazy" draggable="false" />
-        </div>
-      ))}
+<section class="trust-section" aria-label="Empresas que han confiado en nosotros">
+
+  <!-- Header al estilo Olivia: titulo GIGANTE + parrafo + boton -->
+  <div class="trust-header fade-up">
+    <div class="trust-header-inner">
+      <h2 class="trust-title">
+        Por ellos<br/>nos la <span class="trust-title-accent">jugamos</span>.
+      </h2>
+      <div class="trust-right">
+        <p class="trust-lead">
+          Nuestros clientes comparten un denominador com&uacute;n: enfrentar grandes desaf&iacute;os. Nos la jugamos por ellos para que puedan hacerlos realidad.
+        </p>
+        <a href="/clientes" target="_blank" rel="noopener" class="trust-cta">
+          Con&oacute;celos
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- Fila 2: se mueve hacia la derecha -->
-  <div class="marquee marquee-row-2">
-    <div class="marquee-track marquee-right">
-      {[...rowB, ...rowB].map((c) => (
-        <div class="marquee-item">
-          <img src={c.logo} alt={c.name} class="trust-logo" loading="lazy" draggable="false" />
-        </div>
-      ))}
+  <!-- Logos en dos filas — fila 1 se mueve a la izquierda, fila 2 a la derecha -->
+  <div class="trust-marquees">
+    <div class="marquee">
+      <div class="marquee-track marquee-left">
+        {[...rowA, ...rowA].map((c) => (
+          <div class="marquee-item">
+            <img src={c.logo} alt={c.name} class="trust-logo" loading="lazy" draggable="false" />
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="marquee marquee-row-2">
+      <div class="marquee-track marquee-right">
+        {[...rowB, ...rowB].map((c) => (
+          <div class="marquee-item">
+            <img src={c.logo} alt={c.name} class="trust-logo" loading="lazy" draggable="false" />
+          </div>
+        ))}
+      </div>
     </div>
   </div>
+
 </section>
 
 <style>
-  .trust-banner {
-    background: #FFFFFF;
-    border-top: 1px solid rgba(30, 91, 255, 0.10);
-    border-bottom: 1px solid rgba(30, 91, 255, 0.10);
-    padding: 1.5rem 0;
+  .trust-section {
+    background: var(--night);
+    padding: 5rem 0 3rem;
     overflow: hidden;
   }
   @media (min-width: 768px) {
-    .trust-banner { padding: 2rem 0; }
+    .trust-section { padding: 7rem 0 4rem; }
+  }
+
+  /* --- Header con tipografia condensada estilo Olivia --- */
+  .trust-header {
+    padding: 0 1.5rem 3rem;
+  }
+  @media (min-width: 768px) {
+    .trust-header { padding: 0 4rem 4.5rem; }
+  }
+
+  .trust-header-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: end;
+  }
+  @media (min-width: 900px) {
+    .trust-header-inner {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+    }
+  }
+
+  .trust-title {
+    font-family: var(--font-condensed);
+    font-weight: 400;
+    font-size: clamp(3.5rem, 12vw, 11rem);
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin: 0;
+  }
+  .trust-title-accent {
+    color: var(--lilac);
+  }
+
+  .trust-right {
+    padding-bottom: 0.75rem;
+  }
+  .trust-lead {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin: 0 0 1.75rem;
+    max-width: 32rem;
+  }
+  @media (min-width: 768px) {
+    .trust-lead { font-size: 1.05rem; }
+  }
+  .trust-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--cream);
+    background: transparent;
+    border: 1.5px solid var(--cream);
+    padding: 0.85rem 2.25rem;
+    border-radius: 999px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .trust-cta:hover {
+    background: var(--lilac);
+    border-color: var(--lilac);
+    color: var(--night);
+  }
+
+  /* --- Marquees --- */
+  .trust-marquees {
+    padding: 2rem 0;
+    border-top: 1px solid rgba(30, 91, 255, 0.10);
+    border-bottom: 1px solid rgba(30, 91, 255, 0.10);
+    background: #FFFFFF;
   }
 
   .marquee {

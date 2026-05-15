@@ -34,6 +34,7 @@
   /* Typography */
   --font-display: 'Clash Display', 'Space Grotesk', system-ui, sans-serif;
   --font-heading: 'Clash Display', 'Space Grotesk', system-ui, sans-serif;
+  --font-condensed: 'Anton', 'Oswald', 'Impact', system-ui, sans-serif;
   --font-sans: 'Manrope', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
