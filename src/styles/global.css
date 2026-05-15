@@ -345,10 +345,15 @@
     opacity: 1;
     transform: translateY(0);
   }
-  /* Terminado el reveal, se quita la transición: a partir de ahí el
-     efecto de salida lo controla el JS ligado al scroll, sin lag. */
+  /* Terminado el reveal de entrada, se quita la transición de opacity
+     del reveal — así el fade de salida (ligado al scroll, vía JS)
+     responde al instante. Se conservan las transiciones de hover de
+     las tarjetas (transform / border / sombra / fondo). */
   .fade-up.settled {
-    transition: none;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.4s ease,
+                box-shadow 0.4s ease,
+                background 0.4s ease;
   }
 
   /* --- Parallax ligado al scroll --- */
