@@ -345,6 +345,11 @@
     opacity: 1;
     transform: translateY(0);
   }
+  /* Terminado el reveal, se quita la transición: a partir de ahí el
+     efecto de salida lo controla el JS ligado al scroll, sin lag. */
+  .fade-up.settled {
+    transition: none;
+  }
 
   /* --- Parallax ligado al scroll --- */
   /* El motor JS (en Layout.astro) escribe la variable --parallax-y en
