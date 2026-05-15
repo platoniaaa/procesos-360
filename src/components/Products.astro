@@ -50,7 +50,7 @@ const products = [
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
       {products.map((product, i) => (
-        <article class="fade-up violet-card" style={`transition-delay: ${i * 150}ms;padding:2.5rem;`}>
+        <article class="fade-up violet-card" style={`transition-delay: ${i * 150}ms;padding:2.5rem;`} data-parallax={i % 2 === 0 ? '0.06' : '0.12'}>
           <div class="flex items-baseline justify-between mb-8">
             <span class="font-mono-accent text-xs tracking-[0.2em]" style="color:var(--text-muted);">
               PRODUCTO / {product.num}
