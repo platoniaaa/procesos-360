@@ -33,7 +33,7 @@ const services = [
     <div class="grid grid-cols-12 gap-8 md:gap-12 lg:gap-20">
 
       <!-- LEFT — title + dynamic description + CTA -->
-      <div class="col-span-12 lg:col-span-5 fade-up">
+      <div class="col-span-12 lg:col-span-5 fade-up" data-parallax="0.07">
         <h2 class="svc-heading">&iquest;Qu&eacute; hacemos?</h2>
 
         <p id="svc-desc" class="svc-desc">
@@ -44,7 +44,7 @@ const services = [
       </div>
 
       <!-- RIGHT — interactive service list -->
-      <div class="col-span-12 lg:col-span-7 fade-up" style="transition-delay:120ms;">
+      <div class="col-span-12 lg:col-span-7 fade-up" style="transition-delay:120ms;" data-parallax="-0.045">
         <div class="svc-list">
           {services.map((s, i) => (
             <button

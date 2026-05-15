@@ -40,7 +40,7 @@ const team = [
     <div class="team-grid">
       {team.map((person, i) => (
         <article class="team-member fade-up" style={`transition-delay: ${i * 120}ms;`}>
-          <div class="team-photo-ring" style={`--ring-color: ${person.ring};`}>
+          <div class="team-photo-ring" style={`--ring-color: ${person.ring};`} data-parallax={i % 2 === 0 ? '0.07' : '0.14'}>
             <svg class="team-arc" viewBox="0 0 100 100" aria-hidden="true">
               <circle cx="50" cy="50" r="47" fill="none" stroke="var(--ring-color)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="218 295" transform="rotate(-100 50 50)" />
             </svg>

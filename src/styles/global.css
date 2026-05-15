@@ -335,40 +335,28 @@
     line-height: 1.5;
   }
 
-  /* --- Reveal --- */
-  /* Fallback: one-shot trigger via IntersectionObserver (.visible class) */
+  /* --- Reveal al entrar (IntersectionObserver añade .visible) --- */
   .fade-up {
     opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(38px);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .fade-up.visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Modern browsers: reveal is LINKED to the scroll position — the
-     content slides into place progressively as you scroll, instead
-     of snapping in once. */
-  @supports (animation-timeline: view()) {
-    .fade-up {
-      opacity: 1;
-      transform: none;
-      transition: none;
-      animation: scroll-reveal linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 32%;
-    }
+  /* --- Parallax ligado al scroll --- */
+  /* El motor JS (en Layout.astro) escribe la variable --parallax-y en
+     cada elemento. Usamos la propiedad `translate` (NO `transform`) a
+     propósito: así el parallax se COMPONE con cualquier `transform` o
+     animación que el elemento ya tenga (reveal, float, hover…). */
+  [data-parallax],
+  .fade-up {
+    translate: 0 var(--parallax-y, 0px);
   }
-
-  /* Subtle scroll parallax — drifts gently the whole time the element
-     is on screen. Apply with class "parallax-soft". */
-  @supports (animation-timeline: view()) {
-    .parallax-soft {
-      animation: parallax-drift linear both;
-      animation-timeline: view();
-      animation-range: cover;
-    }
+  [data-parallax] {
+    will-change: transform;
   }
 
   /* --- Noise texture (subtle on light) --- */
@@ -555,19 +543,6 @@
   100% { background-position: 200% center; }
 }
 
-/* Scroll-linked reveal — progress is tied to scroll position, so the
-   content slides into place as you scroll instead of snapping in. */
-@keyframes scroll-reveal {
-  from { opacity: 0; transform: translateY(56px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Gentle parallax drift while the element travels through the viewport. */
-@keyframes parallax-drift {
-  from { transform: translateY(38px); }
-  to   { transform: translateY(-38px); }
-}
-
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -610,8 +585,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fade-up { opacity: 1; transform: none; transition: none; animation: none; }
-  .parallax-soft { animation: none; transform: none; }
+  .fade-up { opacity: 1; transform: none; transition: none; }
+  [data-parallax], .fade-up { translate: none; }
   .hero-reveal { opacity: 1; animation: none; }
   .marquee-track, .orb { animation: none; }
   * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
