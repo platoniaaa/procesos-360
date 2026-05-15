@@ -22,31 +22,32 @@ const clients = [
   { name: 'MSO',                         logo: '/img/clients/mso.jpg' },
 ];
 
-// Reparto en dos filas para que cada una tenga logos distintos
+// Repartimos en dos filas con logos distintos
 const rowA = clients.filter((_, i) => i % 2 === 0);
 const rowB = clients.filter((_, i) => i % 2 === 1);
 ---
 
-<section class="trust-section" aria-label="Empresas que han confiado en nosotros">
-
-  <!-- Header al estilo Olivia: titulo GIGANTE + parrafo + boton -->
-  <div class="trust-header fade-up">
+<section class="trust-section" aria-label="Nuestros clientes">
+  <!-- Header al estilo Olivia: título gigante + parrafo + CTA -->
+  <div class="trust-header">
     <div class="trust-header-inner">
+      <div class="eyebrow eyebrow-dot trust-eyebrow">Nuestros clientes</div>
       <h2 class="trust-title">
         Por ellos<br/>nos la <span class="trust-title-accent">jugamos</span>.
       </h2>
-      <div class="trust-right">
+      <div class="trust-bottom">
         <p class="trust-lead">
           Nuestros clientes comparten un denominador com&uacute;n: enfrentar grandes desaf&iacute;os. Nos la jugamos por ellos para que puedan hacerlos realidad.
         </p>
         <a href="/clientes" target="_blank" rel="noopener" class="trust-cta">
           Con&oacute;celos
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Logos en dos filas — fila 1 se mueve a la izquierda, fila 2 a la derecha -->
+  <!-- Marquee: 2 filas, direcciones opuestas -->
   <div class="trust-marquees">
     <div class="marquee">
       <div class="marquee-track marquee-left">
@@ -57,6 +58,7 @@ const rowB = clients.filter((_, i) => i % 2 === 1);
         ))}
       </div>
     </div>
+
     <div class="marquee marquee-row-2">
       <div class="marquee-track marquee-right">
         {[...rowB, ...rowB].map((c) => (
@@ -67,99 +69,101 @@ const rowB = clients.filter((_, i) => i % 2 === 1);
       </div>
     </div>
   </div>
-
 </section>
 
 <style>
   .trust-section {
-    background: var(--night);
-    padding: 5rem 0 3rem;
+    background: #0A1F4A;
+    color: #FFFFFF;
+    padding: 5rem 0 4rem;
     overflow: hidden;
   }
   @media (min-width: 768px) {
-    .trust-section { padding: 7rem 0 4rem; }
+    .trust-section { padding: 7rem 0 5rem; }
   }
 
-  /* --- Header con tipografia condensada estilo Olivia --- */
+  /* ---------- HEADER ---------- */
   .trust-header {
-    padding: 0 1.5rem 3rem;
+    padding: 0 1.5rem;
+    margin-bottom: 3.5rem;
   }
   @media (min-width: 768px) {
-    .trust-header { padding: 0 4rem 4.5rem; }
+    .trust-header { padding: 0 4rem; margin-bottom: 5rem; }
   }
 
   .trust-header-inner {
     max-width: 1440px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: end;
   }
-  @media (min-width: 900px) {
-    .trust-header-inner {
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 3rem;
-    }
+
+  .trust-eyebrow {
+    color: var(--lilac);
+    display: inline-block;
+    margin-bottom: 1.25rem;
   }
 
   .trust-title {
     font-family: var(--font-condensed);
-    font-weight: 400;
-    font-size: clamp(3.5rem, 12vw, 11rem);
-    line-height: 0.88;
+    font-weight: 400; /* Anton es bold por defecto */
+    font-size: clamp(3.5rem, 13vw, 11rem);
+    line-height: 0.9;
     letter-spacing: -0.01em;
+    color: #FFFFFF;
+    margin: 0 0 2.5rem;
     text-transform: uppercase;
-    color: var(--cream);
-    margin: 0;
   }
   .trust-title-accent {
     color: var(--lilac);
+    font-style: normal;
   }
 
-  .trust-right {
-    padding-bottom: 0.75rem;
+  .trust-bottom {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    align-items: end;
+    max-width: 1100px;
   }
+  @media (min-width: 900px) {
+    .trust-bottom {
+      grid-template-columns: 1.4fr auto;
+      gap: 3rem;
+    }
+  }
+
   .trust-lead {
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
     line-height: 1.65;
-    color: var(--text-muted);
-    margin: 0 0 1.75rem;
-    max-width: 32rem;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0;
+    max-width: 50rem;
   }
-  @media (min-width: 768px) {
-    .trust-lead { font-size: 1.05rem; }
-  }
+
   .trust-cta {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.95rem 2rem;
+    background: var(--lilac);
+    color: #0A1F4A;
     font-family: var(--font-sans);
     font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--cream);
-    background: transparent;
-    border: 1.5px solid var(--cream);
-    padding: 0.85rem 2.25rem;
-    border-radius: 999px;
+    font-size: 0.95rem;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 999px;
+    transition: transform 0.3s, background 0.3s;
+    white-space: nowrap;
+    align-self: start;
   }
   .trust-cta:hover {
-    background: var(--lilac);
-    border-color: var(--lilac);
-    color: var(--night);
+    transform: translateY(-2px);
+    background: var(--lilac-soft);
   }
 
-  /* --- Marquees --- */
+  /* ---------- MARQUEES ---------- */
   .trust-marquees {
-    padding: 2rem 0;
-    border-top: 1px solid rgba(30, 91, 255, 0.10);
-    border-bottom: 1px solid rgba(30, 91, 255, 0.10);
-    background: #FFFFFF;
+    margin-top: 1rem;
   }
 
   .marquee {
@@ -209,6 +213,7 @@ const rowB = clients.filter((_, i) => i % 2 === 1);
     }
   }
 
+  /* Logos en blanco sobre fondo navy (estilo Olivia) */
   .trust-logo {
     max-height: 100%;
     max-width: 160px;
@@ -216,15 +221,14 @@ const rowB = clients.filter((_, i) => i % 2 === 1);
     height: auto;
     object-fit: contain;
     pointer-events: none;
-    filter: saturate(0.85);
-    opacity: 0.92;
-    transition: filter 0.3s, opacity 0.3s;
+    filter: brightness(0) invert(1);
+    opacity: 0.75;
+    transition: opacity 0.3s, filter 0.3s;
   }
   @media (min-width: 768px) {
     .trust-logo { max-width: 180px; }
   }
   .marquee:hover .trust-logo {
-    filter: saturate(1);
     opacity: 1;
   }
 
