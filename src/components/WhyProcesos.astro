@@ -1,13 +1,4 @@
 ---
-const reasons = [
-  { n: '01', title: 'Comprensión del negocio', desc: 'Poseemos un profundo entendimiento del negocio de nuestros clientes, incluyendo sus objetivos estratégicos, estructura organizativa, cultura empresarial y desafíos específicos.' },
-  { n: '02', title: 'Experiencia en gestión por procesos', desc: 'Contamos con experiencia y conocimientos sólidos en metodologías de gestión por procesos, como Lean Management y BPM (Business Process Management), entre otras, para ofrecer soluciones efectivas y personalizadas.' },
-  { n: '03', title: 'Enfoque centrado en el cliente', desc: 'Ponemos al cliente en el centro de nuestras acciones y desarrollamos soluciones alineadas con sus necesidades y objetivos empresariales.' },
-  { n: '04', title: 'Tecnología y herramientas adecuadas', desc: 'Estamos al tanto de las últimas tendencias tecnológicas y herramientas para la optimización de procesos, recomendando e implementando aquellas que mejor se adapten a las necesidades de cada cliente.' },
-  { n: '05', title: 'Desarrollo del talento humano', desc: 'Reconocemos la importancia del factor humano en la gestión por procesos: promovemos el desarrollo profesional de los colaboradores, ofreciendo capacitación y apoyo para mejorar sus habilidades y competencias.' },
-  { n: '06', title: 'Enfoque en la mejora continua', desc: 'Adoptamos una mentalidad de mejora continua, trabajando en colaboración con nuestros clientes para identificar oportunidades de optimización y desarrollar soluciones que impulsen la eficiencia y la innovación.' },
-];
-
 const steps = [
   { num: '01', title: 'Escuchar', desc: 'Nos reunimos contigo para entender tu negocio, tus desafíos y tus objetivos.' },
   { num: '02', title: 'Diseñar', desc: 'Proponemos una solución a medida con alcance claro y presupuesto transparente.' },
@@ -19,39 +10,6 @@ const steps = [
 <section id="por-que-procesos360" class="relative py-20 md:py-32 overflow-hidden" style="background:var(--night);">
 
   <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-10">
-
-    <div class="grid grid-cols-12 gap-4 md:gap-8 mb-16 md:mb-24 fade-up">
-      <div class="col-span-12 md:col-span-3">
-        <div class="eyebrow eyebrow-dot mb-4">Por qu&eacute; nosotros</div>
-        <div class="hairline w-16"></div>
-      </div>
-      <div class="col-span-12 md:col-span-9">
-        <h2 class="display-lg">
-          Seis razones
-          <span class="italic-accent">por las que</span>
-          <br/>elegirnos.
-        </h2>
-      </div>
-    </div>
-
-    <!-- Reasons list -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 md:gap-y-14 gap-x-12 md:gap-x-20 mb-28 md:mb-36">
-      {reasons.map((reason, i) => (
-        <div class="fade-up flex gap-6 md:gap-8" style={`transition-delay: ${i * 80}ms`} data-parallax={i % 2 === 0 ? '0.05' : '0.11'}>
-          <span class="font-mono-accent text-xs uppercase tracking-[0.2em] pt-1 flex-shrink-0 w-10" style="color:var(--lilac);">
-            {reason.n}
-          </span>
-          <div class="flex-1">
-            <h4 class="display-md mb-3" style="font-size:clamp(1.4rem,2.8vw,1.9rem);line-height:1.15;">
-              {reason.title}
-            </h4>
-            <p class="text-base leading-relaxed" style="color:var(--text-muted);">
-              {reason.desc}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
 
     <!-- Process -->
     <div class="fade-up">
