@@ -1,9 +1,41 @@
 ---
-const valores = [
-  { title: 'Integridad',    desc: 'Honestos en cada decisión, transparentes en cada interacción.' },
-  { title: 'Excelencia',    desc: 'El estándar más alto en cada proceso, cada entregable, cada conversación.' },
-  { title: 'Colaboración',  desc: 'Trabajamos lado a lado con tu equipo, nunca por encima.' },
-  { title: 'Compromiso',    desc: 'Nos hacemos parte del éxito a largo plazo de tu organización.' },
+const items = [
+  {
+    label: 'Nuestra visión',
+    desc: `<p>Ser el <strong>socio estratégico</strong> de nuestros clientes en su viaje hacia la excelencia operativa y el crecimiento sostenible. Aspiramos a ser reconocidos como líderes en la transformación empresarial a través de la excelencia en la gestión por procesos, alineando los procesos de las organizaciones con sus objetivos estratégicos.</p>`,
+  },
+  {
+    label: 'Nuestra misión',
+    desc: `<p>Colaborar estrechamente con nuestros clientes para <strong>mejorar su rendimiento operativo</strong>, maximizar su eficiencia y fomentar una cultura de mejora continua en toda su organización. Cada proceso es una oportunidad para innovar y agregar valor.</p>`,
+  },
+  {
+    label: 'Nuestro enfoque',
+    desc: `<p>Creemos en un <strong>enfoque holístico</strong> de la gestión por procesos que combine la experiencia técnica con un profundo entendimiento del negocio y un compromiso con las personas. Nos esforzamos por comprender las necesidades únicas de cada cliente y desarrollar soluciones personalizadas que generen resultados tangibles y sostenibles.</p>`,
+  },
+  {
+    label: 'Nuestros valores',
+    desc: `<ul class="about-list">
+      <li><strong>Integridad.</strong> Honestos en cada decisión, transparentes en cada interacción.</li>
+      <li><strong>Excelencia.</strong> El estándar más alto en cada proceso, cada entregable, cada conversación.</li>
+      <li><strong>Colaboración.</strong> Trabajamos lado a lado con tu equipo, nunca por encima.</li>
+      <li><strong>Compromiso.</strong> Nos hacemos parte del éxito a largo plazo de tu organización.</li>
+    </ul>`,
+  },
+  {
+    label: 'Nuestro compromiso',
+    desc: `<p>Estamos comprometidos a establecer <strong>relaciones sólidas y duraderas</strong> con nuestros clientes, basadas en la confianza mutua, la transparencia y los resultados medibles. Nos consideramos socios estratégicos en su viaje hacia la excelencia operativa y estamos dedicados a su éxito a largo plazo.</p>`,
+  },
+  {
+    label: 'Nuestros pilares',
+    desc: `<ul class="about-list">
+      <li><strong>Comprensión del negocio.</strong> Poseemos un profundo entendimiento del negocio de sus clientes, incluyendo sus objetivos estratégicos, estructura organizativa, cultura empresarial y desafíos específicos.</li>
+      <li><strong>Experiencia en gestión por procesos.</strong> Contamos con experiencia y conocimientos sólidos en metodologías de gestión por procesos, como Lean Management, BPM (Business Process Management), entre otras, para poder ofrecer soluciones efectivas y personalizadas a sus clientes.</li>
+      <li><strong>Enfoque centrado en el cliente.</strong> Ponemos al cliente en el centro de sus acciones y desarrolle soluciones que estén alineadas con sus necesidades y objetivos empresariales.</li>
+      <li><strong>Tecnología y herramientas adecuadas.</strong> Estamos al tanto de las últimas tendencias tecnológicas y herramientas disponibles para la optimización de procesos, y ser capaz de recomendar e implementar aquellas que mejor se adapten a las necesidades de sus clientes.</li>
+      <li><strong>Desarrollo del talento humano.</strong> Reconocemos la importancia del factor humano en la gestión por procesos, por lo que promovemos el desarrollo profesional de los colaboradores de sus clientes, ofreciendo capacitación y apoyo para mejorar sus habilidades y competencias en la gestión de procesos.</li>
+      <li><strong>Enfoque en la mejora continua.</strong> Adoptamos una mentalidad de mejora continua, trabajando en colaboración con sus clientes para identificar oportunidades de optimización y desarrollar soluciones que impulsen la eficiencia y la innovación en sus procesos empresariales.</li>
+    </ul>`,
+  },
 ];
 ---
 
@@ -13,12 +45,12 @@ const valores = [
 
     <!-- Intro + 10 años badge -->
     <div class="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-24 fade-up">
-      <div class="col-span-12 md:col-span-7" style="transition-delay:80ms;">
+      <div class="col-span-12 md:col-span-7">
         <p class="text-lg leading-relaxed" style="color:var(--cream);">
           Estamos comprometidos con la <em style="color:var(--lilac);font-style:italic;">excelencia en la gesti&oacute;n de procesos</em> para impulsar el &eacute;xito empresarial. Con una trayectoria probada en el dise&ntilde;o, implementaci&oacute;n y optimizaci&oacute;n, nos hemos consolidado como l&iacute;deres en el campo de la consultor&iacute;a de la <em style="color:var(--lilac);font-style:italic;">Gesti&oacute;n de Procesos de Negocios</em>.
         </p>
       </div>
-      <div class="col-span-12 md:col-span-5 flex md:justify-end" style="transition-delay:160ms;">
+      <div class="col-span-12 md:col-span-5 flex md:justify-end">
         <div class="experience-badge">
           <div class="experience-num">10</div>
           <div class="experience-label">a&ntilde;os de<br/>experiencia</div>
@@ -26,93 +58,158 @@ const valores = [
       </div>
     </div>
 
-    <!-- Visión + Misión side by side -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-16 md:mb-24">
-      <div class="fade-up violet-card" style="padding:2rem;">
-        <div class="eyebrow mb-4" style="color:var(--lilac);">Nuestra visi&oacute;n</div>
-        <p class="text-base leading-relaxed mb-4" style="color:var(--cream);">
-          Ser el <strong style="font-weight:600;">socio estrat&eacute;gico</strong> de nuestros clientes en su viaje hacia la excelencia operativa y el crecimiento sostenible.
-        </p>
-        <p class="text-base leading-relaxed mb-4" style="color:var(--text-muted);">
-          Aspiramos a ser reconocidos como l&iacute;deres en la transformaci&oacute;n empresarial a trav&eacute;s de la excelencia en la gesti&oacute;n por procesos. Nos visualizamos como agentes de cambio que inspiran a las organizaciones a alcanzar su m&aacute;ximo potencial, alineando sus procesos con sus objetivos estrat&eacute;gicos.
-        </p>
-        <p class="text-base leading-relaxed" style="color:var(--text-muted);">
-          Buscamos crear un mundo empresarial donde la <em style="color:var(--lilac);font-style:italic;">eficiencia operativa</em>, la <em style="color:var(--lilac);font-style:italic;">innovaci&oacute;n continua</em> y el <em style="color:var(--lilac);font-style:italic;">bienestar de las personas</em> sean los pilares fundamentales del &eacute;xito organizacional.
-        </p>
+    <!-- Bloque interactivo (formato "¿Qué hacemos?") -->
+    <div class="grid grid-cols-12 gap-8 md:gap-12 lg:gap-20">
+
+      <!-- LEFT — heading + descripción dinámica -->
+      <div class="col-span-12 lg:col-span-5 fade-up">
+        <h2 class="about-heading">Nuestra esencia</h2>
+        <div id="about-desc" class="about-desc" set:html={items[0].desc}></div>
+        <a href="#contacto" class="about-cta">Conversemos</a>
       </div>
 
-      <div class="fade-up violet-card" style="transition-delay:120ms;padding:2rem;">
-        <div class="eyebrow mb-4" style="color:var(--gold);">Nuestra misi&oacute;n</div>
-        <p class="text-base leading-relaxed mb-4" style="color:var(--cream);">
-          Colaborar estrechamente con nuestros clientes para <strong style="font-weight:600;">mejorar su rendimiento operativo</strong>, maximizar su eficiencia y fomentar una cultura de mejora continua en toda su organizaci&oacute;n.
-        </p>
-        <div class="pl-5 border-l-2" style="border-color:var(--gold);">
-          <p class="pull-quote" style="font-size:clamp(1.1rem,2vw,1.5rem);">
-            Cada proceso es una oportunidad para innovar y agregar valor.
-          </p>
+      <!-- RIGHT — lista interactiva -->
+      <div class="col-span-12 lg:col-span-7 fade-up" style="transition-delay:120ms;">
+        <div class="about-nav">
+          {items.map((it, i) => (
+            <button
+              type="button"
+              class:list={['about-item', { 'is-active': i === 0 }]}
+              data-index={i}
+              data-desc={it.desc}
+            >
+              {it.label}
+            </button>
+          ))}
         </div>
       </div>
-    </div>
 
-    <!-- Enfoque -->
-    <div class="grid grid-cols-12 gap-4 md:gap-8 mb-16 md:mb-20 fade-up">
-      <div class="col-span-12 md:col-span-3">
-        <div class="eyebrow eyebrow-dot mb-3">Nuestro enfoque</div>
-        <div class="hairline w-12"></div>
-      </div>
-      <div class="col-span-12 md:col-span-9">
-        <p class="text-lg md:text-xl leading-relaxed" style="color:var(--cream);">
-          Creemos en un <em style="color:var(--lilac);font-style:italic;">enfoque hol&iacute;stico</em> de la gesti&oacute;n por procesos que combine la experiencia t&eacute;cnica con un profundo entendimiento del negocio y un compromiso con las personas. Nos esforzamos por comprender las necesidades &uacute;nicas de cada cliente y desarrollar soluciones personalizadas que generen <em style="color:var(--lilac);font-style:italic;">resultados tangibles y sostenibles</em>.
-        </p>
-      </div>
-    </div>
-
-    <!-- Valores -->
-    <div class="fade-up mb-16 md:mb-24">
-      <div class="grid grid-cols-12 gap-4 md:gap-8 mb-10">
-        <div class="col-span-12 md:col-span-3">
-          <div class="eyebrow eyebrow-dot mb-3">Nuestros valores</div>
-          <div class="hairline w-12"></div>
-        </div>
-        <div class="col-span-12 md:col-span-9">
-          <p class="text-base leading-relaxed" style="color:var(--text-muted);">
-            Un conjunto de valores fundamentales que orientan nuestras acciones y decisiones en todo momento.
-          </p>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-        {valores.map((v, i) => (
-          <div class="fade-up violet-card" style={`transition-delay: ${i * 80}ms;padding:1.5rem;`}>
-            <h4 class="display-md mb-2" style="font-size:1.2rem;line-height:1.2;">
-              {v.title}
-            </h4>
-            <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
-              {v.desc}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Compromiso -->
-    <div class="grid grid-cols-12 gap-4 md:gap-8 fade-up">
-      <div class="col-span-12 md:col-span-3">
-        <div class="eyebrow eyebrow-dot mb-3" style="color:var(--gold);">Nuestro compromiso</div>
-        <div class="hairline w-12"></div>
-      </div>
-      <div class="col-span-12 md:col-span-9">
-        <p class="text-lg leading-relaxed mb-6" style="color:var(--cream);">
-          Estamos comprometidos a establecer <em style="color:var(--lilac);font-style:italic;">relaciones s&oacute;lidas y duraderas</em> con nuestros clientes, basadas en la confianza mutua, la transparencia y los resultados medibles. Nos consideramos socios estrat&eacute;gicos en su viaje hacia la excelencia operativa y estamos dedicados a su &eacute;xito a largo plazo.
-        </p>
-        <p class="text-base leading-relaxed" style="color:var(--text-muted);">
-          En Procesos 360 estamos aqu&iacute; para ayudarte a transformar tus procesos y alcanzar nuevos niveles de eficiencia y rendimiento.
-        </p>
-      </div>
     </div>
   </div>
 </section>
 
+<script>
+  const items = document.querySelectorAll<HTMLButtonElement>('.about-item');
+  const descEl = document.getElementById('about-desc');
+  let activeIndex = 0;
+
+  function setActive(item: HTMLButtonElement) {
+    const idx = Number(item.dataset.index);
+    if (idx === activeIndex) return;
+    activeIndex = idx;
+
+    items.forEach((el) => el.classList.toggle('is-active', el === item));
+
+    if (descEl) {
+      descEl.classList.add('is-swapping');
+      window.setTimeout(() => {
+        descEl.innerHTML = item.dataset.desc || '';
+        descEl.classList.remove('is-swapping');
+      }, 160);
+    }
+  }
+
+  items.forEach((item) => {
+    item.addEventListener('mouseenter', () => setActive(item));
+    item.addEventListener('click', () => setActive(item));
+    item.addEventListener('focus', () => setActive(item));
+  });
+</script>
+
 <style>
+  .about-heading {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--plum);
+    margin: 0 0 1.75rem;
+  }
+
+  .about-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin: 0 0 2.25rem;
+    min-height: 11rem;
+    transition: opacity 0.16s ease;
+  }
+  .about-desc.is-swapping { opacity: 0; }
+  .about-desc :global(p) { margin: 0; }
+  .about-desc :global(strong) { color: var(--cream); font-weight: 600; }
+  .about-desc :global(.about-list) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .about-desc :global(.about-list li) {
+    position: relative;
+    padding-left: 1.4rem;
+  }
+  .about-desc :global(.about-list li)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--lilac);
+  }
+
+  .about-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #FFFFFF;
+    background: var(--plum);
+    padding: 0.9rem 2.25rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .about-cta:hover { transform: translateY(-2px); background: var(--violet); }
+
+  /* --- Right list — Olivia-style --- */
+  .about-nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-item {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(30, 91, 255, 0.16);
+    padding: 0.85rem 0;
+    cursor: pointer;
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.25rem, 2.8vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    transition: color 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .about-item:first-child { border-top: 1px solid rgba(30, 91, 255, 0.16); }
+  @media (min-width: 768px) {
+    .about-item { padding: 1.05rem 0; }
+  }
+
+  .about-item:hover,
+  .about-item.is-active {
+    color: var(--plum);
+  }
+
+  /* --- Experience badge --- */
   .experience-badge {
     width: 200px;
     height: 200px;
@@ -168,5 +265,9 @@ const valores = [
       margin: 0 auto;
     }
     .experience-num { font-size: 4rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-item, .about-desc, .about-cta { transition: none; }
   }
 </style>
