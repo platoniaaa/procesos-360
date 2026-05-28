@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  site: 'https://platonia.cl',
+  site: 'https://procesos360.cl',
   adapter: vercel(),
   integrations: [sitemap()],
   vite: {
