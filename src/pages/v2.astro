@@ -136,73 +136,85 @@ const equipo = [
       }
       .v2-nav-cta:hover { background: var(--v2-primary-deep); }
 
-      /* ---------- HERO ---------- */
+      /* ---------- HERO SLIDER (estilo MSO) ---------- */
       .v2-hero {
-        background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
-        padding: 80px 0 100px;
+        background: linear-gradient(135deg, #0a1f4a 0%, #1e3a8a 60%, #2748b8 100%);
+        color: white;
         position: relative;
         overflow: hidden;
+        min-height: 540px;
       }
       .v2-hero::before {
         content: '';
         position: absolute;
-        top: -100px;
-        right: -100px;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(30,58,138,0.08) 0%, transparent 70%);
+        top: -150px;
+        right: -150px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 65%);
         pointer-events: none;
       }
-      .v2-hero-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 48px;
-        align-items: center;
+      .v2-slider {
         position: relative;
-        z-index: 1;
+        padding: 80px 0 100px;
       }
+      .v2-slide {
+        display: none;
+        align-items: center;
+        gap: 48px;
+        animation: v2-fade 0.6s ease;
+      }
+      .v2-slide.is-active { display: grid; grid-template-columns: 1fr; }
       @media (min-width: 900px) {
-        .v2-hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 64px; }
+        .v2-slide.is-active { grid-template-columns: 1.05fr 0.95fr; gap: 56px; }
       }
-      .v2-hero-eyebrow {
+      @keyframes v2-fade {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .v2-slide-eyebrow {
         display: inline-block;
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--v2-primary);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-bottom: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255,255,255,0.85);
+        margin-bottom: 14px;
       }
-      .v2-hero h1 {
-        font-size: clamp(36px, 5vw, 56px);
+      .v2-slide h1 {
+        font-size: clamp(32px, 4.5vw, 50px);
         font-weight: 800;
-        color: var(--v2-text);
-        margin-bottom: 24px;
+        color: white;
+        margin-bottom: 20px;
+        line-height: 1.15;
       }
-      .v2-hero h1 .accent { color: var(--v2-primary); }
-      .v2-hero-sub {
-        font-size: 18px;
+      .v2-slide-sub {
+        font-size: 16px;
         line-height: 1.65;
-        color: var(--v2-text-soft);
-        margin-bottom: 32px;
-        max-width: 540px;
+        color: rgba(255,255,255,0.8);
+        margin-bottom: 28px;
+        max-width: 520px;
       }
-      .v2-hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
       .v2-btn {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 14px 28px;
+        padding: 14px 32px;
         font-weight: 600;
         font-size: 15px;
-        border-radius: 6px;
+        border-radius: 999px;
         transition: all 0.2s;
         cursor: pointer;
         border: none;
+        text-decoration: none;
       }
+      .v2-btn-orange {
+        background: #f59e0b;
+        color: #0a1f4a;
+      }
+      .v2-btn-orange:hover { background: #fbbf24; transform: translateY(-1px); }
       .v2-btn-primary {
         background: var(--v2-primary);
         color: white;
+        border-radius: 6px;
       }
       .v2-btn-primary:hover {
         background: var(--v2-primary-deep);
@@ -213,19 +225,88 @@ const equipo = [
         background: transparent;
         color: var(--v2-primary);
         border: 1.5px solid var(--v2-primary);
+        border-radius: 6px;
       }
       .v2-btn-ghost:hover { background: var(--v2-primary); color: white; }
 
-      .v2-hero-card {
-        background: white;
-        border-radius: 16px;
-        padding: 32px;
-        box-shadow: var(--v2-shadow);
-        border: 1px solid var(--v2-border);
+      /* Blob con imagen/gradiente al estilo MSO */
+      .v2-blob-wrap {
+        position: relative;
+        aspect-ratio: 1/1;
+        max-width: 480px;
+        margin: 0 auto;
       }
-      .v2-hero-card-title { font-size: 14px; font-weight: 600; color: var(--v2-primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
-      .v2-hero-card-quote { font-size: 17px; line-height: 1.65; color: var(--v2-text); font-weight: 500; margin-bottom: 20px; }
-      .v2-hero-card-meta { font-size: 13px; color: var(--v2-text-muted); }
+      .v2-blob {
+        position: absolute;
+        inset: 0;
+        border-radius: 62% 38% 46% 54% / 58% 42% 58% 42%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: v2-blob-morph 14s ease-in-out infinite;
+      }
+      @keyframes v2-blob-morph {
+        0%, 100% { border-radius: 62% 38% 46% 54% / 58% 42% 58% 42%; }
+        33% { border-radius: 42% 58% 60% 40% / 48% 62% 38% 52%; }
+        66% { border-radius: 54% 46% 36% 64% / 60% 50% 50% 40%; }
+      }
+      .v2-blob-icon {
+        width: 50%;
+        height: 50%;
+        color: white;
+        opacity: 0.95;
+      }
+      .v2-blob-ring {
+        position: absolute;
+        inset: -16px;
+        border: 1.5px solid rgba(255,255,255,0.25);
+        border-radius: 50%;
+        animation: v2-spin 24s linear infinite;
+      }
+      @keyframes v2-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .v2-blob-deco {
+        position: absolute;
+        background: #fbbf24;
+        border-radius: 999px;
+        opacity: 0.85;
+      }
+      .v2-blob-deco-1 { width: 80px; height: 28px; bottom: 10%; left: -10px; transform: rotate(-15deg); }
+
+      /* Decorativos zigzag */
+      .v2-deco-zigzag {
+        position: absolute;
+        opacity: 0.6;
+        pointer-events: none;
+      }
+      .v2-deco-zigzag-left { bottom: 40px; left: 24px; width: 120px; color: #f59e0b; }
+      .v2-deco-zigzag-right { bottom: 30px; right: 24px; width: 120px; color: #f59e0b; }
+
+      /* Dots indicators */
+      .v2-dots {
+        position: absolute;
+        bottom: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 5;
+      }
+      .v2-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.3);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: all 0.3s;
+      }
+      .v2-dot.is-active { background: white; transform: scale(1.2); }
+      .v2-dot:hover { background: rgba(255,255,255,0.6); }
 
       /* ---------- METRICS ---------- */
       .v2-metrics {
@@ -523,37 +604,168 @@ const equipo = [
       </div>
     </header>
 
-    <!-- ============ HERO ============ -->
+    <!-- ============ HERO SLIDER (estilo MSO) ============ -->
     <section class="v2-hero">
-      <div class="v2-container">
-        <div class="v2-hero-grid">
-          <div>
-            <span class="v2-hero-eyebrow">Consultoría en Gestión por Procesos</span>
-            <h1>
-              Transformamos procesos en <span class="accent">activos estratégicos</span>.
-            </h1>
-            <p class="v2-hero-sub">
-              Optimizamos procesos, implementamos IA con criterio y acompañamos el cambio organizacional. Para que la transformación deje de ser un proyecto y se vuelva tu forma de operar.
-            </p>
-            <div class="v2-hero-ctas">
-              <a href="/diagnostico" class="v2-btn v2-btn-primary">Hacer diagnóstico gratis →</a>
-              <a href="#servicios" class="v2-btn v2-btn-ghost">Ver servicios</a>
-            </div>
-          </div>
+      <!-- Zigzag decorativos -->
+      <svg class="v2-deco-zigzag v2-deco-zigzag-left" viewBox="0 0 120 16" fill="none">
+        <path d="M0 8 L15 0 L30 16 L45 0 L60 16 L75 0 L90 16 L105 0 L120 8" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+      <svg class="v2-deco-zigzag v2-deco-zigzag-right" viewBox="0 0 120 16" fill="none">
+        <path d="M0 8 L15 0 L30 16 L45 0 L60 16 L75 0 L90 16 L105 0 L120 8" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
 
-          <div class="v2-hero-card">
-            <div class="v2-hero-card-title">Testimonio</div>
-            <p class="v2-hero-card-quote">
-              "Su profundo conocimiento en metodologías de gestión por procesos y su enfoque meticuloso hacia la mejora continua son evidentes en cada proyecto."
+      <div class="v2-container v2-slider">
+
+        <!-- SLIDE 1: Diagnóstico -->
+        <div class="v2-slide is-active" data-slide="0">
+          <div>
+            <span class="v2-slide-eyebrow">Descubre nuestro</span>
+            <h1>Diagnóstico de Madurez de Procesos Conéctate gratis</h1>
+            <p class="v2-slide-sub">
+              Evalúa el nivel de madurez de tu organización en 5 dimensiones y recibe un diagnóstico personalizado con recomendaciones accionables.
             </p>
-            <div class="v2-hero-card-meta">
-              <strong>Camilo Garcés Pizarro</strong><br/>
-              Ex Subgerente de Auditoría en Copec
+            <a href="/diagnostico" class="v2-btn v2-btn-orange">Ver más</a>
+          </div>
+          <div class="v2-blob-wrap">
+            <div class="v2-blob-ring"></div>
+            <div class="v2-blob" style="background: linear-gradient(135deg, #2748b8 0%, #4f7cff 100%);">
+              <svg class="v2-blob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
             </div>
+            <div class="v2-blob-deco v2-blob-deco-1"></div>
           </div>
         </div>
+
+        <!-- SLIDE 2: Mejoramiento de Procesos -->
+        <div class="v2-slide" data-slide="1">
+          <div>
+            <span class="v2-slide-eyebrow">Conoce nuestro servicio de</span>
+            <h1>Mejoramiento de Procesos con SAP Signavio</h1>
+            <p class="v2-slide-sub">
+              Levantamos AS-IS y rediseñamos TO-BE con BPMN, SIPOC y RACI. Una metodología propia de 5 fases respaldada por nuestra alianza como partners de SAP.
+            </p>
+            <a href="#servicios" class="v2-btn v2-btn-orange">Ver más</a>
+          </div>
+          <div class="v2-blob-wrap">
+            <div class="v2-blob-ring"></div>
+            <div class="v2-blob" style="background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);">
+              <svg class="v2-blob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div class="v2-blob-deco v2-blob-deco-1"></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3: Productos -->
+        <div class="v2-slide" data-slide="2">
+          <div>
+            <span class="v2-slide-eyebrow">Soluciones ya construidas</span>
+            <h1>Productos listos para operar en semanas</h1>
+            <p class="v2-slide-sub">
+              Plataformas propias de Aprendizaje al Puesto de Trabajo y WMS+CRM, listas para implementar sin desarrollo desde cero.
+            </p>
+            <a href="#productos" class="v2-btn v2-btn-orange">Ver más</a>
+          </div>
+          <div class="v2-blob-wrap">
+            <div class="v2-blob-ring"></div>
+            <div class="v2-blob" style="background: linear-gradient(135deg, #b45309 0%, #f59e0b 100%);">
+              <svg class="v2-blob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+            </div>
+            <div class="v2-blob-deco v2-blob-deco-1"></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4: IA con criterio -->
+        <div class="v2-slide" data-slide="3">
+          <div>
+            <span class="v2-slide-eyebrow">Transformación con tecnología</span>
+            <h1>Gobierno de IA con criterio</h1>
+            <p class="v2-slide-sub">
+              Frameworks de gobernanza responsables y éticos para implementar IA alineada con tu estrategia: políticas, roles, comités y gestión de riesgos algorítmicos.
+            </p>
+            <a href="#servicios" class="v2-btn v2-btn-orange">Ver más</a>
+          </div>
+          <div class="v2-blob-wrap">
+            <div class="v2-blob-ring"></div>
+            <div class="v2-blob" style="background: linear-gradient(135deg, #6d28d9 0%, #a855f7 100%);">
+              <svg class="v2-blob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+            <div class="v2-blob-deco v2-blob-deco-1"></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 5: Gestión del cambio -->
+        <div class="v2-slide" data-slide="4">
+          <div>
+            <span class="v2-slide-eyebrow">El factor humano</span>
+            <h1>Gestión del Cambio Organizacional</h1>
+            <p class="v2-slide-sub">
+              Acompañamos a personas y equipos para que los nuevos procesos no se queden en el papel: comunicación, capacitación, coaching y monitoreo de adopción.
+            </p>
+            <a href="#servicios" class="v2-btn v2-btn-orange">Ver más</a>
+          </div>
+          <div class="v2-blob-wrap">
+            <div class="v2-blob-ring"></div>
+            <div class="v2-blob" style="background: linear-gradient(135deg, #be185d 0%, #ec4899 100%);">
+              <svg class="v2-blob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <div class="v2-blob-deco v2-blob-deco-1"></div>
+          </div>
+        </div>
+
+        <!-- Dots -->
+        <div class="v2-dots" id="v2-dots">
+          <button class="v2-dot is-active" data-go="0" aria-label="Slide 1"></button>
+          <button class="v2-dot" data-go="1" aria-label="Slide 2"></button>
+          <button class="v2-dot" data-go="2" aria-label="Slide 3"></button>
+          <button class="v2-dot" data-go="3" aria-label="Slide 4"></button>
+          <button class="v2-dot" data-go="4" aria-label="Slide 5"></button>
+        </div>
+
       </div>
     </section>
+
+    <script is:inline>
+      (function () {
+        const slides = document.querySelectorAll('.v2-slide');
+        const dots = document.querySelectorAll('.v2-dot');
+        let current = 0;
+        let timer;
+
+        function go(i) {
+          slides[current].classList.remove('is-active');
+          dots[current].classList.remove('is-active');
+          current = (i + slides.length) % slides.length;
+          slides[current].classList.add('is-active');
+          dots[current].classList.add('is-active');
+        }
+
+        function tick() { go(current + 1); }
+        function reset() {
+          clearInterval(timer);
+          timer = setInterval(tick, 6000);
+        }
+
+        dots.forEach((d) => {
+          d.addEventListener('click', () => {
+            const i = parseInt(d.dataset.go || '0', 10);
+            go(i);
+            reset();
+          });
+        });
+
+        reset();
+      })();
+    </script>
 
     <!-- ============ METRICS ============ -->
     <section class="v2-metrics">
