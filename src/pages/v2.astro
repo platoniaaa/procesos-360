@@ -1,0 +1,816 @@
+---
+// Página V2 — Diseño alternativo estilo corporativo (referencia: msochile.com)
+// Totalmente independiente del diseño actual. NO importa el Layout principal.
+const servicios = [
+  { titulo: 'Mejoramiento de Procesos', desc: 'Levantamos AS-IS y rediseñamos TO-BE con BPMN, SIPOC y RACI. Metodología propia de 5 fases, respaldada por nuestra alianza con SAP Signavio y SAP LeanIX.' },
+  { titulo: 'Ingeniería Cognitiva de Procesos Adaptativos', desc: 'Capturamos el conocimiento tácito de tus expertos y lo convertimos en un modelo formal reutilizable y escalable.' },
+  { titulo: 'Gobierno de IA', desc: 'Frameworks de gobernanza responsables y éticos para implementar IA alineada con tu estrategia corporativa.' },
+  { titulo: 'Transformación Empresarial con IA', desc: 'Rediseño de procesos primero, automatización e IA después. Combinamos gestión por procesos, RPA y analítica avanzada.' },
+  { titulo: 'Gestión del Cambio', desc: 'Acompañamos a personas y equipos para que los nuevos procesos no se queden en el papel: comunicación, capacitación, coaching.' },
+  { titulo: 'Soporte Continuo', desc: 'Mejora continua post go-live: monitoreo de KPIs operativos, ajustes incrementales y optimización iterativa.' },
+];
+
+const casos = [
+  { cliente: 'SONAMI', logo: '/img/clients/sonami.png', titulo: 'Modernización de la SONAMI', desc: 'Estructura organizacional ágil y transparente, con un liderazgo basado en competencias y mayor satisfacción laboral interna.' },
+  { cliente: 'Copec', logo: '/img/clients/copec.png', titulo: 'Arquitectura de Procesos — Sector Combustible', desc: 'Diseño de una arquitectura de procesos que mejora el proceso de Auditoría y proyecta un Gobierno por Procesos.' },
+];
+
+const clientes = [
+  { name: 'Derco', logo: '/img/clients/derco.png' },
+  { name: 'Copec', logo: '/img/clients/copec.png' },
+  { name: 'Transbank', logo: '/img/clients/transbank.png' },
+  { name: 'Caserones', logo: '/img/clients/caserones.png' },
+  { name: 'Gallagher', logo: '/img/clients/gallagher.jpg' },
+  { name: 'CFT RM', logo: '/img/clients/cft-rm.png' },
+  { name: 'FACM', logo: '/img/clients/facm.jpg' },
+  { name: 'Unired', logo: '/img/clients/unired.png' },
+  { name: 'Sercomed', logo: '/img/clients/sercomed.png' },
+  { name: '.vgroup', logo: '/img/clients/vgroup.png' },
+  { name: 'FEN U. de Chile', logo: '/img/clients/fen-uchile.jpg' },
+  { name: 'UDLA', logo: '/img/clients/udla.png' },
+  { name: 'UDD', logo: '/img/clients/udd.jpg' },
+  { name: 'SONAMI', logo: '/img/clients/sonami.png' },
+  { name: 'Arcoprime', logo: '/img/clients/arcoprime.png' },
+  { name: 'Proyectum', logo: '/img/clients/proyectum.png' },
+  { name: 'EEMTT', logo: '/img/clients/eemtt.jpg' },
+  { name: 'ProntoPaga', logo: '/img/clients/prontopaga.png' },
+  { name: 'SURA', logo: '/img/clients/sura.png' },
+  { name: 'MSO', logo: '/img/clients/mso.jpg' },
+];
+
+const equipo = [
+  { foto: '/img/team/javier-espinoza.jpg', nombre: 'Javier Espinoza Covarrubias', rol: 'Socio Director' },
+  { foto: '/img/team/ignacio-calderon.jpg', nombre: 'Ignacio Calderón', rol: 'Ing. de Procesos y Automatización' },
+  { foto: '/img/team/francisco-guajardo.jpg', nombre: 'Francisco Guajardo', rol: 'Analista de Procesos y Datos' },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Procesos 360 — Diseño alternativo (V2)</title>
+    <meta name="description" content="Versión alternativa del sitio de Procesos 360." />
+    <link rel="icon" type="image/png" href="/img/isotipo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --v2-bg: #ffffff;
+        --v2-bg-soft: #f4f6f9;
+        --v2-text: #1f2937;
+        --v2-text-soft: #4b5563;
+        --v2-text-muted: #6b7280;
+        --v2-primary: #1e3a8a;
+        --v2-primary-deep: #172554;
+        --v2-primary-soft: #3b5bdb;
+        --v2-accent: #f59e0b;
+        --v2-border: #e5e7eb;
+        --v2-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(15,23,42,0.05);
+        --v2-shadow-lg: 0 12px 32px rgba(30,58,138,0.10);
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        color: var(--v2-text);
+        background: var(--v2-bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.6;
+      }
+      img { max-width: 100%; display: block; }
+      a { color: inherit; text-decoration: none; }
+      h1, h2, h3, h4 { margin: 0; line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; }
+      p { margin: 0; }
+
+      .v2-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+      /* ---------- NAVBAR ---------- */
+      .v2-navbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--v2-border);
+      }
+      .v2-nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+      .v2-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--v2-primary);
+        letter-spacing: -0.02em;
+      }
+      .v2-logo img { height: 28px; width: auto; }
+      .v2-nav-links {
+        display: none;
+        gap: 32px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--v2-text-soft);
+      }
+      @media (min-width: 900px) {
+        .v2-nav-links { display: flex; }
+      }
+      .v2-nav-links a:hover { color: var(--v2-primary); }
+      .v2-nav-cta {
+        background: var(--v2-primary);
+        color: white;
+        padding: 10px 22px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: background 0.2s;
+      }
+      .v2-nav-cta:hover { background: var(--v2-primary-deep); }
+
+      /* ---------- HERO ---------- */
+      .v2-hero {
+        background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+        padding: 80px 0 100px;
+        position: relative;
+        overflow: hidden;
+      }
+      .v2-hero::before {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(30,58,138,0.08) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .v2-hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 48px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      @media (min-width: 900px) {
+        .v2-hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 64px; }
+      }
+      .v2-hero-eyebrow {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--v2-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 20px;
+      }
+      .v2-hero h1 {
+        font-size: clamp(36px, 5vw, 56px);
+        font-weight: 800;
+        color: var(--v2-text);
+        margin-bottom: 24px;
+      }
+      .v2-hero h1 .accent { color: var(--v2-primary); }
+      .v2-hero-sub {
+        font-size: 18px;
+        line-height: 1.65;
+        color: var(--v2-text-soft);
+        margin-bottom: 32px;
+        max-width: 540px;
+      }
+      .v2-hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+      .v2-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        font-weight: 600;
+        font-size: 15px;
+        border-radius: 6px;
+        transition: all 0.2s;
+        cursor: pointer;
+        border: none;
+      }
+      .v2-btn-primary {
+        background: var(--v2-primary);
+        color: white;
+      }
+      .v2-btn-primary:hover {
+        background: var(--v2-primary-deep);
+        transform: translateY(-1px);
+        box-shadow: var(--v2-shadow-lg);
+      }
+      .v2-btn-ghost {
+        background: transparent;
+        color: var(--v2-primary);
+        border: 1.5px solid var(--v2-primary);
+      }
+      .v2-btn-ghost:hover { background: var(--v2-primary); color: white; }
+
+      .v2-hero-card {
+        background: white;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: var(--v2-shadow);
+        border: 1px solid var(--v2-border);
+      }
+      .v2-hero-card-title { font-size: 14px; font-weight: 600; color: var(--v2-primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
+      .v2-hero-card-quote { font-size: 17px; line-height: 1.65; color: var(--v2-text); font-weight: 500; margin-bottom: 20px; }
+      .v2-hero-card-meta { font-size: 13px; color: var(--v2-text-muted); }
+
+      /* ---------- METRICS ---------- */
+      .v2-metrics {
+        background: var(--v2-bg);
+        padding: 56px 0;
+        border-bottom: 1px solid var(--v2-border);
+      }
+      .v2-metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+      @media (min-width: 768px) {
+        .v2-metrics-grid { grid-template-columns: repeat(4, 1fr); }
+      }
+      .v2-metric { text-align: center; }
+      .v2-metric-num {
+        font-size: clamp(36px, 5vw, 52px);
+        font-weight: 800;
+        color: var(--v2-primary);
+        margin-bottom: 6px;
+        line-height: 1;
+      }
+      .v2-metric-label {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--v2-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      /* ---------- SECTION BASE ---------- */
+      .v2-section { padding: 96px 0; }
+      .v2-section-soft { background: var(--v2-bg-soft); }
+      .v2-section-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+      .v2-section-eyebrow {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--v2-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 12px;
+      }
+      .v2-section-title {
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 700;
+        color: var(--v2-text);
+        margin-bottom: 14px;
+      }
+      .v2-section-sub {
+        font-size: 16px;
+        color: var(--v2-text-soft);
+        line-height: 1.65;
+      }
+
+      /* ---------- ABOUT ---------- */
+      .v2-about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+      @media (min-width: 900px) {
+        .v2-about-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
+      }
+      .v2-about-text h2 { font-size: clamp(28px, 3.5vw, 38px); margin-bottom: 20px; }
+      .v2-about-text p { color: var(--v2-text-soft); font-size: 16px; line-height: 1.7; margin-bottom: 16px; }
+      .v2-about-image {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--v2-shadow);
+        aspect-ratio: 4/3;
+        background: linear-gradient(135deg, var(--v2-primary) 0%, var(--v2-primary-soft) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+      .v2-about-image-inner {
+        padding: 40px;
+        text-align: center;
+      }
+      .v2-about-image-inner .num { font-size: 96px; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+      .v2-about-image-inner .lbl { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; }
+
+      /* ---------- SERVICIOS ---------- */
+      .v2-services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 640px) { .v2-services-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1024px) { .v2-services-grid { grid-template-columns: repeat(3, 1fr); } }
+      .v2-service-card {
+        background: white;
+        border: 1px solid var(--v2-border);
+        border-radius: 12px;
+        padding: 28px;
+        transition: all 0.25s ease;
+      }
+      .v2-service-card:hover {
+        border-color: var(--v2-primary);
+        transform: translateY(-3px);
+        box-shadow: var(--v2-shadow-lg);
+      }
+      .v2-service-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(30,58,138,0.08);
+        color: var(--v2-primary);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 18px;
+      }
+      .v2-service-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--v2-text); }
+      .v2-service-card p { font-size: 14px; line-height: 1.6; color: var(--v2-text-soft); }
+
+      /* ---------- CASOS ---------- */
+      .v2-casos-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 768px) { .v2-casos-grid { grid-template-columns: repeat(2, 1fr); } }
+      .v2-caso-card {
+        background: white;
+        border: 1px solid var(--v2-border);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--v2-shadow);
+        transition: transform 0.25s, box-shadow 0.25s;
+      }
+      .v2-caso-card:hover { transform: translateY(-4px); box-shadow: var(--v2-shadow-lg); }
+      .v2-caso-image {
+        height: 160px;
+        background: linear-gradient(135deg, #eef2ff 0%, #dbeafe 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .v2-caso-image img { max-height: 80px; max-width: 200px; object-fit: contain; }
+      .v2-caso-body { padding: 28px; }
+      .v2-caso-cliente {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--v2-primary);
+        margin-bottom: 8px;
+      }
+      .v2-caso-card h3 { font-size: 19px; margin-bottom: 12px; }
+      .v2-caso-card p { font-size: 14px; line-height: 1.6; color: var(--v2-text-soft); }
+
+      /* ---------- EQUIPO ---------- */
+      .v2-team-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      @media (min-width: 768px) { .v2-team-grid { grid-template-columns: repeat(3, 1fr); } }
+      .v2-team-member { text-align: center; }
+      .v2-team-photo {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid white;
+        box-shadow: var(--v2-shadow);
+      }
+      .v2-team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+      .v2-team-member h4 { font-size: 17px; margin-bottom: 4px; }
+      .v2-team-member .rol { font-size: 13px; color: var(--v2-primary); font-weight: 500; }
+
+      /* ---------- CLIENTES ---------- */
+      .v2-clients-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--v2-border);
+        border: 1px solid var(--v2-border);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      @media (min-width: 640px) { .v2-clients-grid { grid-template-columns: repeat(4, 1fr); } }
+      @media (min-width: 900px) { .v2-clients-grid { grid-template-columns: repeat(5, 1fr); } }
+      .v2-client-cell {
+        background: white;
+        aspect-ratio: 4/3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        transition: background 0.2s;
+      }
+      .v2-client-cell:hover { background: var(--v2-bg-soft); }
+      .v2-client-cell img { max-width: 80%; max-height: 60%; object-fit: contain; filter: grayscale(1); opacity: 0.7; transition: all 0.25s; }
+      .v2-client-cell:hover img { filter: grayscale(0); opacity: 1; }
+
+      /* ---------- NEWSLETTER / CONTACTO ---------- */
+      .v2-contact {
+        background: var(--v2-primary);
+        color: white;
+        padding: 80px 0;
+      }
+      .v2-contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      @media (min-width: 900px) { .v2-contact-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
+      .v2-contact h2 { color: white; font-size: clamp(28px, 3.5vw, 38px); margin-bottom: 16px; }
+      .v2-contact p { color: rgba(255,255,255,0.85); font-size: 16px; line-height: 1.65; }
+      .v2-form { display: grid; gap: 12px; }
+      .v2-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .v2-form input, .v2-form textarea, .v2-form select {
+        padding: 14px 16px;
+        border-radius: 6px;
+        border: none;
+        font-family: inherit;
+        font-size: 15px;
+        background: white;
+        color: var(--v2-text);
+      }
+      .v2-form textarea { min-height: 110px; resize: vertical; }
+      .v2-form button {
+        background: var(--v2-accent);
+        color: var(--v2-primary-deep);
+        padding: 14px 28px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-top: 6px;
+      }
+      .v2-form button:hover { background: #fbbf24; }
+
+      /* ---------- FOOTER ---------- */
+      .v2-footer {
+        background: #0f172a;
+        color: #cbd5e1;
+        padding: 56px 0 24px;
+        font-size: 14px;
+      }
+      .v2-footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 40px;
+      }
+      @media (min-width: 768px) { .v2-footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+      .v2-footer h5 { color: white; font-size: 14px; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+      .v2-footer ul { list-style: none; padding: 0; margin: 0; }
+      .v2-footer li { margin-bottom: 8px; }
+      .v2-footer a:hover { color: white; }
+      .v2-footer-brand p { color: #94a3b8; line-height: 1.6; margin-top: 12px; }
+      .v2-footer-bottom {
+        padding-top: 24px;
+        border-top: 1px solid #1e293b;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 13px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- ============ NAVBAR ============ -->
+    <header class="v2-navbar">
+      <div class="v2-container v2-nav-inner">
+        <a href="/v2" class="v2-logo">
+          <img src="/img/isotipo.png" alt="Procesos 360" />
+          <span>PROCESOS 360</span>
+        </a>
+        <nav class="v2-nav-links">
+          <a href="#nosotros">Nosotros</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#productos">Productos</a>
+          <a href="#casos">Casos</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+        <a href="#contacto" class="v2-nav-cta">Contáctanos</a>
+      </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="v2-hero">
+      <div class="v2-container">
+        <div class="v2-hero-grid">
+          <div>
+            <span class="v2-hero-eyebrow">Consultoría en Gestión por Procesos</span>
+            <h1>
+              Transformamos procesos en <span class="accent">activos estratégicos</span>.
+            </h1>
+            <p class="v2-hero-sub">
+              Optimizamos procesos, implementamos IA con criterio y acompañamos el cambio organizacional. Para que la transformación deje de ser un proyecto y se vuelva tu forma de operar.
+            </p>
+            <div class="v2-hero-ctas">
+              <a href="/diagnostico" class="v2-btn v2-btn-primary">Hacer diagnóstico gratis →</a>
+              <a href="#servicios" class="v2-btn v2-btn-ghost">Ver servicios</a>
+            </div>
+          </div>
+
+          <div class="v2-hero-card">
+            <div class="v2-hero-card-title">Testimonio</div>
+            <p class="v2-hero-card-quote">
+              "Su profundo conocimiento en metodologías de gestión por procesos y su enfoque meticuloso hacia la mejora continua son evidentes en cada proyecto."
+            </p>
+            <div class="v2-hero-card-meta">
+              <strong>Camilo Garcés Pizarro</strong><br/>
+              Ex Subgerente de Auditoría en Copec
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ METRICS ============ -->
+    <section class="v2-metrics">
+      <div class="v2-container">
+        <div class="v2-metrics-grid">
+          <div class="v2-metric">
+            <div class="v2-metric-num">10+</div>
+            <div class="v2-metric-label">Años de experiencia</div>
+          </div>
+          <div class="v2-metric">
+            <div class="v2-metric-num">50+</div>
+            <div class="v2-metric-label">Clientes acompañados</div>
+          </div>
+          <div class="v2-metric">
+            <div class="v2-metric-num">6</div>
+            <div class="v2-metric-label">Industrias</div>
+          </div>
+          <div class="v2-metric">
+            <div class="v2-metric-num">2</div>
+            <div class="v2-metric-label">Productos propios</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="nosotros" class="v2-section">
+      <div class="v2-container">
+        <div class="v2-about-grid">
+          <div class="v2-about-text">
+            <span class="v2-section-eyebrow">Nosotros</span>
+            <h2>Comprometidos con la excelencia en la gestión de procesos.</h2>
+            <p>
+              Con una trayectoria probada en el diseño, implementación y optimización, nos hemos consolidado como líderes en el campo de la consultoría de la Gestión de procesos de negocios.
+            </p>
+            <p>
+              Acompañamos a organizaciones de retail, banca, educación, energía, minería y sector público en su camino hacia la excelencia operativa.
+            </p>
+            <a href="#contacto" class="v2-btn v2-btn-primary" style="margin-top:16px;">Conoce más sobre nosotros →</a>
+          </div>
+          <div class="v2-about-image">
+            <div class="v2-about-image-inner">
+              <div class="num">10</div>
+              <div class="lbl">Años de experiencia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section id="servicios" class="v2-section v2-section-soft">
+      <div class="v2-container">
+        <div class="v2-section-head">
+          <span class="v2-section-eyebrow">¿Qué hacemos?</span>
+          <h2 class="v2-section-title">Nuestros servicios</h2>
+          <p class="v2-section-sub">
+            Seis líneas de servicio respaldadas por una metodología propia y nuestra alianza como partners de SAP Signavio y SAP LeanIX.
+          </p>
+        </div>
+
+        <div class="v2-services-grid">
+          {servicios.map((s, i) => (
+            <article class="v2-service-card">
+              <div class="v2-service-icon">{String(i + 1).padStart(2, '0')}</div>
+              <h3>{s.titulo}</h3>
+              <p>{s.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTOS ============ -->
+    <section id="productos" class="v2-section">
+      <div class="v2-container">
+        <div class="v2-section-head">
+          <span class="v2-section-eyebrow">Productos</span>
+          <h2 class="v2-section-title">Soluciones ya construidas</h2>
+          <p class="v2-section-sub">
+            Plataformas propias listas para implementar en semanas.
+          </p>
+        </div>
+
+        <div class="v2-casos-grid">
+          <article class="v2-caso-card">
+            <div class="v2-caso-image" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b5bdb 100%); color:white;">
+              <div style="text-align:center;">
+                <div style="font-size:48px;font-weight:800;line-height:1;">01</div>
+                <div style="font-size:13px;text-transform:uppercase;letter-spacing:0.1em;opacity:0.9;margin-top:6px;">Producto</div>
+              </div>
+            </div>
+            <div class="v2-caso-body">
+              <div class="v2-caso-cliente">Listo para usar</div>
+              <h3>Aprendizaje al Puesto de Trabajo</h3>
+              <p>Plataforma que transforma programas de capacitación en comportamientos observables, evidencia operativa y ROI demostrable.</p>
+            </div>
+          </article>
+          <article class="v2-caso-card">
+            <div class="v2-caso-image" style="background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%); color:white;">
+              <div style="text-align:center;">
+                <div style="font-size:48px;font-weight:800;line-height:1;">02</div>
+                <div style="font-size:13px;text-transform:uppercase;letter-spacing:0.1em;opacity:0.9;margin-top:6px;">Producto</div>
+              </div>
+            </div>
+            <div class="v2-caso-body">
+              <div class="v2-caso-cliente">Listo para usar</div>
+              <h3>Plataforma WMS + CRM</h3>
+              <p>Sistema de gestión logística integrado con plataformas comerciales que automatiza el ciclo completo de pedidos.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASOS DE ÉXITO ============ -->
+    <section id="casos" class="v2-section v2-section-soft">
+      <div class="v2-container">
+        <div class="v2-section-head">
+          <span class="v2-section-eyebrow">Casos de éxito</span>
+          <h2 class="v2-section-title">Fomentamos una cultura de mejora continua</h2>
+          <p class="v2-section-sub">
+            Algunos proyectos donde hemos acompañado a empresas líderes en la transformación de sus procesos.
+          </p>
+        </div>
+
+        <div class="v2-casos-grid">
+          {casos.map(c => (
+            <article class="v2-caso-card">
+              <div class="v2-caso-image">
+                <img src={c.logo} alt={c.cliente} />
+              </div>
+              <div class="v2-caso-body">
+                <div class="v2-caso-cliente">{c.cliente}</div>
+                <h3>{c.titulo}</h3>
+                <p>{c.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EQUIPO ============ -->
+    <section class="v2-section">
+      <div class="v2-container">
+        <div class="v2-section-head">
+          <span class="v2-section-eyebrow">Nuestro equipo</span>
+          <h2 class="v2-section-title">Las personas detrás de cada transformación</h2>
+        </div>
+
+        <div class="v2-team-grid">
+          {equipo.map(p => (
+            <div class="v2-team-member">
+              <div class="v2-team-photo">
+                <img src={p.foto} alt={p.nombre} loading="lazy" />
+              </div>
+              <h4>{p.nombre}</h4>
+              <div class="rol">{p.rol}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CLIENTES ============ -->
+    <section class="v2-section v2-section-soft">
+      <div class="v2-container">
+        <div class="v2-section-head">
+          <span class="v2-section-eyebrow">Clientes</span>
+          <h2 class="v2-section-title">Empresas que han confiado en nosotros</h2>
+        </div>
+
+        <div class="v2-clients-grid">
+          {clientes.map(c => (
+            <div class="v2-client-cell" title={c.name}>
+              <img src={c.logo} alt={c.name} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section id="contacto" class="v2-contact">
+      <div class="v2-container">
+        <div class="v2-contact-grid">
+          <div>
+            <span class="v2-section-eyebrow" style="color:#fbbf24;">Conversemos</span>
+            <h2>¿Hablamos sobre tu próximo proyecto?</h2>
+            <p>
+              Cuéntanos qué necesitas y te contactamos en menos de 24 horas con una primera propuesta sin compromiso.
+            </p>
+            <p style="margin-top:24px;font-size:14px;">
+              <strong style="color:white;">Email:</strong> contacto@procesos360.cl<br/>
+              <strong style="color:white;">Teléfono:</strong> +56 9 6426 1751
+            </p>
+          </div>
+          <form class="v2-form" onsubmit="event.preventDefault(); alert('Formulario de muestra — en producción se conecta al backend.');">
+            <div class="v2-form-row">
+              <input type="text" placeholder="Nombre" required />
+              <input type="text" placeholder="Empresa" required />
+            </div>
+            <input type="email" placeholder="Correo electrónico" required />
+            <input type="tel" placeholder="Teléfono" />
+            <textarea placeholder="¿En qué podemos ayudarte?" required></textarea>
+            <button type="submit">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="v2-footer">
+      <div class="v2-container">
+        <div class="v2-footer-grid">
+          <div class="v2-footer-brand">
+            <div style="display:flex;align-items:center;gap:10px;color:white;font-weight:700;font-size:18px;">
+              <img src="/img/isotipo.png" alt="" style="height:28px;filter:brightness(0) invert(1);" />
+              PROCESOS 360
+            </div>
+            <p>Consultoría chilena especializada en gestión por procesos, transformación digital con IA y modelamiento empresarial.</p>
+          </div>
+          <div>
+            <h5>Servicios</h5>
+            <ul>
+              <li><a href="#servicios">Mejoramiento de Procesos</a></li>
+              <li><a href="#servicios">Gobierno de IA</a></li>
+              <li><a href="#servicios">Gestión del Cambio</a></li>
+              <li><a href="#servicios">Soporte Continuo</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Compañía</h5>
+            <ul>
+              <li><a href="#nosotros">Nosotros</a></li>
+              <li><a href="#casos">Casos de éxito</a></li>
+              <li><a href="#productos">Productos</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Contacto</h5>
+            <ul>
+              <li>contacto@procesos360.cl</li>
+              <li>+56 9 6426 1751</li>
+              <li>Santiago, Chile</li>
+              <li><a href="https://www.linkedin.com/company/procesos360/" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="v2-footer-bottom">
+          <span>© 2026 Procesos 360. Todos los derechos reservados.</span>
+          <span>Diseño alternativo · V2</span>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
